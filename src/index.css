@@ -15,7 +15,7 @@
     --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 96%;
     --muted: 0 0% 33%;
-    --muted-foreground: 0 0% 33%;
+    --muted-foreground: 0 0% 67%;
     --accent: 73 100% 50%;
     --accent-foreground: 0 0% 5%;
     --destructive: 0 84.2% 60.2%;
@@ -26,6 +26,12 @@
     --radius: 0px;
     --pink: 330 100% 57%;
     --green: 73 100% 50%;
+
+    --text-label: 0 0% 47%;
+    --text-inactive: 0 0% 27%;
+    --text-dim: 0 0% 40%;
+    --text-subtle: 0 0% 53%;
+    --text-soft: 0 0% 60%;
 
     --sidebar-background: 0 0% 5%;
     --sidebar-foreground: 0 0% 96%;
@@ -43,27 +49,36 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body;
-    font-family: 'Jura', sans-serif;
+    @apply bg-background text-foreground;
+    font-family: 'Evolventa', 'Jura', sans-serif;
+    line-height: 1.75;
+    letter-spacing: 0.02em;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: normal;
   }
 }
 
-/* Animated background */
+/* Cinematic animated background */
 @keyframes bg-shift {
   0%, 100% {
-    background: radial-gradient(ellipse 60% 50% at 80% 10%, rgba(255,30,30,0.08) 0%, transparent 70%),
-                #0C0C0C;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 10%, rgba(255,30,30,0.09) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 50% at 20% 90%, rgba(255,45,149,0.05) 0%, transparent 50%),
+      #0C0C0C;
   }
   33% {
-    background: radial-gradient(ellipse 60% 50% at 20% 90%, rgba(255,45,149,0.08) 0%, transparent 70%),
-                #0C0C0C;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 20%, rgba(255,30,30,0.07) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(255,45,149,0.08) 0%, transparent 50%),
+      #0C0C0C;
   }
   66% {
-    background: radial-gradient(ellipse 40% 40% at 50% 50%, rgba(255,30,30,0.03) 0%, transparent 70%),
-                #0C0C0C;
+    background:
+      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(255,30,30,0.06) 0%, transparent 40%),
+      radial-gradient(ellipse 50% 50% at 10% 60%, rgba(255,45,149,0.04) 0%, transparent 50%),
+      #0C0C0C;
   }
 }
 
@@ -79,12 +94,46 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,30,30,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,30,30,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255,30,30,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,30,30,0.025) 1px, transparent 1px);
   background-size: 60px 60px;
+  pointer-events: none;
 }
 
-/* Scroll reveal */
+/* Scroll reveal - heading slides from left */
+.reveal-heading {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-heading.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scroll reveal - content slides up with delay */
+.reveal-content {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease 0.15s, transform 0.7s ease 0.15s;
+}
+.reveal-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll reveal - staggered cards */
+.reveal-card {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Legacy reveal */
 .reveal {
   opacity: 0;
   transform: translateY(32px);
@@ -93,6 +142,27 @@
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Section tag underline draw */
+.section-tag {
+  position: relative;
+  display: inline-block;
+}
+.section-tag::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: hsl(var(--primary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s ease;
+}
+.section-tag.visible::after {
+  transform: scaleX(1);
 }
 
 /* Ticker animation */
@@ -123,10 +193,10 @@
 .accordion-content {
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.4s ease, padding 0.4s ease;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .accordion-content.open {
-  max-height: 500px;
+  max-height: 300px;
 }
 
 /* Strategy card underline */
@@ -146,6 +216,14 @@
   transform: scaleX(1);
 }
 
+/* Strategy card hover glow */
+.strategy-glow {
+  transition: box-shadow 0.3s ease;
+}
+.strategy-glow:hover {
+  box-shadow: 0 0 40px rgba(255,30,30,0.12), inset 0 0 20px rgba(255,30,30,0.03);
+}
+
 /* Hero entrance */
 @keyframes hero-enter {
   from { opacity: 0; transform: translateY(40px); }
@@ -153,4 +231,148 @@
 }
 .hero-animate {
   animation: hero-enter 1s ease-out 0.3s both;
+}
+
+/* Hero text shimmer - white */
+@keyframes shimmerWhite {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.text-shimmer-white {
+  background: linear-gradient(90deg, #FFFFFF 0%, #DDDDDD 25%, #FFFFFF 50%, #DDDDDD 75%, #FFFFFF 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerWhite 4s linear infinite;
+}
+
+/* Hero text shimmer - red/pink */
+@keyframes shimmerRed {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.text-shimmer-red {
+  background: linear-gradient(90deg, #FF1E1E 0%, #FF6B6B 20%, #FF2D95 50%, #FF6B6B 80%, #FF1E1E 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerRed 3s linear infinite;
+}
+
+/* Hero outline ghost glow */
+@keyframes ghostGlow {
+  0%, 100% { -webkit-text-stroke-color: #2A2A2A; }
+  50% { -webkit-text-stroke-color: #FF1E1E; }
+}
+
+.text-ghost-glow {
+  -webkit-text-stroke: 1px #2A2A2A;
+  color: transparent;
+  animation: ghostGlow 5s ease-in-out infinite;
+}
+
+/* Floating particles */
+@keyframes particleFloat {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particleFloat linear infinite;
+}
+
+/* Gradient section divider */
+.gradient-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(var(--primary)), transparent);
+}
+
+/* Mission quote gradient border */
+.gradient-border-left {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.gradient-border-left::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #FF1E1E, #FF2D95);
+}
+
+/* Mentor banner animated border */
+@keyframes borderGrow {
+  from { height: 0; }
+  to { height: 100%; }
+}
+.banner-border-animate {
+  position: relative;
+}
+.banner-border-animate::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 0;
+  background: hsl(var(--primary));
+  transition: height 0.8s ease;
+}
+.banner-border-animate.visible::before {
+  height: 100%;
+}
+
+/* PRO card glow */
+.pro-card-glow {
+  box-shadow: 0 0 60px rgba(255,30,30,0.08);
+}
+
+/* Pulse dot */
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0; }
+}
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(var(--primary));
+  animation: pulseDot 2s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* Custom cursor */
+.custom-cursor {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(245, 245, 245, 0.8);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  mix-blend-mode: difference;
+}
+.custom-cursor.hovering {
+  width: 24px;
+  height: 24px;
+  background: hsl(var(--primary));
+}
+
+/* Nav transparent → solid transition */
+.nav-transition {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }

@@ -25,18 +25,18 @@ const ResultsSection = () => {
   const { t, lang } = useLanguage();
 
   return (
-    <section id="reviews" className="py-24 px-6 max-w-7xl mx-auto reveal">
-      <p className="text-primary font-body text-[10px] tracking-[4px] uppercase mb-4">{t('Testimonials', 'Referencie')}</p>
-      <h2 className="font-heading text-6xl md:text-7xl text-foreground mb-16">{t('REAL RESULTS.', 'REÁLNE VÝSLEDKY.')}</h2>
+    <section id="reviews" className="py-24 px-6 max-w-7xl mx-auto">
+      <p className="text-primary font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading">{t('Testimonials', 'Referencie')}</p>
+      <h2 className="font-heading text-6xl md:text-7xl text-foreground mb-16 reveal-heading">{t('REAL RESULTS.', 'REÁLNE VÝSLEDKY.')}</h2>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-6 reveal-content">
         {reviews.map((r, i) => (
-          <div key={i} className="border border-border p-6 flex flex-col">
+          <div key={i} className="border border-border p-6 flex flex-col reveal-card" style={{ transitionDelay: `${i * 100}ms` }}>
             <div className="flex items-center gap-3 mb-4">
               <div className={`w-10 h-10 rounded-full ${r.color} flex items-center justify-center font-heading text-sm text-background`}>
                 {r.initials}
               </div>
-              <span className="bg-green/20 text-green font-body text-[10px] tracking-[1px] uppercase px-2 py-0.5">{r.badge}</span>
+              <span className="bg-green/20 text-green font-label text-[10px] tracking-[1px] uppercase px-2 py-0.5">{r.badge}</span>
             </div>
             <div className="flex gap-1 mb-3">
               {[1,2,3,4,5].map(s => (
@@ -45,10 +45,10 @@ const ResultsSection = () => {
                 </svg>
               ))}
             </div>
-            <p className="font-body text-sm text-foreground flex-1 mb-4">{lang === 'en' ? r.text_en : r.text_sk}</p>
-            <p className="font-body text-[10px] text-muted-foreground tracking-[1px] mb-4">{r.handle} · {r.country}</p>
+            <p className="font-body text-sm text-muted-foreground flex-1 mb-4">{lang === 'en' ? r.text_en : r.text_sk}</p>
+            <p className="font-label text-[10px] text-label tracking-[1px] mb-4">{r.handle} · {r.country}</p>
             <div className="bg-card border border-border p-3 flex justify-between">
-              <span className="font-body text-xs text-muted-foreground">{r.stat1}</span>
+              <span className="font-body text-xs text-label">{r.stat1}</span>
               <span className="font-body text-xs text-green font-bold">{r.stat2}</span>
             </div>
           </div>

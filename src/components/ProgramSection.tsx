@@ -28,11 +28,11 @@ const ProgramSection = () => {
   const totalLessons = modules.reduce((a, m) => a + m.lessons, 0);
 
   return (
-    <section id="program" className="py-24 px-6 max-w-7xl mx-auto reveal">
-      <p className="text-primary font-body text-[10px] tracking-[4px] uppercase mb-4">{t('Curriculum', 'Učebný plán')}</p>
-      <h2 className="font-heading text-6xl md:text-7xl text-foreground mb-8">{t('THE PROGRAM.', 'PROGRAM.')}</h2>
+    <section id="program" className="py-24 px-6 max-w-7xl mx-auto">
+      <p className="text-primary font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading">{t('Curriculum', 'Učebný plán')}</p>
+      <h2 className="font-heading text-6xl md:text-7xl text-foreground mb-8 reveal-heading">{t('THE PROGRAM.', 'PROGRAM.')}</h2>
 
-      <div className="flex items-start gap-8 mb-16">
+      <div className="flex items-start gap-8 mb-16 reveal-content">
         <span className="font-heading text-[80px] md:text-[120px] leading-none text-secondary">{totalLessons}+</span>
         <p className="font-body text-sm text-muted-foreground max-w-md pt-4">
           {t(
@@ -42,7 +42,7 @@ const ProgramSection = () => {
         </p>
       </div>
 
-      <div className="border-t border-border">
+      <div className="border-t border-border reveal-content">
         {modules.map(m => {
           const isOpen = open === m.num;
           return (
@@ -52,13 +52,13 @@ const ProgramSection = () => {
                 className="w-full flex items-center gap-4 md:gap-8 py-5 px-2 text-left group"
               >
                 <span className="font-heading text-2xl text-secondary w-8">{m.num}</span>
-                <span className={`font-body text-xs tracking-[2px] uppercase flex-1 transition-colors ${isOpen ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'}`}>
+                <span className={`font-body text-xs tracking-[2px] uppercase flex-1 transition-colors ${isOpen ? 'text-foreground' : 'text-subtle group-hover:text-foreground'}`}>
                   {m.name}
                 </span>
-                <span className="font-body text-[10px] tracking-[2px] text-muted-foreground hidden sm:block">
+                <span className="font-label text-[10px] tracking-[2px] text-label hidden sm:block">
                   {m.lessons} {t('lessons', 'lekcií')}
                 </span>
-                <span className={`font-heading text-xl transition-all duration-300 ${isOpen ? 'rotate-45 text-primary' : 'text-muted-foreground'}`}>+</span>
+                <span className={`font-heading text-xl transition-all duration-300 ${isOpen ? 'rotate-45 text-primary' : 'text-label'}`}>+</span>
               </button>
               <div className={`accordion-content ${isOpen ? 'open' : ''}`} style={{ paddingBottom: isOpen ? '20px' : 0, paddingLeft: '48px', paddingRight: '16px' }}>
                 <p className="font-body text-sm text-muted-foreground">
