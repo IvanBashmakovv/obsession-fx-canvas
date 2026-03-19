@@ -15,7 +15,8 @@ export default {
     extend: {
       fontFamily: {
         heading: ['"Bebas Neue"', 'sans-serif'],
-        body: ['"Jura"', 'sans-serif'],
+        body: ['"Evolventa"', '"Jura"', 'sans-serif'],
+        label: ['"Jura"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -53,6 +54,11 @@ export default {
         },
         pink: "hsl(var(--pink))",
         green: "hsl(var(--green))",
+        label: "hsl(var(--text-label))",
+        inactive: "hsl(var(--text-inactive))",
+        dim: "hsl(var(--text-dim))",
+        subtle: "hsl(var(--text-subtle))",
+        soft: "hsl(var(--text-soft))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

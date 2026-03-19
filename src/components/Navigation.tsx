@@ -8,7 +8,7 @@ const Navigation = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -28,8 +28,8 @@ const Navigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all ${scrolled ? 'border-b border-border' : ''}`}
-      style={{ background: 'rgba(12,12,12,0.97)', backdropFilter: 'blur(20px)' }}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 nav-transition ${scrolled ? 'border-b border-border' : 'border-b border-transparent'}`}
+      style={{ backgroundColor: scrolled ? 'rgba(12,12,12,0.97)' : 'rgba(12,12,12,0.6)', backdropFilter: 'blur(20px)' }}>
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3 logo-glitch cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <OFXLogo size={28} />
@@ -41,7 +41,7 @@ const Navigation = () => {
         <div className="hidden lg:flex items-center gap-8">
           {links.map(l => (
             <button key={l.href} onClick={() => scrollTo(l.href)}
-              className="font-body text-xs tracking-[2px] uppercase text-muted-foreground hover:text-foreground transition-colors">
+              className="font-body text-xs tracking-[2px] uppercase text-label hover:text-foreground transition-colors">
               {l.label}
             </button>
           ))}
@@ -50,11 +50,11 @@ const Navigation = () => {
         <div className="flex items-center gap-3">
           <div className="flex bg-secondary rounded-full overflow-hidden">
             <button onClick={() => setLang('en')}
-              className={`px-3 py-1 text-xs font-body font-bold transition-colors ${lang === 'en' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground'}`}>
+              className={`px-3 py-1 text-xs font-label font-bold transition-colors ${lang === 'en' ? 'bg-primary text-primary-foreground' : 'text-label'}`}>
               EN
             </button>
             <button onClick={() => setLang('sk')}
-              className={`px-3 py-1 text-xs font-body font-bold transition-colors ${lang === 'sk' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground'}`}>
+              className={`px-3 py-1 text-xs font-label font-bold transition-colors ${lang === 'sk' ? 'bg-primary text-primary-foreground' : 'text-label'}`}>
               SK
             </button>
           </div>
@@ -70,10 +70,10 @@ const Navigation = () => {
         </div>
       </div>
       {menuOpen && (
-        <div className="lg:hidden border-t border-border px-6 py-4 flex flex-col gap-3">
+        <div className="lg:hidden border-t border-border px-6 py-4 flex flex-col gap-3" style={{ backgroundColor: 'rgba(12,12,12,0.97)' }}>
           {links.map(l => (
             <button key={l.href} onClick={() => scrollTo(l.href)}
-              className="font-body text-sm tracking-[2px] uppercase text-muted-foreground hover:text-foreground transition-colors text-left">
+              className="font-body text-sm tracking-[2px] uppercase text-label hover:text-foreground transition-colors text-left">
               {l.label}
             </button>
           ))}

@@ -39,20 +39,20 @@ const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 px-6 max-w-7xl mx-auto reveal">
-      <p className="text-primary font-body text-[10px] tracking-[4px] uppercase mb-4">{t('FAQ', 'Otázky')}</p>
-      <h2 className="font-heading text-6xl md:text-7xl text-foreground mb-16">{t('YOUR QUESTIONS.', 'VAŠE OTÁZKY.')}</h2>
+    <section id="faq" className="py-24 px-6 max-w-7xl mx-auto">
+      <p className="text-primary font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading">{t('FAQ', 'Otázky')}</p>
+      <h2 className="font-heading text-6xl md:text-7xl text-foreground mb-16 reveal-heading">{t('YOUR QUESTIONS.', 'VAŠE OTÁZKY.')}</h2>
 
-      <div className="border-t border-border max-w-3xl">
+      <div className="border-t border-border max-w-3xl reveal-content">
         {faqs.map((f, i) => {
           const isOpen = open === i;
           return (
             <div key={i} className="border-b border-border">
               <button onClick={() => setOpen(isOpen ? null : i)} className="w-full flex items-center justify-between py-5 text-left group">
-                <span className={`font-body text-sm tracking-[1px] transition-colors ${isOpen ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'}`}>
+                <span className={`font-body text-sm tracking-[1px] transition-colors ${isOpen ? 'text-foreground' : 'text-soft group-hover:text-foreground'}`}>
                   {lang === 'en' ? f.q_en : f.q_sk}
                 </span>
-                <span className={`font-heading text-xl transition-all duration-300 ml-4 ${isOpen ? 'rotate-45 text-primary' : 'text-muted-foreground'}`}>+</span>
+                <span className={`font-heading text-xl transition-all duration-300 ml-4 ${isOpen ? 'rotate-45 text-primary' : 'text-label'}`}>+</span>
               </button>
               <div className={`accordion-content ${isOpen ? 'open' : ''}`} style={{ paddingBottom: isOpen ? '16px' : 0 }}>
                 <p className="font-body text-sm text-muted-foreground">{lang === 'en' ? f.a_en : f.a_sk}</p>

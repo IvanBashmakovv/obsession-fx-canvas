@@ -11,19 +11,19 @@ const StrategiesSection = () => {
   const { t, lang } = useLanguage();
 
   return (
-    <section id="strategies" className="py-24 px-6 max-w-7xl mx-auto reveal">
-      <p className="text-primary font-body text-[10px] tracking-[4px] uppercase mb-4">{t('Strategies', 'Stratégie')}</p>
-      <h2 className="font-heading text-5xl md:text-7xl text-foreground mb-16">{t('4 BATTLE-TESTED STRATEGIES.', '4 OVERENÉ STRATÉGIE.')}</h2>
+    <section id="strategies" className="py-24 px-6 max-w-7xl mx-auto">
+      <p className="text-primary font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading">{t('Strategies', 'Stratégie')}</p>
+      <h2 className="font-heading text-5xl md:text-7xl text-foreground mb-16 reveal-heading">{t('4 BATTLE-TESTED STRATEGIES.', '4 OVERENÉ STRATÉGIE.')}</h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {strategies.map(s => (
-          <div key={s.num} className="relative group strategy-underline pb-4 cursor-default">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-content">
+        {strategies.map((s, i) => (
+          <div key={s.num} className="relative group strategy-underline strategy-glow pb-4 cursor-default reveal-card" style={{ transitionDelay: `${i * 100}ms` }}>
             <span className="font-heading text-[80px] leading-none text-secondary block">{s.num}</span>
             <h3 className="font-heading text-3xl text-foreground group-hover:text-primary transition-colors mt-2">{s.name}</h3>
-            <p className="text-primary font-body text-[10px] tracking-[3px] uppercase mt-1 mb-3">
+            <p className="text-primary font-label text-[10px] tracking-[3px] uppercase mt-1 mb-3">
               {lang === 'en' ? s.type_en : s.type_sk}
             </p>
-            <p className="font-body text-sm text-muted-foreground">
+            <p className="font-body text-sm text-soft">
               {lang === 'en' ? s.desc_en : s.desc_sk}
             </p>
           </div>
