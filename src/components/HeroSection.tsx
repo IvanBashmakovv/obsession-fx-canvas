@@ -3,7 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const HeroSection = () => {
   const { t } = useLanguage();
-  const target = useMemo(() => new Date(Date.now() + 21 * 24 * 60 * 60 * 1000).getTime(), []);
+  const target = useMemo(() => new Date(Date.now() + 28 * 24 * 60 * 60 * 1000).getTime(), []);
   const [now, setNow] = useState(Date.now());
 
   useEffect(() => {
@@ -19,7 +19,6 @@ const HeroSection = () => {
 
   const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
 
-  // Generate particles
   const particles = useMemo(() => {
     return Array.from({ length: 12 }, (_, i) => ({
       id: i,
@@ -33,7 +32,6 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen flex flex-col justify-end px-6 pb-16 pt-32 max-w-7xl mx-auto hero-animate relative overflow-hidden">
-      {/* Floating particles */}
       {particles.map(p => (
         <div
           key={p.id}
@@ -63,10 +61,10 @@ const HeroSection = () => {
 
       <div className="mt-12 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10">
         <div>
-          <p className="font-body text-sm text-muted-foreground max-w-md mb-6">
+          <p className="font-body text-sm text-[#AAAAAA] max-w-md mb-6">
             {t(
-              'Advanced Smart Money Concepts refined through 1000+ hours of real market testing. 4 battle-tested strategies for serious traders.',
-              'Pokročilé Smart Money koncepty overené 1000+ hodinami reálneho testovania. 4 stratégie pre serióznych traderov.'
+              "We've watched enough trading courses to know exactly what's wrong with them. So we built the opposite — zero filler, only what actually gets you funded.",
+              "Videli sme dosť trading kurzov na to, aby sme vedeli, čo im chýba. Preto sme postavili opak — žiadna vata, len to, čo ťa skutočne dostane k funded účtu."
             )}
           </p>
           <div className="flex gap-3">
@@ -82,7 +80,7 @@ const HeroSection = () => {
         </div>
 
         <div className="text-right">
-          <p className="font-label text-[10px] tracking-[3px] uppercase text-dim mb-3">
+          <p className="font-label text-[10px] tracking-[3px] uppercase text-[#666666] mb-3">
             {t('Next intake starts in', 'Ďalší kurz začína o')}
           </p>
           <div className="flex gap-4">
@@ -94,7 +92,7 @@ const HeroSection = () => {
             ].map(({ val, label }) => (
               <div key={label} className="text-center">
                 <div className="font-heading text-4xl text-foreground">{String(val).padStart(2, '0')}</div>
-                <div className="font-label text-[9px] tracking-[2px] text-dim">{label}</div>
+                <div className="font-label text-[9px] tracking-[2px] text-[#666666]">{label}</div>
               </div>
             ))}
           </div>
