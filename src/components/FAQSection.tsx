@@ -29,8 +29,8 @@ const faqs = [
   {
     q_en: 'How to become a mentor?',
     q_sk: 'Ako sa stať mentorom?',
-    a_en: 'Proven funded track record required. Use contact form, select "Become a Mentor", Ivan reviews personally.',
-    a_sk: 'Vyžaduje sa preukázaný fundovaný track record. Použite kontaktný formulár, vyberte "Staň sa mentorom", Ivan posudzuje osobne.',
+    a_en: 'Proven funded track record required. Use contact form, select "Become a Mentor", ivnb reviews personally.',
+    a_sk: 'Vyžaduje sa preukázaný fundovaný track record. Použite kontaktný formulár, vyberte "Staň sa mentorom", ivnb posudzuje osobne.',
   },
 ];
 
@@ -39,7 +39,7 @@ const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 px-6 max-w-7xl mx-auto">
+    <section id="faq" className="py-24 px-6 max-w-7xl mx-auto scroll-mt-20">
       <p className="text-primary font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading">{t('FAQ', 'Otázky')}</p>
       <h2 className="font-heading text-6xl md:text-7xl text-foreground mb-16 reveal-heading">{t('YOUR QUESTIONS.', 'VAŠE OTÁZKY.')}</h2>
 
@@ -49,13 +49,13 @@ const FAQSection = () => {
           return (
             <div key={i} className="border-b border-border">
               <button onClick={() => setOpen(isOpen ? null : i)} className="w-full flex items-center justify-between py-5 text-left group">
-                <span className={`font-body text-sm tracking-[1px] transition-colors ${isOpen ? 'text-foreground' : 'text-soft group-hover:text-foreground'}`}>
+                <span className={`font-body text-sm tracking-[1px] transition-colors ${isOpen ? 'text-foreground' : 'text-[#999999] group-hover:text-foreground'}`}>
                   {lang === 'en' ? f.q_en : f.q_sk}
                 </span>
-                <span className={`font-heading text-xl transition-all duration-300 ml-4 ${isOpen ? 'rotate-45 text-primary' : 'text-label'}`}>+</span>
+                <span className={`font-heading text-xl transition-all duration-300 ml-4 ${isOpen ? 'rotate-45 text-primary' : 'text-[#777777]'}`}>+</span>
               </button>
               <div className={`accordion-content ${isOpen ? 'open' : ''}`} style={{ paddingBottom: isOpen ? '16px' : 0 }}>
-                <p className="font-body text-sm text-muted-foreground">{lang === 'en' ? f.a_en : f.a_sk}</p>
+                <p className="font-body text-sm text-[#AAAAAA]">{lang === 'en' ? f.a_en : f.a_sk}</p>
               </div>
             </div>
           );

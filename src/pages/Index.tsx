@@ -6,6 +6,7 @@ import HeroSection from '@/components/HeroSection';
 import StatsStrip from '@/components/StatsStrip';
 import MissionSection from '@/components/MissionSection';
 import MentorsSection from '@/components/MentorsSection';
+import BecomeAMentorSection from '@/components/BecomeAMentorSection';
 import ProgramSection from '@/components/ProgramSection';
 import StrategiesSection from '@/components/StrategiesSection';
 import FormatsSection from '@/components/FormatsSection';
@@ -20,7 +21,6 @@ const Index = () => {
   const cursorTarget = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    // Scroll reveal observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -33,7 +33,6 @@ const Index = () => {
     );
     document.querySelectorAll('.reveal, .reveal-heading, .reveal-content, .reveal-card, .section-tag, .banner-border-animate').forEach(el => observer.observe(el));
 
-    // Custom cursor
     const cursor = cursorRef.current;
     if (!cursor) return () => observer.disconnect();
 
@@ -58,7 +57,6 @@ const Index = () => {
     window.addEventListener('mousemove', onMouseMove);
     rafId = requestAnimationFrame(lerp);
 
-    // Add hover listeners to interactive elements
     const interactives = document.querySelectorAll('button, a, select, input');
     interactives.forEach(el => {
       el.addEventListener('mouseenter', onHover);
@@ -88,6 +86,7 @@ const Index = () => {
           <StatsStrip />
           <MissionSection />
           <MentorsSection />
+          <BecomeAMentorSection />
           <ProgramSection />
           <StrategiesSection />
           <FormatsSection />

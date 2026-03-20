@@ -40,16 +40,16 @@ const StatsStrip = () => {
     return () => obs.disconnect();
   }, []);
 
-  const s1 = useCountUp(500, 1.5, visible);
-  const s2 = useCountUp(1000, 2, visible);
+  const s1 = useCountUp(82, 1.5, visible);
+  const s2 = useCountUp(20, 1, visible);
   const s3 = useCountUp(4, 0.5, visible);
-  const s4 = useCountUp(90, 1.5, visible);
+  const s4 = useCountUp(100, 1.5, visible);
 
   const stats = [
-    { num: `${s1}+`, label: t('Students trained', 'Vyškolených študentov') },
-    { num: `${s2}+`, label: t('Hours tested', 'Hodín testované') },
+    { num: `${s1}+`, label: t('Lessons', 'Lekcií') },
+    { num: `${s2}h+`, label: t('Video content', 'Video obsahu') },
     { num: `${s3}`, label: t('Trading strategies', 'Obchodné stratégie') },
-    { num: `${s4}%`, label: t('Prop pass rate', 'Úspešnosť prop') },
+    { num: `${s4}%`, label: t('Mentor attention', 'Pozornosť mentora') },
   ];
 
   return (
@@ -59,7 +59,7 @@ const StatsStrip = () => {
         {stats.map((s, i) => (
           <div key={i} className={`px-6 py-10 text-center ${i > 0 ? 'border-l border-border' : ''}`}>
             <div className="font-heading text-5xl text-primary">{s.num}</div>
-            <div className="font-label text-[10px] tracking-[3px] uppercase text-label mt-2">{s.label}</div>
+            <div className="font-label text-[10px] tracking-[3px] uppercase text-[#777777] mt-2">{s.label}</div>
           </div>
         ))}
       </div>
