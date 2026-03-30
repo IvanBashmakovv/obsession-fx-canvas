@@ -23,11 +23,16 @@ const FooterSection = () => {
   ];
 
   return (
-    <footer className="relative mt-16" style={{ background: '#0C0C0C', borderRadius: '24px 24px 0 0', borderTop: '1px solid #1E1E1E' }}>
+    <footer className="relative mt-16" style={{ background: '#1E1E20', borderRadius: '24px 24px 0 0', borderTop: '1px solid #2A2A2C' }}>
       {/* Watermark */}
       <div className="overflow-hidden pt-12 text-center select-none pointer-events-none">
-        <p className="font-heading leading-none" style={{ fontSize: 'clamp(80px, 15vw, 180px)', color: 'rgba(255,255,255,0.04)' }}>OBSESSION</p>
-        <p className="font-heading leading-none" style={{ fontSize: 'clamp(80px, 15vw, 180px)', color: 'rgba(255,30,30,0.06)' }}>.FX</p>
+        <p className="font-heading leading-none" style={{
+          fontSize: 'clamp(80px, 15vw, 180px)',
+          background: 'linear-gradient(135deg, rgba(212,240,0,0.06), rgba(240,78,35,0.04))',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}>OBSESSION</p>
+        <p className="font-heading leading-none" style={{ fontSize: 'clamp(80px, 15vw, 180px)', color: 'rgba(240,78,35,0.06)' }}>.FX</p>
       </div>
 
       {/* 4 columns */}
@@ -44,7 +49,10 @@ const FooterSection = () => {
               { href: '#', icon: <><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" strokeWidth="1.5" fill="none" /><path d="M10 9L15 12L10 15V9Z" fill="currentColor" /></> },
             ].map((s, i) => (
               <a key={i} href={s.href} target="_blank" rel="noopener noreferrer"
-                className="w-10 h-10 rounded border border-[#2a2a2a] flex items-center justify-center text-foreground hover:text-primary hover:border-primary transition-colors">
+                className="w-10 h-10 rounded flex items-center justify-center text-foreground transition-colors"
+                style={{ border: '1px solid #333336' }}
+                onMouseEnter={e => { e.currentTarget.style.color = '#D4F000'; e.currentTarget.style.borderColor = '#D4F000'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = '#F0EDE6'; e.currentTarget.style.borderColor = '#333336'; }}>
                 <svg width="18" height="18" viewBox="0 0 24 24">{s.icon}</svg>
               </a>
             ))}
@@ -57,7 +65,10 @@ const FooterSection = () => {
           <div className="flex flex-col gap-2">
             {quickLinks.map((l, i) => (
               <button key={i} onClick={() => scrollTo(l.id)}
-                className="text-left font-body text-[13px] text-[#666666] hover:text-foreground transition-colors">
+                className="text-left font-body text-[13px] transition-colors"
+                style={{ color: '#555555' }}
+                onMouseEnter={e => e.currentTarget.style.color = '#F0EDE6'}
+                onMouseLeave={e => e.currentTarget.style.color = '#555555'}>
                 {l.label}
               </button>
             ))}
@@ -69,7 +80,7 @@ const FooterSection = () => {
           <p className="font-body text-[13px] text-foreground font-bold mb-4">Education</p>
           <div className="flex flex-col gap-2">
             {eduLinks.map((l, i) => (
-              <span key={i} className="font-body text-[13px] text-[#666666]">{l}</span>
+              <span key={i} className="font-body text-[13px]" style={{ color: '#555555' }}>{l}</span>
             ))}
           </div>
         </div>
@@ -77,26 +88,27 @@ const FooterSection = () => {
         {/* Contact */}
         <div>
           <p className="font-body text-[13px] text-foreground font-bold mb-4">{t('Get in touch', 'Kontaktuj nás')}</p>
-          <div className="flex flex-col gap-2 font-body text-[13px] text-[#555555]">
+          <div className="flex flex-col gap-2 font-body text-[13px]" style={{ color: '#555555' }}>
             <span>Telegram: @obsessionfx</span>
             <span>WhatsApp: +421 951 701 758</span>
             <span>Email: ivan.b@thaurusguru.com</span>
           </div>
           <button onClick={() => scrollTo('#contact')}
-            className="mt-4 bg-primary text-primary-foreground font-body text-[10px] font-bold tracking-[2px] uppercase px-4 py-2 hover:opacity-90 transition-opacity">
+            className="mt-4 font-body text-[10px] font-bold tracking-[2px] uppercase px-4 py-2 transition-all"
+            style={{ background: '#F04E23', color: '#F0EDE6' }}>
             {t('CONTACT US →', 'KONTAKTOVAŤ NÁS →')}
           </button>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-[#1E1E1E] px-6 md:px-14 py-5">
+      <div className="px-6 md:px-14 py-5" style={{ borderTop: '1px solid #2A2A2C' }}>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <OFXLogo size={16} />
-            <span className="font-body text-[11px] text-[#444444]">© 2025 obsession.fx · All rights reserved.</span>
+            <span className="font-body text-[11px]" style={{ color: '#444444' }}>© 2025 obsession.fx · All rights reserved.</span>
           </div>
-          <span className="font-body text-[11px] text-[#444444]">Terms & Conditions · Privacy Policy · Cookies Policy</span>
+          <span className="font-body text-[11px]" style={{ color: '#444444' }}>Terms & Conditions · Privacy Policy · Cookies Policy</span>
         </div>
       </div>
     </footer>

@@ -26,7 +26,7 @@ const HeroSection = () => {
       size: 2 + Math.random() * 2,
       duration: 8 + Math.random() * 12,
       delay: Math.random() * 10,
-      color: i % 2 === 0 ? 'rgba(255,30,30,0.4)' : 'rgba(255,45,149,0.3)',
+      color: i % 3 === 0 ? 'rgba(212,240,0,0.4)' : i % 3 === 1 ? 'rgba(240,78,35,0.3)' : 'rgba(107,95,212,0.3)',
     }));
   }, []);
 
@@ -53,7 +53,7 @@ const HeroSection = () => {
       </p>
       <h1 className="font-heading leading-[0.88]" style={{ fontSize: 'clamp(72px, 11vw, 140px)' }}>
         <span className="block text-shimmer-white">{t('OBSESSION', 'POSADNUTOSŤ')}</span>
-        <span className="block text-shimmer-red">{t('BEATS', 'PORÁŽA')}</span>
+        <span className="block text-shimmer-accent">{t('BEATS', 'PORÁŽA')}</span>
         <span className="block text-ghost-glow">
           {t('TALENT.', 'TALENT.')}
         </span>
@@ -69,11 +69,11 @@ const HeroSection = () => {
           </p>
           <div className="flex gap-3">
             <button onClick={() => scrollTo('#formats')}
-              className="bg-primary text-primary-foreground font-body text-xs font-bold tracking-[2px] uppercase px-6 py-3 hover:opacity-90 transition-opacity">
+              className="bg-primary text-primary-foreground font-body text-xs font-bold tracking-[2px] uppercase px-6 py-3 hover:shadow-[0_0_24px_rgba(212,240,0,0.3)] transition-all" style={{ background: '#D4F000', color: '#1E1E20' }}>
               {t('VIEW FORMATS →', 'ZOBRAZIŤ FORMÁTY →')}
             </button>
             <button onClick={() => scrollTo('#program')}
-              className="border border-muted text-foreground font-body text-xs font-bold tracking-[2px] uppercase px-6 py-3 hover:border-foreground transition-colors">
+              className="border border-[#333336] text-foreground font-body text-xs font-bold tracking-[2px] uppercase px-6 py-3 hover:border-primary hover:text-primary transition-colors">
               {t('EXPLORE PROGRAM', 'PRESKÚMAŤ PROGRAM')}
             </button>
           </div>
@@ -91,7 +91,7 @@ const HeroSection = () => {
               { val: seconds, label: t('SEC', 'SEK') },
             ].map(({ val, label }) => (
               <div key={label} className="text-center">
-                <div className="font-heading text-4xl text-foreground">{String(val).padStart(2, '0')}</div>
+                <div className="font-heading text-4xl" style={{ color: '#D4F000' }}>{String(val).padStart(2, '0')}</div>
                 <div className="font-label text-[9px] tracking-[2px] text-[#666666]">{label}</div>
               </div>
             ))}

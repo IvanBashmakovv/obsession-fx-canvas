@@ -7,7 +7,7 @@ const MissionSection = () => {
     <section id="mission" className="py-24 px-6 max-w-7xl mx-auto scroll-mt-20">
       <p className="text-primary font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading">{t('Who we are', 'Kto sme')}</p>
       <h2 className="font-heading text-6xl md:text-7xl text-foreground mb-16 reveal-heading">
-        {t('WE ARE A ', 'SME ')}<span style={{ WebkitTextStroke: '1px #2A2A2A', color: 'transparent' }}>{t('MOVEMENT.', 'HNUTIE.')}</span>
+        {t('WE ARE A ', 'SME ')}<span style={{ WebkitTextStroke: '1px #2E2E30', color: 'transparent' }}>{t('MOVEMENT.', 'HNUTIE.')}</span>
       </h2>
 
       <div className="grid md:grid-cols-2 gap-12 mb-16 reveal-content">
