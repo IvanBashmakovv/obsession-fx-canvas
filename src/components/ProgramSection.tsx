@@ -43,7 +43,9 @@ const ProgramSection = () => {
   const { t, lang } = useLanguage();
 
   return (
-    <section id="program" className="py-24 px-6 max-w-7xl mx-auto scroll-mt-20">
+    <section id="program" className="py-24 px-6 max-w-7xl mx-auto scroll-mt-20" style={{
+      background: 'linear-gradient(135deg, rgba(107,95,212,0.06) 0%, transparent 50%)',
+    }}>
       <p className="text-primary font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading">{t('Curriculum', 'Učebný plán')}</p>
       <h2 className="font-heading text-6xl md:text-7xl text-foreground mb-8 reveal-heading">{t('THE PROGRAM.', 'PROGRAM.')}</h2>
 
@@ -55,7 +57,7 @@ const ProgramSection = () => {
           { num: '4', label: t('strategies', 'stratégie') },
         ].map((s, i) => (
           <div key={i}>
-            <span className="font-heading text-[64px] md:text-[80px] leading-none text-secondary">{s.num}</span>
+            <span className="font-heading text-[64px] md:text-[80px] leading-none" style={{ color: '#252527' }}>{s.num}</span>
             <p className="font-body text-xs text-[#777777] mt-1 uppercase tracking-[2px]">{s.label}</p>
           </div>
         ))}
@@ -66,10 +68,23 @@ const ProgramSection = () => {
         {topics.map((topic, i) => (
           <div
             key={i}
-            className="bg-[#141414] border border-[#1E1E1E] p-4 flex flex-col items-center text-center group hover:border-primary transition-colors duration-300 reveal-card"
-            style={{ transitionDelay: `${i * 50}ms` }}
+            className="p-4 flex flex-col items-center text-center group transition-colors duration-300 reveal-card"
+            style={{
+              background: '#252527',
+              border: '1px solid #2A2A2C',
+              transitionDelay: `${i * 50}ms`,
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.borderColor = i % 2 === 0 ? '#D4F000' : '#6B5FD4';
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.borderColor = '#2A2A2C';
+            }}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" className="text-foreground group-hover:text-primary transition-colors mb-3">
+            <svg width="24" height="24" viewBox="0 0 24 24" className="text-foreground transition-colors mb-3"
+              style={{ color: undefined }}
+              onMouseEnter={() => {}}
+            >
               {topic.icon}
             </svg>
             <h4 className="font-body text-xs text-foreground font-semibold mb-1 leading-tight">

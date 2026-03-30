@@ -18,9 +18,9 @@ const StrategiesSection = () => {
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-content">
         {strategies.map((s, i) => (
           <div key={s.num} className="relative group strategy-underline strategy-glow pb-4 cursor-default reveal-card" style={{ transitionDelay: `${i * 100}ms` }}>
-            <span className="font-heading text-[80px] leading-none text-secondary block">{s.num}</span>
+            <span className="font-heading text-[80px] leading-none block" style={{ color: '#252527' }}>{s.num}</span>
             <h3 className="font-heading text-3xl text-foreground group-hover:text-primary transition-colors mt-2">{s.name}</h3>
-            <p className="text-primary font-label text-[10px] tracking-[3px] uppercase mt-1 mb-3">
+            <p className="font-label text-[10px] tracking-[3px] uppercase mt-1 mb-3" style={{ color: '#D4F000' }}>
               {lang === 'en' ? s.type_en : s.type_sk}
             </p>
             <p className="font-body text-sm text-[#999999]">

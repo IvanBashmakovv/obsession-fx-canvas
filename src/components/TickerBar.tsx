@@ -8,9 +8,9 @@ const TickerBar = () => {
   );
 
   return (
-    <div className="bg-primary overflow-hidden whitespace-nowrap">
+    <div className="overflow-hidden whitespace-nowrap" style={{ background: '#D4F000' }}>
       <div className="ticker-scroll inline-flex">
-        <span className="text-primary-foreground font-body text-[10px] font-bold tracking-[3px] uppercase py-2 px-4">
+        <span className="font-body text-[10px] font-bold tracking-[3px] uppercase py-2 px-4" style={{ color: '#1E1E20' }}>
           {text}{text}{text}{text}
         </span>
       </div>

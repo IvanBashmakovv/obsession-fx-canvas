@@ -28,38 +28,46 @@ const Navigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 nav-transition ${scrolled ? 'border-b border-border' : 'border-b border-transparent'}`}
-      style={{ backgroundColor: scrolled ? 'rgba(12,12,12,0.97)' : 'rgba(12,12,12,0.6)', backdropFilter: 'blur(20px)' }}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 nav-transition ${scrolled ? '' : ''}`}
+      style={{
+        backgroundColor: scrolled ? 'rgba(30,30,32,0.97)' : 'rgba(30,30,32,0.6)',
+        backdropFilter: 'blur(20px)',
+        borderBottom: '1px solid transparent',
+        borderImage: scrolled ? 'linear-gradient(90deg, transparent 0%, rgba(212,240,0,0.3) 50%, transparent 100%) 1' : 'none',
+      }}>
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3 logo-glitch cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <OFXLogo size={28} />
           <span className="font-heading text-xl text-foreground tracking-wider">
-            OBSESSION.<span className="text-primary">FX</span>
+            OBSESSION.<span style={{ color: '#D4F000' }}>FX</span>
           </span>
         </div>
 
         <div className="hidden lg:flex items-center gap-8">
           {links.map(l => (
             <button key={l.href} onClick={() => scrollTo(l.href)}
-              className="font-body text-xs tracking-[2px] uppercase text-label hover:text-foreground transition-colors">
+              className="font-body text-xs tracking-[2px] uppercase text-[#777777] hover:text-primary transition-colors">
               {l.label}
             </button>
           ))}
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="flex bg-secondary rounded-full overflow-hidden">
+          <div className="flex rounded-full overflow-hidden" style={{ background: '#252527' }}>
             <button onClick={() => setLang('en')}
-              className={`px-3 py-1 text-xs font-label font-bold transition-colors ${lang === 'en' ? 'bg-primary text-primary-foreground' : 'text-label'}`}>
+              className={`px-3 py-1 text-xs font-label font-bold transition-colors ${lang === 'en' ? 'text-[#1E1E20]' : 'text-[#777777]'}`}
+              style={lang === 'en' ? { background: '#D4F000' } : {}}>
               EN
             </button>
             <button onClick={() => setLang('sk')}
-              className={`px-3 py-1 text-xs font-label font-bold transition-colors ${lang === 'sk' ? 'bg-primary text-primary-foreground' : 'text-label'}`}>
+              className={`px-3 py-1 text-xs font-label font-bold transition-colors ${lang === 'sk' ? 'text-[#1E1E20]' : 'text-[#777777]'}`}
+              style={lang === 'sk' ? { background: '#D4F000' } : {}}>
               SK
             </button>
           </div>
           <button onClick={() => scrollTo('#formats')}
-            className="hidden sm:block bg-primary text-primary-foreground font-body text-xs font-bold tracking-[2px] uppercase px-5 py-2 hover:opacity-90 transition-opacity">
+            className="hidden sm:block font-body text-xs font-bold tracking-[2px] uppercase px-5 py-2 hover:shadow-[0_0_24px_rgba(212,240,0,0.3)] transition-all"
+            style={{ background: '#D4F000', color: '#1E1E20' }}>
             {t('START →', 'ŠTART →')}
           </button>
           <button className="lg:hidden text-foreground" onClick={() => setMenuOpen(!menuOpen)}>
@@ -70,10 +78,10 @@ const Navigation = () => {
         </div>
       </div>
       {menuOpen && (
-        <div className="lg:hidden border-t border-border px-6 py-4 flex flex-col gap-3" style={{ backgroundColor: 'rgba(12,12,12,0.97)' }}>
+        <div className="lg:hidden border-t border-border px-6 py-4 flex flex-col gap-3" style={{ backgroundColor: 'rgba(30,30,32,0.97)' }}>
           {links.map(l => (
             <button key={l.href} onClick={() => scrollTo(l.href)}
-              className="font-body text-sm tracking-[2px] uppercase text-label hover:text-foreground transition-colors text-left">
+              className="font-body text-sm tracking-[2px] uppercase text-[#777777] hover:text-primary transition-colors text-left">
               {l.label}
             </button>
           ))}
