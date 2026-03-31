@@ -46,8 +46,8 @@ const ProgramSection = () => {
     <section id="program" className="py-24 px-6 max-w-7xl mx-auto scroll-mt-20" style={{
       background: 'linear-gradient(135deg, rgba(107,95,212,0.06) 0%, transparent 50%)',
     }}>
-      <p className="text-primary font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading">{t('Curriculum', 'Učebný plán')}</p>
-      <h2 className="font-heading text-6xl md:text-7xl text-foreground mb-8 reveal-heading">{t('THE PROGRAM.', 'PROGRAM.')}</h2>
+      <p className="font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading" style={{ color: '#D4F000' }}>{t('Curriculum', 'Učebný plán')}</p>
+      <h2 className="font-heading text-6xl md:text-7xl mb-8 reveal-heading" style={{ color: '#F0EDE6' }}>{t('THE PROGRAM.', 'PROGRAM.')}</h2>
 
       {/* Stats row */}
       <div className="flex flex-wrap gap-12 mb-16 reveal-content">
@@ -57,8 +57,8 @@ const ProgramSection = () => {
           { num: '4', label: t('strategies', 'stratégie') },
         ].map((s, i) => (
           <div key={i}>
-            <span className="font-heading text-[64px] md:text-[80px] leading-none" style={{ color: '#252527' }}>{s.num}</span>
-            <p className="font-body text-xs text-[#777777] mt-1 uppercase tracking-[2px]">{s.label}</p>
+            <span className="font-heading text-[64px] md:text-[80px] leading-none" style={{ color: '#D4F000' }}>{s.num}</span>
+            <p className="font-body text-xs mt-1 uppercase tracking-[2px]" style={{ color: '#AAAAAA' }}>{s.label}</p>
           </div>
         ))}
       </div>
@@ -68,36 +68,36 @@ const ProgramSection = () => {
         {topics.map((topic, i) => (
           <div
             key={i}
-            className="p-4 flex flex-col items-center text-center group transition-colors duration-300 reveal-card"
-            style={{
-              background: '#252527',
-              border: '1px solid #2A2A2C',
-              transitionDelay: `${i * 50}ms`,
-            }}
+            className="glass-card p-4 flex flex-col items-center text-center group reveal-card"
+            style={{ transitionDelay: `${i * 50}ms` }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.borderColor = i % 2 === 0 ? '#D4F000' : '#6B5FD4';
+              const el = e.currentTarget as HTMLElement;
+              el.style.borderColor = i % 2 === 0 ? 'rgba(212,240,0,0.3)' : 'rgba(107,95,212,0.3)';
+              const icon = el.querySelector('svg');
+              if (icon) icon.style.color = i % 2 === 0 ? '#D4F000' : '#6B5FD4';
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.borderColor = '#2A2A2C';
+              const el = e.currentTarget as HTMLElement;
+              el.style.borderColor = 'rgba(255,255,255,0.08)';
+              const icon = el.querySelector('svg');
+              if (icon) icon.style.color = 'rgba(240,237,230,0.7)';
             }}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" className="text-foreground transition-colors mb-3"
-              style={{ color: undefined }}
-              onMouseEnter={() => {}}
-            >
+            <svg width="24" height="24" viewBox="0 0 24 24" className="transition-colors mb-3"
+              style={{ color: 'rgba(240,237,230,0.7)' }}>
               {topic.icon}
             </svg>
-            <h4 className="font-body text-xs text-foreground font-semibold mb-1 leading-tight">
+            <h4 className="font-body text-xs font-semibold mb-1 leading-tight" style={{ color: '#F0EDE6' }}>
               {lang === 'en' ? topic.name_en : topic.name_sk}
             </h4>
-            <p className="font-body text-[11px] text-[#777777] leading-tight">
+            <p className="font-body text-[11px] leading-tight" style={{ color: '#999999' }}>
               {lang === 'en' ? topic.desc_en : topic.desc_sk}
             </p>
           </div>
         ))}
       </div>
 
-      <p className="text-center font-body text-sm text-[#666666] italic mt-12 reveal-content">
+      <p className="text-center font-body text-sm italic mt-12 reveal-content" style={{ color: '#888888' }}>
         {t(
           'Every topic. No filler. Only what gets you funded.',
           'Každá téma. Žiadna vata. Len to, čo ťa dostane k funded.'

@@ -2,7 +2,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import RatingsBar from './RatingsBar';
 
 const reviews = [
-  { initials: 'MK', bg: '#D4F000', text: '#1E1E20', country: '🇸🇰', handle: '@martin.k · Slovakia', stars: 5,
+  { initials: 'MK', bg: '#D4F000', text: '#0E0E0F', country: '🇸🇰', handle: '@martin.k · Slovakia', stars: 5,
     en: "Finally a course that doesn't waste your time. Every module is straight to the point. ivnb actually responds when you have questions — rare in this space.",
     sk: 'Konečne kurz, ktorý neplytváva tvojím časom. Každý modul ide priamo k veci. ivnb skutočne odpovedá na otázky — v tomto priestore rarita.' },
   { initials: 'TN', bg: '#F04E23', text: '#F0EDE6', country: '🇨🇿', handle: '@tomas.n · Czech Republic', stars: 5,
@@ -11,16 +11,16 @@ const reviews = [
   { initials: 'LP', bg: '#6B5FD4', text: '#F0EDE6', country: '🇸🇰', handle: '@lukas.p · Slovakia', stars: 5,
     en: "The 4 strategies alone are worth it. I finally understand the difference between static and dynamic setups. No other course explained this properly.",
     sk: 'Samotné 4 stratégie za to stoja. Konečne chápem rozdiel medzi statickými a dynamickými setupmi. Žiadny iný kurz to poriadne nevysvetlil.' },
-  { initials: 'AR', bg: '#2E2E30', text: '#F0EDE6', country: '🇵🇱', handle: '@adam.r · Poland', stars: 5,
+  { initials: 'AR', bg: 'rgba(255,255,255,0.06)', text: '#F0EDE6', country: '🇵🇱', handle: '@adam.r · Poland', stars: 5,
     en: "What I appreciate most is the honesty. They don't promise you'll be rich in 3 months. They just give you the tools and let you do the work.",
     sk: 'Najviac si cením úprimnosť. Nesľubujú, že budeš bohatý za 3 mesiace. Len ti dajú nástroje a nechajú ťa pracovať.' },
-  { initials: 'JH', bg: '#D4F000', text: '#1E1E20', country: '🇸🇰', handle: '@juraj.h · Slovakia', stars: 5,
+  { initials: 'JH', bg: '#D4F000', text: '#0E0E0F', country: '🇸🇰', handle: '@juraj.h · Slovakia', stars: 5,
     en: "ivnb is actually active in the community. He reviews setups, gives feedback on homework. You feel like someone actually cares about your progress.",
     sk: 'ivnb je skutočne aktívny v komunite. Hodnotí setupy, dáva feedback na domáce úlohy. Cítiš, že niekomu na tvojom pokroku skutočne záleží.' },
   { initials: 'SM', bg: '#6B5FD4', text: '#F0EDE6', country: '🇦🇹', handle: '@stefan.m · Austria', stars: 5,
     en: "Compact. Dense. No YouTube-style padding. This is the course I wished existed when I started trading two years ago.",
     sk: 'Kompaktný. Hutný. Žiadne YouTube-štýlové natahanie. Toto je kurz, ktorý som si prial, keď som pred dvoma rokmi začal obchodovať.' },
-  { initials: 'DK', bg: '#2E2E30', text: '#F0EDE6', country: '🇸🇰', handle: '@daniel.k · Slovakia', stars: 5,
+  { initials: 'DK', bg: 'rgba(255,255,255,0.06)', text: '#F0EDE6', country: '🇸🇰', handle: '@daniel.k · Slovakia', stars: 5,
     en: "The sessions module completely changed how I look at timing entries. I was randomly trading all day before — now I have specific windows and a clear process.",
     sk: 'Modul sessions úplne zmenil, ako sa pozerám na timing vstupov. Predtým som obchodoval celý deň náhodne — teraz mám konkrétne okná a jasný proces.' },
   { initials: 'MB', bg: '#F04E23', text: '#F0EDE6', country: '🇭🇺', handle: '@mate.b · Hungary', stars: 5,
@@ -32,15 +32,15 @@ const reviews = [
 ];
 
 const topBorderColors = [
-  'rgba(212,240,0,0.4)',    // 1
-  'rgba(240,78,35,0.4)',    // 2
-  'rgba(107,95,212,0.4)',   // 3
-  'rgba(212,240,0,0.4)',    // 4
-  'rgba(240,78,35,0.4)',    // 5
-  'rgba(107,95,212,0.4)',   // 6
-  'rgba(212,240,0,0.4)',    // 7
-  'rgba(240,78,35,0.4)',    // 8
-  'rgba(107,95,212,0.4)',   // 9
+  'rgba(212,240,0,0.4)',
+  'rgba(240,78,35,0.4)',
+  'rgba(107,95,212,0.4)',
+  'rgba(212,240,0,0.4)',
+  'rgba(240,78,35,0.4)',
+  'rgba(107,95,212,0.4)',
+  'rgba(212,240,0,0.4)',
+  'rgba(240,78,35,0.4)',
+  'rgba(107,95,212,0.4)',
 ];
 
 const ResultsSection = () => {
@@ -48,16 +48,14 @@ const ResultsSection = () => {
 
   return (
     <section id="reviews" className="py-24 px-6 max-w-7xl mx-auto scroll-mt-20">
-      <p className="text-primary font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading">{t('Testimonials', 'Referencie')}</p>
-      <h2 className="font-heading text-6xl md:text-7xl text-foreground mb-16 reveal-heading">{t('REAL RESULTS.', 'REÁLNE VÝSLEDKY.')}</h2>
+      <p className="font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading" style={{ color: '#D4F000' }}>{t('Testimonials', 'Referencie')}</p>
+      <h2 className="font-heading text-6xl md:text-7xl mb-16 reveal-heading" style={{ color: '#F0EDE6' }}>{t('REAL RESULTS.', 'REÁLNE VÝSLEDKY.')}</h2>
 
       <RatingsBar />
 
       <div className="grid md:grid-cols-3 gap-4 reveal-content">
         {reviews.map((r, i) => (
-          <div key={i} className="p-6 flex flex-col reveal-card" style={{
-            background: '#252527',
-            border: '1px solid #2A2A2C',
+          <div key={i} className="glass-card p-6 flex flex-col reveal-card" style={{
             borderTop: `2px solid ${topBorderColors[i]}`,
             transitionDelay: `${i * 80}ms`,
           }}>
@@ -67,14 +65,16 @@ const ResultsSection = () => {
               </div>
               <div className="flex gap-0.5">
                 {[1,2,3,4,5].map(s => (
-                  <svg key={s} width="13" height="13" viewBox="0 0 24 24" fill={s <= r.stars ? '#D4F000' : '#333336'} xmlns="http://www.w3.org/2000/svg">
+                  <svg key={s} width="13" height="13" viewBox="0 0 24 24" fill={s <= r.stars ? '#D4F000' : 'rgba(255,255,255,0.08)'} xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                   </svg>
                 ))}
               </div>
             </div>
-            <p className="font-body text-sm text-[#AAAAAA] flex-1 mb-4">{lang === 'en' ? r.en : r.sk}</p>
-            <p className="font-label text-[10px] text-[#777777] tracking-[1px]">{r.country} {r.handle}</p>
+            <p className="font-body text-sm flex-1 mb-4" style={{ color: '#BABABA' }}>{lang === 'en' ? r.en : r.sk}</p>
+            <p className="font-label text-[10px] tracking-[1px]" style={{ color: '#888888' }}>
+              {r.country} <span style={{ color: '#F0EDE6' }}>{r.handle.split(' · ')[0]}</span> · {r.handle.split(' · ')[1]}
+            </p>
           </div>
         ))}
       </div>
