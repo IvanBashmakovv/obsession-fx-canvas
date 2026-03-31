@@ -8,43 +8,36 @@
 
 @layer base {
   :root {
-    --background: 240 4% 12%;
+    --background: 240 4% 5%;
     --foreground: 40 14% 92%;
-    --card: 240 4% 15%;
+    --card: 240 4% 8%;
     --card-foreground: 40 14% 92%;
-    --popover: 240 4% 15%;
+    --popover: 240 4% 8%;
     --popover-foreground: 40 14% 92%;
     --primary: 66 100% 47%;
-    --primary-foreground: 240 4% 12%;
-    --secondary: 240 4% 15%;
+    --primary-foreground: 240 4% 5%;
+    --secondary: 240 4% 10%;
     --secondary-foreground: 40 14% 92%;
     --muted: 0 0% 53%;
     --muted-foreground: 0 0% 67%;
     --accent: 66 100% 47%;
-    --accent-foreground: 240 4% 12%;
+    --accent-foreground: 240 4% 5%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 40 14% 92%;
-    --border: 240 3% 17%;
-    --input: 240 3% 17%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
     --ring: 66 100% 47%;
     --radius: 0px;
     --orange: 14 87% 54%;
     --violet: 245 56% 60%;
-    --green: 66 100% 47%;
 
-    --text-label: 0 0% 47%;
-    --text-inactive: 0 0% 27%;
-    --text-dim: 0 0% 40%;
-    --text-subtle: 0 0% 53%;
-    --text-soft: 0 0% 60%;
-
-    --sidebar-background: 240 4% 12%;
+    --sidebar-background: 240 4% 5%;
     --sidebar-foreground: 40 14% 92%;
     --sidebar-primary: 66 100% 47%;
-    --sidebar-primary-foreground: 240 4% 12%;
-    --sidebar-accent: 240 4% 15%;
+    --sidebar-primary-foreground: 240 4% 5%;
+    --sidebar-accent: 240 4% 10%;
     --sidebar-accent-foreground: 40 14% 92%;
-    --sidebar-border: 240 3% 17%;
+    --sidebar-border: 0 0% 15%;
     --sidebar-ring: 66 100% 47%;
   }
 }
@@ -54,7 +47,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background: #0E0E0F;
     font-family: 'Evolventa', 'Jura', sans-serif;
     line-height: 1.75;
     letter-spacing: 0.02em;
@@ -65,47 +59,57 @@
   }
 }
 
-/* Cinematic animated background */
-@keyframes bg-shift {
-  0%, 100% {
-    background:
-      radial-gradient(ellipse 60% 50% at 75% 15%, rgba(212,240,0,0.07) 0%, transparent 45%),
-      radial-gradient(ellipse 60% 50% at 15% 85%, rgba(240,78,35,0.06) 0%, transparent 45%),
-      radial-gradient(ellipse 50% 50% at 50% 50%, rgba(107,95,212,0.04) 0%, transparent 50%),
-      #1E1E20;
-  }
-  33% {
-    background:
-      radial-gradient(ellipse 60% 50% at 85% 25%, rgba(212,240,0,0.05) 0%, transparent 45%),
-      radial-gradient(ellipse 60% 50% at 25% 75%, rgba(240,78,35,0.08) 0%, transparent 45%),
-      radial-gradient(ellipse 50% 50% at 45% 55%, rgba(107,95,212,0.05) 0%, transparent 50%),
-      #1E1E20;
-  }
-  66% {
-    background:
-      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(212,240,0,0.04) 0%, transparent 40%),
-      radial-gradient(ellipse 50% 50% at 10% 60%, rgba(240,78,35,0.04) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 60% at 80% 40%, rgba(107,95,212,0.06) 0%, transparent 50%),
-      #1E1E20;
-  }
-}
-
-.animated-bg {
+/* Aura background */
+body::before {
+  content: '';
   position: fixed;
   inset: 0;
   z-index: 0;
-  animation: bg-shift 20s ease-in-out infinite;
+  background:
+    radial-gradient(ellipse 80% 60% at 90% -10%, rgba(212,240,0,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at -10% 60%, rgba(240,78,35,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 110%, rgba(107,95,212,0.08) 0%, transparent 50%);
+  animation: auraShift 16s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
-.animated-bg::after {
+@keyframes auraShift {
+  0% {
+    background:
+      radial-gradient(ellipse 80% 60% at 90% -10%, rgba(212,240,0,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at -10% 60%, rgba(240,78,35,0.10) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 50% 110%, rgba(107,95,212,0.08) 0%, transparent 50%);
+  }
+  33% {
+    background:
+      radial-gradient(ellipse 70% 55% at 10% 5%, rgba(212,240,0,0.10) 0%, transparent 55%),
+      radial-gradient(ellipse 65% 45% at 95% 70%, rgba(240,78,35,0.09) 0%, transparent 50%),
+      radial-gradient(ellipse 55% 45% at 30% 95%, rgba(107,95,212,0.10) 0%, transparent 50%);
+  }
+  66% {
+    background:
+      radial-gradient(ellipse 75% 50% at 60% -5%, rgba(212,240,0,0.11) 0%, transparent 55%),
+      radial-gradient(ellipse 55% 50% at 5% 90%, rgba(240,78,35,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 40% at 90% 80%, rgba(107,95,212,0.09) 0%, transparent 45%);
+  }
+  100% {
+    background:
+      radial-gradient(ellipse 80% 60% at 90% -10%, rgba(212,240,0,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at -10% 60%, rgba(240,78,35,0.10) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 50% 110%, rgba(107,95,212,0.08) 0%, transparent 50%);
+  }
+}
+
+/* Noise texture */
+body::after {
   content: '';
-  position: absolute;
+  position: fixed;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(212,240,0,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(212,240,0,0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
+  z-index: 1;
   pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
 }
 
 /* Scroll reveal - heading slides from left */
@@ -156,15 +160,16 @@
 .section-tag {
   position: relative;
   display: inline-block;
+  padding-bottom: 4px;
 }
 .section-tag::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 1px;
-  background: hsl(var(--primary));
+  background: rgba(212,240,0,0.4);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.6s ease;
@@ -226,7 +231,7 @@
 
 /* Strategy card hover glow */
 .strategy-glow {
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 .strategy-glow:hover {
   box-shadow: 0 0 40px rgba(240,78,35,0.12), inset 0 0 20px rgba(240,78,35,0.03);
@@ -273,12 +278,12 @@
 
 /* Hero outline ghost glow */
 @keyframes ghostGlow {
-  0%, 100% { -webkit-text-stroke-color: #2E2E30; }
-  50% { -webkit-text-stroke-color: #D4F000; }
+  0%, 100% { -webkit-text-stroke-color: rgba(240,237,230,0.15); }
+  50% { -webkit-text-stroke-color: rgba(212,240,0,0.35); }
 }
 
 .text-ghost-glow {
-  -webkit-text-stroke: 1px #2E2E30;
+  -webkit-text-stroke: 1px rgba(240,237,230,0.15);
   color: transparent;
   animation: ghostGlow 5s ease-in-out infinite;
 }
@@ -299,10 +304,11 @@
 }
 
 /* Gradient section divider */
-.gradient-divider {
+.section-divider {
   border: none;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #F04E23, transparent);
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent 0%, rgba(212,240,0,0.2) 30%, rgba(240,78,35,0.15) 70%, transparent 100%) 1;
 }
 
 /* Mission quote gradient border */
@@ -400,4 +406,48 @@
 /* Scroll margin for sticky nav */
 [id] {
   scroll-margin-top: 80px;
+}
+
+/* Glassmorphism card base */
+.glass-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+.glass-card:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(212,240,0,0.2);
+  transform: translateY(-2px);
+}
+
+/* Hero cinematic bg */
+.hero-section {
+  position: relative;
+  background:
+    linear-gradient(180deg, transparent 60%, rgba(14,14,15,0.95) 100%),
+    radial-gradient(ellipse 100% 80% at 50% 0%, rgba(212,240,0,0.08) 0%, transparent 70%);
+}
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(212,240,0,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Alternating section bg */
+.section-alt-bg {
+  background: rgba(14,14,15,0.7);
+  backdrop-filter: blur(2px);
+}
+
+/* Sold out overlay */
+.sold-out-overlay {
+  background: rgba(14,14,15,0.82);
+  backdrop-filter: blur(4px);
 }

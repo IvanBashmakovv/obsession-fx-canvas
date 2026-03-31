@@ -5,18 +5,18 @@ const MissionSection = () => {
 
   return (
     <section id="mission" className="py-24 px-6 max-w-7xl mx-auto scroll-mt-20">
-      <p className="text-primary font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading">{t('Who we are', 'Kto sme')}</p>
-      <h2 className="font-heading text-6xl md:text-7xl text-foreground mb-16 reveal-heading">
-        {t('WE ARE A ', 'SME ')}<span style={{ WebkitTextStroke: '1px #2E2E30', color: 'transparent' }}>{t('MOVEMENT.', 'HNUTIE.')}</span>
+      <p className="font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading" style={{ color: '#D4F000' }}>{t('Who we are', 'Kto sme')}</p>
+      <h2 className="font-heading text-6xl md:text-7xl mb-16 reveal-heading" style={{ color: '#F0EDE6' }}>
+        {t('WE ARE A ', 'SME ')}<span style={{ WebkitTextStroke: '1px rgba(240,237,230,0.2)', color: 'transparent' }}>{t('MOVEMENT.', 'HNUTIE.')}</span>
       </h2>
 
       <div className="grid md:grid-cols-2 gap-12 mb-16 reveal-content">
         <div className="gradient-border-left">
-          <p className="font-heading text-3xl md:text-4xl text-foreground leading-tight">
+          <p className="font-heading text-3xl md:text-4xl leading-tight" style={{ color: '#F0EDE6', fontWeight: 700 }}>
             {t("\"We've seen every trading course out there. We know their weak spots.\"", '"Videli sme každý trading kurz. Poznáme ich slabé miesta."')}
           </p>
         </div>
-        <div className="space-y-4 font-body text-sm text-[#AAAAAA] leading-relaxed">
+        <div className="space-y-4 font-body text-sm leading-relaxed" style={{ color: '#C4C4C4' }}>
           <p>{t(
             "Most courses sell you a lifestyle. We sell you a skillset. obsession.fx was built by traders who went through the noise, filtered out everything useless, and kept only what moves the needle.",
             "Väčšina kurzov ti predáva životný štýl. My ti predávame zručnosť. obsession.fx vznikol od traderov, ktorí prešli hlukom, odfiltrovali všetko zbytočné a nechali len to, čo naozaj funguje."

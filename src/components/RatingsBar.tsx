@@ -5,7 +5,7 @@ const RatingsBar = () => {
 
   return (
     <div className="mb-16 reveal-content">
-      <h3 className="font-heading text-3xl text-foreground text-center mb-2">{t('What our students say', 'Čo hovoria naši študenti')}</h3>
+      <h3 className="font-heading text-3xl text-center mb-2" style={{ color: '#F0EDE6' }}>{t('What our students say', 'Čo hovoria naši študenti')}</h3>
       <p className="font-body text-sm text-center mb-10" style={{ color: '#888888' }}>{t("We're building our reputation one student at a time.", 'Budujeme si reputáciu jedného študenta po druhom.')}</p>
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-0">
@@ -16,31 +16,31 @@ const RatingsBar = () => {
               <span key={i} className="text-lg" style={{ color: '#00B67A' }}>★</span>
             ))}
           </div>
-          <p className="font-body text-sm text-foreground font-bold mb-1">Trustpilot</p>
-          <p className="font-body text-[11px]" style={{ color: '#666666' }}>{t('Coming soon', 'Čoskoro')}</p>
+          <p className="font-body text-sm font-bold mb-1" style={{ color: '#F0EDE6' }}>Trustpilot</p>
+          <p className="font-body text-[11px]" style={{ color: '#888888' }}>{t('Coming soon', 'Čoskoro')}</p>
         </div>
 
-        <div className="hidden md:block w-px h-20 bg-border" />
+        <div className="hidden md:block w-px h-20" style={{ background: 'rgba(255,255,255,0.08)' }} />
 
         {/* Main rating */}
         <div className="flex-1 flex flex-col items-center py-6 px-8">
-          <span className="font-heading text-5xl text-foreground mb-1">5.0</span>
+          <span className="font-heading text-5xl mb-1" style={{ color: '#F0EDE6' }}>5.0</span>
           <div className="flex gap-1 mb-2">
             {[1,2,3,4,5].map(i => (
               <span key={i} className="text-lg" style={{ color: '#D4F000' }}>★</span>
             ))}
           </div>
-          <p className="font-body text-[11px] mb-3" style={{ color: '#777777' }}>obsession.fx rating</p>
+          <p className="font-body text-[11px] mb-3" style={{ color: '#888888' }}>obsession.fx rating</p>
           <div className="flex -space-x-2">
             {['MK', 'TN', 'LP', 'AR'].map((init, i) => (
-              <div key={i} className="w-7 h-7 rounded-full flex items-center justify-center" style={{ background: '#252527', border: '2px solid #1E1E20' }}>
-                <span className="font-label text-[8px]" style={{ color: '#777777' }}>{init}</span>
+              <div key={i} className="w-7 h-7 rounded-full flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.06)', border: '2px solid #0E0E0F' }}>
+                <span className="font-label text-[8px]" style={{ color: '#888888' }}>{init}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="hidden md:block w-px h-20 bg-border" />
+        <div className="hidden md:block w-px h-20" style={{ background: 'rgba(255,255,255,0.08)' }} />
 
         {/* Google */}
         <div className="flex-1 flex flex-col items-center py-6 px-8">
@@ -59,8 +59,8 @@ const RatingsBar = () => {
               <span key={i} className="text-lg" style={{ color: '#FBBC05' }}>★</span>
             ))}
           </div>
-          <p className="font-body text-sm text-foreground font-bold mb-1">Google Rating</p>
-          <p className="font-body text-[11px]" style={{ color: '#666666' }}>{t('Coming soon', 'Čoskoro')}</p>
+          <p className="font-body text-sm font-bold mb-1" style={{ color: '#F0EDE6' }}>Google Rating</p>
+          <p className="font-body text-[11px]" style={{ color: '#888888' }}>{t('Coming soon', 'Čoskoro')}</p>
         </div>
       </div>
     </div>

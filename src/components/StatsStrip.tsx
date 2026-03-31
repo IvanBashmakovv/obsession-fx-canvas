@@ -53,16 +53,16 @@ const StatsStrip = () => {
   ];
 
   return (
-    <section ref={ref} style={{
-      background: 'linear-gradient(180deg, #252527 0%, #1E1E20 100%)',
-      borderTop: '1px solid rgba(212,240,0,0.15)',
-      borderBottom: '1px solid rgba(212,240,0,0.15)',
+    <section ref={ref} className="section-alt-bg" style={{
+      borderTop: '1px solid transparent',
+      borderBottom: '1px solid transparent',
+      borderImage: 'linear-gradient(90deg, transparent 0%, rgba(212,240,0,0.2) 30%, rgba(240,78,35,0.15) 70%, transparent 100%) 1',
     }}>
       <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4">
         {stats.map((s, i) => (
-          <div key={i} className={`px-6 py-10 text-center ${i > 0 ? 'border-l border-border' : ''}`}>
+          <div key={i} className={`px-6 py-10 text-center ${i > 0 ? 'border-l' : ''}`} style={i > 0 ? { borderColor: 'rgba(255,255,255,0.08)' } : {}}>
             <div className="font-heading text-5xl" style={{ color: '#D4F000' }}>{s.num}</div>
-            <div className="font-label text-[10px] tracking-[3px] uppercase text-[#777777] mt-2">{s.label}</div>
+            <div className="font-label text-[10px] tracking-[3px] uppercase mt-2" style={{ color: '#AAAAAA' }}>{s.label}</div>
           </div>
         ))}
       </div>

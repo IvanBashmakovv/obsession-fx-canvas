@@ -78,7 +78,6 @@ const Index = () => {
     <LanguageProvider>
       <div className="relative min-h-screen" style={{ cursor: 'none' }}>
         <div ref={cursorRef} className="custom-cursor hidden md:block" />
-        <div className="animated-bg" />
         <div className="relative z-10">
           <TickerBar />
           <Navigation />

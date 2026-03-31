@@ -40,24 +40,24 @@ const FAQSection = () => {
 
   return (
     <section id="faq" className="py-24 px-6 max-w-7xl mx-auto scroll-mt-20">
-      <p className="text-primary font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading">{t('FAQ', 'Otázky')}</p>
-      <h2 className="font-heading text-6xl md:text-7xl text-foreground mb-16 reveal-heading">{t('YOUR QUESTIONS.', 'VAŠE OTÁZKY.')}</h2>
+      <p className="font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading" style={{ color: '#D4F000' }}>{t('FAQ', 'Otázky')}</p>
+      <h2 className="font-heading text-6xl md:text-7xl mb-16 reveal-heading" style={{ color: '#F0EDE6' }}>{t('YOUR QUESTIONS.', 'VAŠE OTÁZKY.')}</h2>
 
-      <div className="max-w-3xl reveal-content" style={{ borderTop: '1px solid #2A2A2C' }}>
+      <div className="max-w-3xl reveal-content" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         {faqs.map((f, i) => {
           const isOpen = open === i;
           return (
-            <div key={i} style={{ borderBottom: '1px solid #2A2A2C' }}>
+            <div key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
               <button onClick={() => setOpen(isOpen ? null : i)} className="w-full flex items-center justify-between py-5 text-left group">
-                <span className={`font-body text-sm tracking-[1px] transition-colors ${isOpen ? 'text-foreground' : 'group-hover:text-foreground'}`}
-                  style={!isOpen ? { color: '#999999' } : {}}>
+                <span className="font-body text-sm tracking-[1px] transition-colors"
+                  style={{ color: isOpen ? '#F0EDE6' : '#AAAAAA' }}>
                   {lang === 'en' ? f.q_en : f.q_sk}
                 </span>
                 <span className={`font-heading text-xl transition-all duration-300 ml-4 ${isOpen ? 'rotate-45' : ''}`}
-                  style={{ color: isOpen ? '#D4F000' : '#777777' }}>+</span>
+                  style={{ color: isOpen ? '#D4F000' : '#555555' }}>+</span>
               </button>
               <div className={`accordion-content ${isOpen ? 'open' : ''}`} style={{ paddingBottom: isOpen ? '16px' : 0 }}>
-                <p className="font-body text-sm" style={{ color: '#9B8FFF' }}>{lang === 'en' ? f.a_en : f.a_sk}</p>
+                <p className="font-body text-sm" style={{ color: '#BABABA' }}>{lang === 'en' ? f.a_en : f.a_sk}</p>
               </div>
             </div>
           );
