@@ -27,7 +27,7 @@
     --border: 0 0% 15%;
     --input: 0 0% 15%;
     --ring: 66 100% 47%;
-    --radius: 0px;
+    --radius: 12px;
     --orange: 14 87% 54%;
     --violet: 245 56% 60%;
 
@@ -50,12 +50,28 @@
     @apply text-foreground;
     background: #0E0E0F;
     font-family: 'Evolventa', 'Jura', sans-serif;
-    line-height: 1.75;
+    line-height: 1.6;
     letter-spacing: 0.02em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: normal;
+    line-height: 1.1;
+  }
+  /* Body text max-width for readability */
+  p {
+    max-width: 65ch;
+  }
+  /* Focus visible for accessibility */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--accent));
+    outline-offset: 3px;
+  }
+  button:focus-visible {
+    outline: 2px solid hsl(var(--accent));
+    outline-offset: 3px;
   }
 }
 
@@ -115,19 +131,21 @@ body::after {
 /* Scroll reveal - heading slides from left */
 .reveal-heading {
   opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: transform, opacity;
 }
 .reveal-heading.visible {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 /* Scroll reveal - content slides up with delay */
 .reveal-content {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.7s ease 0.15s, transform 0.7s ease 0.15s;
+  transition: opacity 0.6s ease-out 0.08s, transform 0.6s ease-out 0.08s;
+  will-change: transform, opacity;
 }
 .reveal-content.visible {
   opacity: 1;
@@ -138,7 +156,8 @@ body::after {
 .reveal-card {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  will-change: transform, opacity;
 }
 .reveal-card.visible {
   opacity: 1;
@@ -148,8 +167,9 @@ body::after {
 /* Legacy reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: transform, opacity;
 }
 .reveal.visible {
   opacity: 1;
@@ -172,7 +192,7 @@ body::after {
   background: rgba(212,240,0,0.4);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.6s ease;
+  transition: transform 0.6s ease-out;
 }
 .section-tag.visible::after {
   transform: scaleX(1);
@@ -223,7 +243,7 @@ body::after {
   background: #D4F000;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.4s ease;
+  transition: transform 0.2s ease-out;
 }
 .strategy-underline:hover::after {
   transform: scaleX(1);
@@ -231,7 +251,7 @@ body::after {
 
 /* Strategy card hover glow */
 .strategy-glow {
-  transition: box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  transition: box-shadow 0.2s ease-out, background 0.2s ease-out, border-color 0.2s ease-out;
 }
 .strategy-glow:hover {
   box-shadow: 0 0 40px rgba(240,78,35,0.12), inset 0 0 20px rgba(240,78,35,0.03);
@@ -239,11 +259,11 @@ body::after {
 
 /* Hero entrance */
 @keyframes hero-enter {
-  from { opacity: 0; transform: translateY(40px); }
+  from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .hero-animate {
-  animation: hero-enter 1s ease-out 0.3s both;
+  animation: hero-enter 0.5s ease-out 0.3s both;
 }
 
 /* Hero text shimmer - white */
@@ -301,6 +321,7 @@ body::after {
   border-radius: 50%;
   pointer-events: none;
   animation: particleFloat linear infinite;
+  will-change: transform, opacity;
 }
 
 /* Gradient section divider */
@@ -314,7 +335,7 @@ body::after {
 /* Mission quote gradient border */
 .gradient-border-left {
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: 32px;
 }
 .gradient-border-left::before {
   content: '';
@@ -342,7 +363,7 @@ body::after {
   width: 3px;
   height: 0;
   background: #F04E23;
-  transition: height 0.8s ease;
+  transition: height 0.6s ease-out;
 }
 .banner-border-animate.visible::before {
   height: 100%;
@@ -350,7 +371,7 @@ body::after {
 
 /* PRO card glow */
 .pro-card-glow {
-  box-shadow: 0 0 60px rgba(240,78,35,0.08);
+  box-shadow: 0 0 64px rgba(240,78,35,0.08);
 }
 
 /* Pulse dot */
@@ -377,7 +398,7 @@ body::after {
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  transition: width 0.2s ease-out, height 0.2s ease-out, background 0.2s ease-out;
   mix-blend-mode: difference;
 }
 .custom-cursor.hovering {
@@ -388,37 +409,43 @@ body::after {
 
 /* Nav transparent → solid transition */
 .nav-transition {
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
 }
 
 /* Mentor edge slide animation */
 .mentor-edge-slide {
   opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: transform, opacity;
 }
 .reveal-heading.visible .mentor-edge-slide,
 .visible .mentor-edge-slide {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 /* Scroll margin for sticky nav */
 [id] {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 96px;
 }
 
-/* Glassmorphism card base */
+/* Glassmorphism card base — consistent 12px radius */
 .glass-card {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  transition: transform 0.2s ease-out, background 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 .glass-card:hover {
   background: rgba(255,255,255,0.06);
   border-color: rgba(212,240,0,0.2);
   transform: translateY(-2px);
+}
+/* Active press state */
+.glass-card:active {
+  transform: translateY(0);
 }
 
 /* Hero cinematic bg */
@@ -450,4 +477,17 @@ body::after {
 .sold-out-overlay {
   background: rgba(14,14,15,0.82);
   backdrop-filter: blur(4px);
+  border-radius: 12px;
+}
+
+/* Button active press state */
+button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* Hide decorative elements on mobile */
+@media (max-width: 767px) {
+  .hide-mobile {
+    display: none !important;
+  }
 }

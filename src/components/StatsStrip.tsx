@@ -34,7 +34,7 @@ const StatsStrip = () => {
     if (!ref.current) return;
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.3 }
+      { threshold: 0.15 }
     );
     obs.observe(ref.current);
     return () => obs.disconnect();
@@ -53,16 +53,16 @@ const StatsStrip = () => {
   ];
 
   return (
-    <section ref={ref} className="section-alt-bg" style={{
+    <section ref={ref} className="section-alt-bg py-12 md:py-16" style={{
       borderTop: '1px solid transparent',
       borderBottom: '1px solid transparent',
       borderImage: 'linear-gradient(90deg, transparent 0%, rgba(212,240,0,0.2) 30%, rgba(240,78,35,0.15) 70%, transparent 100%) 1',
     }}>
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4">
+      <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-6 md:px-12">
         {stats.map((s, i) => (
-          <div key={i} className={`px-6 py-10 text-center ${i > 0 ? 'border-l' : ''}`} style={i > 0 ? { borderColor: 'rgba(255,255,255,0.08)' } : {}}>
-            <div className="font-heading text-5xl" style={{ color: '#D4F000' }}>{s.num}</div>
-            <div className="font-label text-[10px] tracking-[3px] uppercase mt-2" style={{ color: '#AAAAAA' }}>{s.label}</div>
+          <div key={i} className="text-center py-4">
+            <div className="font-heading text-5xl md:text-6xl" style={{ color: '#D4F000' }}>{s.num}</div>
+            <div className="font-label text-[10px] tracking-[0.15em] uppercase mt-2" style={{ color: '#AAAAAA' }}>{s.label}</div>
           </div>
         ))}
       </div>

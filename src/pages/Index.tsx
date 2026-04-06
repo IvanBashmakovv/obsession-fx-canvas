@@ -29,7 +29,7 @@ const Index = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     );
     document.querySelectorAll('.reveal, .reveal-heading, .reveal-content, .reveal-card, .section-tag, .banner-border-animate').forEach(el => observer.observe(el));
 
@@ -48,8 +48,7 @@ const Index = () => {
       cursorPos.current.x += (cursorTarget.current.x - cursorPos.current.x) * 0.15;
       cursorPos.current.y += (cursorTarget.current.y - cursorPos.current.y) * 0.15;
       if (cursor) {
-        cursor.style.left = `${cursorPos.current.x}px`;
-        cursor.style.top = `${cursorPos.current.y}px`;
+        cursor.style.transform = `translate(${cursorPos.current.x - 6}px, ${cursorPos.current.y - 6}px)`;
       }
       rafId = requestAnimationFrame(lerp);
     };
@@ -77,20 +76,29 @@ const Index = () => {
   return (
     <LanguageProvider>
       <div className="relative min-h-screen" style={{ cursor: 'none' }}>
-        <div ref={cursorRef} className="custom-cursor hidden md:block" />
+        <div ref={cursorRef} className="custom-cursor hidden md:block" style={{ willChange: 'transform' }} />
         <div className="relative z-10">
           <TickerBar />
           <Navigation />
           <HeroSection />
+          <div className="section-divider" />
           <StatsStrip />
+          <div className="section-divider" />
           <MissionSection />
+          <div className="section-divider" />
           <MentorsSection />
           <BecomeAMentorSection />
+          <div className="section-divider" />
           <ProgramSection />
+          <div className="section-divider" />
           <StrategiesSection />
+          <div className="section-divider" />
           <FormatsSection />
+          <div className="section-divider" />
           <ResultsSection />
+          <div className="section-divider" />
           <FAQSection />
+          <div className="section-divider" />
           <ContactSection />
           <FooterSection />
         </div>

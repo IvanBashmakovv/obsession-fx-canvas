@@ -11,19 +11,19 @@ const StrategiesSection = () => {
   const { t, lang } = useLanguage();
 
   return (
-    <section id="strategies" className="py-24 px-6 max-w-7xl mx-auto scroll-mt-20">
-      <p className="font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading" style={{ color: '#D4F000' }}>{t('Strategies', 'Stratégie')}</p>
-      <h2 className="font-heading text-5xl md:text-7xl mb-16 reveal-heading" style={{ color: '#F0EDE6' }}>{t('4 BATTLE-TESTED STRATEGIES.', '4 OVERENÉ STRATÉGIE.')}</h2>
+    <section id="strategies" className="py-24 md:py-32 px-6 md:px-12 max-w-[1280px] mx-auto relative z-10">
+      <p className="font-label text-[10px] tracking-[0.15em] uppercase mb-6 section-tag reveal-heading" style={{ color: '#D4F000' }}>{t('Strategies', 'Stratégie')}</p>
+      <h2 className="font-heading mb-16 reveal-heading" style={{ color: '#F0EDE6', fontSize: 'clamp(40px, 8vw, 96px)' }}>{t('4 BATTLE-TESTED STRATEGIES.', '4 OVERENÉ STRATÉGIE.')}</h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-content">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-content">
         {strategies.map((s, i) => (
-          <div key={s.num} className="relative group strategy-underline strategy-glow glass-card pb-4 px-5 pt-5 cursor-default reveal-card" style={{ transitionDelay: `${i * 100}ms` }}>
-            <span className="font-heading text-[80px] leading-none block" style={{ color: 'rgba(212,240,0,0.06)' }}>{s.num}</span>
+          <div key={s.num} className="relative group strategy-underline strategy-glow glass-card p-8 cursor-default reveal-card" style={{ transitionDelay: `${i * 80}ms` }}>
+            <span className="font-heading text-[80px] leading-none block hide-mobile" style={{ color: 'rgba(212,240,0,0.06)' }}>{s.num}</span>
             <h3 className="font-heading text-3xl group-hover:text-primary transition-colors mt-2" style={{ color: '#F0EDE6' }}>{s.name}</h3>
-            <p className="font-label text-[10px] tracking-[3px] uppercase mt-1 mb-3" style={{ color: '#D4F000', opacity: 0.8 }}>
+            <p className="font-label text-[10px] tracking-[0.15em] uppercase mt-2 mb-4" style={{ color: '#D4F000', opacity: 0.8 }}>
               {lang === 'en' ? s.type_en : s.type_sk}
             </p>
-            <p className="font-body text-sm" style={{ color: '#AAAAAA' }}>
+            <p className="font-body text-sm leading-relaxed" style={{ color: '#AAAAAA' }}>
               {lang === 'en' ? s.desc_en : s.desc_sk}
             </p>
           </div>

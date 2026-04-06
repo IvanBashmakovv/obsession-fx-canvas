@@ -32,47 +32,41 @@ const reviews = [
 ];
 
 const topBorderColors = [
-  'rgba(212,240,0,0.4)',
-  'rgba(240,78,35,0.4)',
-  'rgba(107,95,212,0.4)',
-  'rgba(212,240,0,0.4)',
-  'rgba(240,78,35,0.4)',
-  'rgba(107,95,212,0.4)',
-  'rgba(212,240,0,0.4)',
-  'rgba(240,78,35,0.4)',
-  'rgba(107,95,212,0.4)',
+  'rgba(212,240,0,0.4)', 'rgba(240,78,35,0.4)', 'rgba(107,95,212,0.4)',
+  'rgba(212,240,0,0.4)', 'rgba(240,78,35,0.4)', 'rgba(107,95,212,0.4)',
+  'rgba(212,240,0,0.4)', 'rgba(240,78,35,0.4)', 'rgba(107,95,212,0.4)',
 ];
 
 const ResultsSection = () => {
   const { t, lang } = useLanguage();
 
   return (
-    <section id="reviews" className="py-24 px-6 max-w-7xl mx-auto scroll-mt-20">
-      <p className="font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading" style={{ color: '#D4F000' }}>{t('Testimonials', 'Referencie')}</p>
-      <h2 className="font-heading text-6xl md:text-7xl mb-16 reveal-heading" style={{ color: '#F0EDE6' }}>{t('REAL RESULTS.', 'REÁLNE VÝSLEDKY.')}</h2>
+    <section id="reviews" className="py-24 md:py-32 px-6 md:px-12 max-w-[1280px] mx-auto relative z-10">
+      <p className="font-label text-[10px] tracking-[0.15em] uppercase mb-6 section-tag reveal-heading" style={{ color: '#D4F000' }}>{t('Testimonials', 'Referencie')}</p>
+      <h2 className="font-heading mb-16 reveal-heading" style={{ color: '#F0EDE6', fontSize: 'clamp(48px, 8vw, 96px)' }}>{t('REAL RESULTS.', 'REÁLNE VÝSLEDKY.')}</h2>
 
       <RatingsBar />
 
-      <div className="grid md:grid-cols-3 gap-4 reveal-content">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-content">
         {reviews.map((r, i) => (
-          <div key={i} className="glass-card p-6 flex flex-col reveal-card" style={{
+          <div key={i} className="glass-card p-8 flex flex-col reveal-card" style={{
             borderTop: `2px solid ${topBorderColors[i]}`,
-            transitionDelay: `${i * 80}ms`,
+            transitionDelay: `${i * 60}ms`,
           }}>
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-9 h-9 rounded-full flex items-center justify-center font-heading text-xs" style={{ background: r.bg, color: r.text }}>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center font-heading text-xs" style={{ background: r.bg, color: r.text }}>
                 {r.initials}
               </div>
-              <div className="flex gap-0.5">
+              <div className="flex gap-1">
                 {[1,2,3,4,5].map(s => (
-                  <svg key={s} width="13" height="13" viewBox="0 0 24 24" fill={s <= r.stars ? '#D4F000' : 'rgba(255,255,255,0.08)'} xmlns="http://www.w3.org/2000/svg">
+                  <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill={s <= r.stars ? '#D4F000' : 'rgba(255,255,255,0.08)'} xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                   </svg>
                 ))}
               </div>
             </div>
-            <p className="font-body text-sm flex-1 mb-4" style={{ color: '#BABABA' }}>{lang === 'en' ? r.en : r.sk}</p>
-            <p className="font-label text-[10px] tracking-[1px]" style={{ color: '#888888' }}>
+            <p className="font-body text-sm flex-1 mb-6 leading-relaxed" style={{ color: '#BABABA' }}>{lang === 'en' ? r.en : r.sk}</p>
+            <p className="font-label text-[10px] tracking-[0.08em]" style={{ color: '#888888' }}>
               {r.country} <span style={{ color: '#F0EDE6' }}>{r.handle.split(' · ')[0]}</span> · {r.handle.split(' · ')[1]}
             </p>
           </div>
