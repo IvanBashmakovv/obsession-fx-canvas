@@ -43,33 +43,33 @@ const ProgramSection = () => {
   const { t, lang } = useLanguage();
 
   return (
-    <section id="program" className="py-24 px-6 max-w-7xl mx-auto scroll-mt-20" style={{
+    <section id="program" className="py-24 md:py-32 px-6 md:px-12 max-w-[1280px] mx-auto relative z-10" style={{
       background: 'linear-gradient(135deg, rgba(107,95,212,0.06) 0%, transparent 50%)',
     }}>
-      <p className="font-label text-[10px] tracking-[4px] uppercase mb-4 section-tag reveal-heading" style={{ color: '#D4F000' }}>{t('Curriculum', 'Učebný plán')}</p>
-      <h2 className="font-heading text-6xl md:text-7xl mb-8 reveal-heading" style={{ color: '#F0EDE6' }}>{t('THE PROGRAM.', 'PROGRAM.')}</h2>
+      <p className="font-label text-[10px] tracking-[0.15em] uppercase mb-6 section-tag reveal-heading" style={{ color: '#D4F000' }}>{t('Curriculum', 'Učebný plán')}</p>
+      <h2 className="font-heading mb-8 reveal-heading" style={{ color: '#F0EDE6', fontSize: 'clamp(48px, 8vw, 96px)' }}>{t('THE PROGRAM.', 'PROGRAM.')}</h2>
 
       {/* Stats row */}
-      <div className="flex flex-wrap gap-12 mb-16 reveal-content">
+      <div className="flex flex-wrap gap-16 mb-16 reveal-content">
         {[
           { num: '82+', label: t('lessons', 'lekcií') },
           { num: '20h+', label: t('video explanations', 'video vysvetlení') },
           { num: '4', label: t('strategies', 'stratégie') },
         ].map((s, i) => (
           <div key={i}>
-            <span className="font-heading text-[64px] md:text-[80px] leading-none" style={{ color: '#D4F000' }}>{s.num}</span>
-            <p className="font-body text-xs mt-1 uppercase tracking-[2px]" style={{ color: '#AAAAAA' }}>{s.label}</p>
+            <span className="font-heading leading-none" style={{ color: '#D4F000', fontSize: 'clamp(48px, 6vw, 80px)' }}>{s.num}</span>
+            <p className="font-body text-xs mt-2 uppercase tracking-[0.1em]" style={{ color: '#AAAAAA' }}>{s.label}</p>
           </div>
         ))}
       </div>
 
       {/* Topic grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 reveal-content">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 reveal-content">
         {topics.map((topic, i) => (
           <div
             key={i}
-            className="glass-card p-4 flex flex-col items-center text-center group reveal-card"
-            style={{ transitionDelay: `${i * 50}ms` }}
+            className="glass-card p-4 flex flex-col items-center text-center group reveal-card cursor-default"
+            style={{ transitionDelay: `${i * 60}ms` }}
             onMouseEnter={e => {
               const el = e.currentTarget as HTMLElement;
               el.style.borderColor = i % 2 === 0 ? 'rgba(212,240,0,0.3)' : 'rgba(107,95,212,0.3)';
@@ -83,8 +83,8 @@ const ProgramSection = () => {
               if (icon) icon.style.color = 'rgba(240,237,230,0.7)';
             }}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" className="transition-colors mb-3"
-              style={{ color: 'rgba(240,237,230,0.7)' }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-4"
+              style={{ color: 'rgba(240,237,230,0.7)', transition: 'color 0.2s ease-out' }}>
               {topic.icon}
             </svg>
             <h4 className="font-body text-xs font-semibold mb-1 leading-tight" style={{ color: '#F0EDE6' }}>
@@ -97,7 +97,7 @@ const ProgramSection = () => {
         ))}
       </div>
 
-      <p className="text-center font-body text-sm italic mt-12 reveal-content" style={{ color: '#888888' }}>
+      <p className="text-center font-body text-sm italic mt-16 reveal-content" style={{ color: '#888888', maxWidth: '100%' }}>
         {t(
           'Every topic. No filler. Only what gets you funded.',
           'Každá téma. Žiadna vata. Len to, čo ťa dostane k funded.'

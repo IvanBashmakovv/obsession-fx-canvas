@@ -18,6 +18,12 @@ export default {
         body: ['"Evolventa"', '"Jura"', 'sans-serif'],
         label: ['"Jura"', 'sans-serif'],
       },
+      spacing: {
+        '18': '4.5rem',    /* 72px */
+        '22': '5.5rem',    /* 88px */
+        '26': '6.5rem',    /* 104px */
+        '30': '7.5rem',    /* 120px */
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -54,12 +60,6 @@ export default {
         },
         orange: "hsl(var(--orange))",
         violet: "hsl(var(--violet))",
-        green: "hsl(var(--green))",
-        label: "hsl(var(--text-label))",
-        inactive: "hsl(var(--text-inactive))",
-        dim: "hsl(var(--text-dim))",
-        subtle: "hsl(var(--text-subtle))",
-        soft: "hsl(var(--text-soft))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -73,8 +73,8 @@ export default {
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "calc(var(--radius) - 4px)",
+        sm: "calc(var(--radius) - 8px)",
       },
       keyframes: {
         "accordion-down": {
