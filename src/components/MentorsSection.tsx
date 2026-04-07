@@ -5,12 +5,12 @@ const MentorsSection = () => {
 
   return (
     <section id="mentors" className="py-24 md:py-32 px-6 md:px-12 max-w-[1280px] mx-auto relative z-10">
-      <p className="font-label text-[10px] tracking-[0.15em] uppercase mb-6 section-tag reveal-heading" style={{ color: '#D4F000' }}>{t('Team', 'Tím')}</p>
+      <p className="font-label tracking-[0.15em] uppercase mb-6 section-tag reveal-heading visible text-2xl bg-primary-foreground text-primary" style={{ color: '#D4F000' }}>{t('Team', 'Tím')}</p>
       <h2 className="font-heading mb-16 reveal-heading" style={{ color: '#F0EDE6', fontSize: 'clamp(48px, 8vw, 96px)' }}>{t('OUR MENTORS.', 'NAŠI MENTORI.')}</h2>
 
       <div className="grid md:grid-cols-2 gap-6 reveal-content">
         <div className="glass-card p-8 md:p-12 relative overflow-hidden reveal-card" style={{ transitionDelay: '0ms' }}>
-          <span className="absolute top-4 right-8 font-heading text-[120px] leading-none select-none hide-mobile" style={{ color: 'rgba(212,240,0,0.08)' }}>01</span>
+          <span className="absolute top-4 right-8 font-heading text-[120px] leading-none select-none hide-mobile text-primary bg-secondary" style={{ color: 'rgba(212,240,0,0.08)' }}>01</span>
           <div className="relative z-10">
             <p className="font-label text-[10px] tracking-[0.15em] uppercase mb-3" style={{ color: '#D4F000' }}>{t('Founder · Head Mentor', 'Zakladateľ · Hlavný Mentor')}</p>
             <h3 className="font-heading text-4xl mb-6" style={{ color: '#F0EDE6' }}>IVNB</h3>
@@ -21,15 +21,15 @@ const MentorsSection = () => {
               )}
             </p>
             <div className="flex flex-wrap gap-2">
-              {['Forex', 'Indices', 'Crypto', 'SMC', 'Prop Trading'].map(tag => (
-                <span key={tag} className="font-label text-[10px] tracking-[0.08em] uppercase px-4 py-2"
-                  style={{ background: 'rgba(255,255,255,0.06)', color: '#AAAAAA', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px' }}>{tag}</span>
+              {['Forex', 'Indices', 'Crypto', 'SMC', 'Prop Trading'].map((tag, i) => (
+                <span key={tag} className={`font-label text-[10px] tracking-[0.08em] uppercase px-4 py-2 ${i === 0 ? 'text-primary bg-primary-foreground' : i === 2 ? 'text-primary bg-secondary' : i === 4 ? 'text-primary' : ''}`}
+                  style={{ background: i === 0 || i === 2 ? undefined : 'rgba(255,255,255,0.06)', color: i === 4 ? undefined : '#AAAAAA', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px' }}>{tag}</span>
               ))}
             </div>
           </div>
         </div>
         <div className="glass-card p-8 md:p-12 relative overflow-hidden reveal-card" style={{ transitionDelay: '80ms' }}>
-          <span className="absolute top-4 right-8 font-heading text-[120px] leading-none select-none hide-mobile" style={{ color: 'rgba(212,240,0,0.08)' }}>02</span>
+          <span className="absolute top-4 right-8 font-heading text-[120px] leading-none select-none hide-mobile text-primary" style={{ color: 'rgba(212,240,0,0.08)' }}>02</span>
           <div className="relative z-10">
             <p className="font-label text-[10px] tracking-[0.15em] uppercase mb-3" style={{ color: '#D4F000' }}>{t('Senior Mentor', 'Senior Mentor')}</p>
             <h3 className="font-heading text-4xl mb-6" style={{ color: '#F0EDE6' }}>MENTOR 02</h3>
@@ -39,7 +39,7 @@ const MentorsSection = () => {
                 'Čoskoro. Vyberáme mentorov s výnimočnými výsledkami a hlbokými znalosťami našej pokročilej SMC metodológie.'
               )}
             </p>
-            <span className="font-label text-[10px] tracking-[0.08em] uppercase px-4 py-2"
+            <span className="font-label text-[10px] tracking-[0.08em] uppercase px-4 py-2 text-primary"
               style={{ background: 'rgba(255,255,255,0.06)', color: '#AAAAAA', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px' }}>{t('Coming soon', 'Čoskoro')}</span>
           </div>
         </div>

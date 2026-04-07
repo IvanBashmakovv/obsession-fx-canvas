@@ -30,10 +30,10 @@ const RatingsBar = () => {
               <span key={i} className="text-lg" style={{ color: '#D4F000' }}>★</span>
             ))}
           </div>
-          <p className="font-body text-[11px] mb-4" style={{ color: '#888888' }}>obsession.fx rating</p>
+          <p className="font-body text-[11px] mb-4 text-primary" style={{ color: '#888888' }}>obsession.fx rating</p>
           <div className="flex -space-x-2">
             {['MK', 'TN', 'LP', 'AR'].map((init, i) => (
-              <div key={i} className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.06)', border: '2px solid #0E0E0F' }}>
+              <div key={i} className={`w-8 h-8 rounded-full flex items-center justify-center ${i === 0 ? 'bg-primary' : i === 1 ? 'bg-primary-foreground' : i === 2 ? 'bg-secondary' : ''}`} style={{ background: i > 2 ? 'rgba(255,255,255,0.06)' : undefined, border: '2px solid #0E0E0F' }}>
                 <span className="font-label text-[8px]" style={{ color: '#888888' }}>{init}</span>
               </div>
             ))}

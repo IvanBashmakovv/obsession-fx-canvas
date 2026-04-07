@@ -40,7 +40,7 @@ const FAQSection = () => {
 
   return (
     <section id="faq" className="py-24 md:py-32 px-6 md:px-12 max-w-[1280px] mx-auto relative z-10">
-      <p className="font-label text-[10px] tracking-[0.15em] uppercase mb-6 section-tag reveal-heading" style={{ color: '#D4F000' }}>{t('FAQ', 'Otázky')}</p>
+      <p className="font-label tracking-[0.15em] uppercase mb-6 section-tag reveal-heading visible text-2xl text-primary" style={{ color: '#D4F000' }}>{t('FAQ', 'Otázky')}</p>
       <h2 className="font-heading mb-16 reveal-heading" style={{ color: '#F0EDE6', fontSize: 'clamp(48px, 8vw, 96px)' }}>{t('YOUR QUESTIONS.', 'VAŠE OTÁZKY.')}</h2>
 
       <div className="max-w-3xl reveal-content" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
@@ -48,8 +48,8 @@ const FAQSection = () => {
           const isOpen = open === i;
           return (
             <div key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-              <button onClick={() => setOpen(isOpen ? null : i)} className="w-full flex items-center justify-between py-6 text-left group min-h-[48px]">
-                <span className="font-body text-sm tracking-[0.02em] transition-colors leading-relaxed"
+              <button onClick={() => setOpen(isOpen ? null : i)} className="w-full flex items-center justify-between py-6 text-left group min-h-[48px] text-primary">
+                <span className="font-body text-sm tracking-[0.02em] transition-colors leading-relaxed text-primary"
                   style={{ color: isOpen ? '#F0EDE6' : '#AAAAAA' }}>
                   {lang === 'en' ? f.q_en : f.q_sk}
                 </span>
