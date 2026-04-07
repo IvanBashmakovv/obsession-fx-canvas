@@ -16,9 +16,8 @@ const BecomeAMentorSection = () => {
       <div
         className="max-w-[1280px] mx-auto relative overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, rgba(240,78,35,0.18) 0%, rgba(240,78,35,0.05) 40%, transparent 65%), rgba(14,14,15,0.7)',
+          background: `linear-gradient(135deg, rgba(240,78,35,0.18) 0%, rgba(240,78,35,0.05) 40%, transparent 65%), #161618`,
           borderLeft: '4px solid #F04E23',
-          backdropFilter: 'blur(12px)',
           borderRadius: '12px',
         }}
       >
@@ -46,8 +45,7 @@ const BecomeAMentorSection = () => {
             </p>
             <div className="flex flex-wrap gap-3 mb-8">
               {pills.map((p, i) => (
-                <span key={i} className="font-label text-[10px] tracking-[0.08em] uppercase px-4 py-2"
-                  style={{ background: 'rgba(255,255,255,0.06)', color: '#AAAAAA', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px' }}>
+                <span key={i} className="tag">
                   {t(p.en, p.sk)}
                 </span>
               ))}

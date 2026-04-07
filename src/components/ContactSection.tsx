@@ -28,14 +28,14 @@ const ContactSection = () => {
 
       <div className="grid md:grid-cols-2 reveal-content glass-card overflow-hidden">
         <div className="p-8 md:p-12">
-          <p className="font-body mb-8 leading-relaxed text-primary text-base" style={{ color: '#AAAAAA' }}>
+          <p className="font-body mb-8 leading-relaxed text-base" style={{ color: '#AAAAAA' }}>
             {t("Fill in the form and we'll get back to you within 24 hours.", 'Vyplňte formulár a ozveme sa vám do 24 hodín.')}
           </p>
           <form onSubmit={handleSubmit} className="space-y-8">
             <div>
               <label className="font-label text-[10px] tracking-[0.15em] uppercase block mb-2" style={{ color: '#888888' }}>{t('YOUR NAME', 'VAŠE MENO')}</label>
               <input type="text" value={name} onChange={e => setName(e.target.value)}
-                className="w-full bg-transparent font-body text-sm py-3 focus:outline-none transition-colors min-h-[44px] text-primary"
+                className="w-full bg-transparent font-body text-sm py-3 focus:outline-none transition-colors min-h-[44px]"
                 style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#F0EDE6' }}
                 onFocus={e => e.currentTarget.style.borderBottomColor = 'rgba(212,240,0,0.5)'}
                 onBlur={e => e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.1)'}
@@ -45,22 +45,22 @@ const ContactSection = () => {
             <div>
               <label className="font-label text-[10px] tracking-[0.15em] uppercase block mb-2" style={{ color: '#888888' }}>{t('HOW TO REACH YOU?', 'AKO VÁS KONTAKTOVAŤ?')}</label>
               <select value={platform} onChange={e => setPlatform(e.target.value)}
-                className="w-full bg-transparent font-body text-sm py-3 focus:outline-none transition-colors min-h-[44px] text-primary"
+                className="w-full bg-transparent font-body text-sm py-3 focus:outline-none transition-colors min-h-[44px]"
                 style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#F0EDE6' }}>
-                <option value="Telegram" style={{ background: '#1a1a1b' }}>Telegram</option>
-                <option value="WhatsApp" style={{ background: '#1a1a1b' }}>WhatsApp</option>
-                <option value="Viber" style={{ background: '#1a1a1b' }}>Viber</option>
-                <option value="Instagram" style={{ background: '#1a1a1b' }}>Instagram</option>
+                <option value="Telegram" style={{ background: '#161618' }}>Telegram</option>
+                <option value="WhatsApp" style={{ background: '#161618' }}>WhatsApp</option>
+                <option value="Viber" style={{ background: '#161618' }}>Viber</option>
+                <option value="Instagram" style={{ background: '#161618' }}>Instagram</option>
               </select>
             </div>
             <div>
-              <label className="font-label text-[10px] tracking-[0.15em] uppercase block mb-2 text-primary" style={{ color: '#888888' }}>{t('FORMAT INTEREST', 'ZÁUJEM O FORMÁT')}</label>
+              <label className="font-label text-[10px] tracking-[0.15em] uppercase block mb-2" style={{ color: '#888888' }}>{t('FORMAT INTEREST', 'ZÁUJEM O FORMÁT')}</label>
               <select value={format} onChange={e => setFormat(e.target.value)}
-                className="w-full bg-transparent font-body text-sm py-3 focus:outline-none transition-colors min-h-[44px] text-primary"
+                className="w-full bg-transparent font-body text-sm py-3 focus:outline-none transition-colors min-h-[44px]"
                 style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#F0EDE6' }}>
-                <option value="Education" style={{ background: '#1a1a1b' }}>Education</option>
-                <option value="Education PRO" style={{ background: '#1a1a1b' }}>Education PRO</option>
-                <option value="Become a Mentor" style={{ background: '#1a1a1b' }}>{t('Become a Mentor', 'Staň sa mentorom')}</option>
+                <option value="Education" style={{ background: '#161618' }}>Education</option>
+                <option value="Education PRO" style={{ background: '#161618' }}>Education PRO</option>
+                <option value="Become a Mentor" style={{ background: '#161618' }}>{t('Become a Mentor', 'Staň sa mentorom')}</option>
               </select>
             </div>
             <button type="submit" disabled={sent}
@@ -73,7 +73,7 @@ const ContactSection = () => {
           </form>
         </div>
 
-        <div className="p-8 md:p-12" style={{ background: 'rgba(255,255,255,0.03)' }}>
+        <div className="p-8 md:p-12" style={{ background: '#161618' }}>
           <h3 className="font-heading text-3xl md:text-4xl mb-8" style={{ color: '#F0EDE6' }}>
             <span style={{ color: '#D4F000' }}>{t('OBSESSION', 'POSADNUTOSŤ')}</span><br />
             {t('BEATS TALENT.', 'PORÁŽA TALENT.')}
@@ -91,7 +91,6 @@ const ContactSection = () => {
               </a>
             ))}
           </div>
-          <p className="font-body text-xs mt-8" style={{ color: '#555555' }}>{"\n"}</p>
         </div>
       </div>
     </section>

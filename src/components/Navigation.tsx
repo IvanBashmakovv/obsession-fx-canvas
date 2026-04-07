@@ -43,20 +43,20 @@ const Navigation = () => {
           </span>
         </div>
 
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-2">
           {links.map(l => (
             <button key={l.href} onClick={() => scrollTo(l.href)}
-              className="font-body text-xs tracking-[0.1em] uppercase transition-colors min-h-[44px] flex items-center bg-primary-foreground text-primary"
-              style={{ color: '#9A9A9A' }}
-              onMouseEnter={e => e.currentTarget.style.color = '#F0EDE6'}
-              onMouseLeave={e => e.currentTarget.style.color = '#9A9A9A'}>
+              className="font-body text-xs tracking-[0.1em] uppercase transition-all min-h-[44px] flex items-center px-4 py-2"
+              style={{ color: '#9A9A9A', background: 'transparent', borderRadius: '6px' }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#F0EDE6'; e.currentTarget.style.background = '#1E1E21'; }}
+              onMouseLeave={e => { e.currentTarget.style.color = '#9A9A9A'; e.currentTarget.style.background = 'transparent'; }}>
               {l.label}
             </button>
           ))}
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="flex rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+          <div className="flex rounded-full overflow-hidden" style={{ background: '#1E1E21' }}>
             <button onClick={() => setLang('en')}
               className="px-4 py-2 text-xs font-label font-bold transition-colors min-w-[40px]"
               style={lang === 'en' ? { background: '#D4F000', color: '#0E0E0F' } : { color: '#9A9A9A' }}>
@@ -86,8 +86,10 @@ const Navigation = () => {
         <div className="lg:hidden px-6 py-6 flex flex-col gap-4" style={{ backgroundColor: 'rgba(14,14,15,0.97)', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           {links.map(l => (
             <button key={l.href} onClick={() => scrollTo(l.href)}
-              className="font-body text-sm tracking-[0.1em] uppercase transition-colors text-left min-h-[44px] flex items-center"
-              style={{ color: '#9A9A9A' }}>
+              className="font-body text-sm tracking-[0.1em] uppercase transition-all text-left min-h-[44px] flex items-center px-4 py-2"
+              style={{ color: '#9A9A9A', borderRadius: '6px' }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#F0EDE6'; e.currentTarget.style.background = '#1E1E21'; }}
+              onMouseLeave={e => { e.currentTarget.style.color = '#9A9A9A'; e.currentTarget.style.background = 'transparent'; }}>
               {l.label}
             </button>
           ))}

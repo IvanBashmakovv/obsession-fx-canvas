@@ -48,7 +48,7 @@ const HeroSection = () => {
         />
       ))}
 
-      <p className="font-label tracking-[4px] uppercase mb-8 section-tag relative z-10" style={{ color: '#D4F000', opacity: 0.9, letterSpacing: '0.15em' }}>
+      <p className="font-label tracking-[0.15em] uppercase mb-8 section-tag relative z-10 text-lg" style={{ color: '#D4F000', opacity: 0.9 }}>
         OBSESSION.FX · ADVANCED SMC 
       </p>
       <h1 className="font-heading leading-[0.88] relative z-10" style={{ fontSize: 'clamp(64px, 11vw, 140px)' }}>
@@ -70,14 +70,14 @@ const HeroSection = () => {
           <div className="flex gap-4">
             <button onClick={() => scrollTo('#formats')}
               className="font-body text-xs font-bold tracking-[0.15em] uppercase px-8 py-4 transition-all min-h-[48px]"
-              style={{ background: '#D4F000', color: '#0E0E0F' }}
+              style={{ background: '#D4F000', color: '#0E0E0F', borderRadius: '12px' }}
               onMouseEnter={e => { e.currentTarget.style.background = '#C4E000'; e.currentTarget.style.boxShadow = '0 0 32px rgba(212,240,0,0.35)'; }}
               onMouseLeave={e => { e.currentTarget.style.background = '#D4F000'; e.currentTarget.style.boxShadow = 'none'; }}>
               {t('VIEW FORMATS →', 'ZOBRAZIŤ FORMÁTY →')}
             </button>
             <button onClick={() => scrollTo('#program')}
               className="font-body text-xs font-bold tracking-[0.15em] uppercase px-8 py-4 transition-all min-h-[48px]"
-              style={{ border: '1px solid rgba(240,237,230,0.25)', color: '#F0EDE6', background: 'transparent' }}
+              style={{ border: '1px solid rgba(240,237,230,0.25)', color: '#F0EDE6', background: 'transparent', borderRadius: '12px' }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = '#D4F000'; e.currentTarget.style.color = '#D4F000'; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(240,237,230,0.25)'; e.currentTarget.style.color = '#F0EDE6'; }}>
               {t('EXPLORE PROGRAM', 'PRESKÚMAŤ PROGRAM')}

@@ -5,9 +5,9 @@ const MissionSection = () => {
 
   return (
     <section id="mission" className="py-24 md:py-32 px-6 md:px-12 max-w-[1280px] mx-auto relative z-10">
-      <p className="font-label tracking-[0.15em] uppercase mb-6 section-tag reveal-heading text-2xl text-primary" style={{ color: '#D4F000' }}>{t('Who we are', 'Kto sme')}</p>
+      <p className="font-label tracking-[0.15em] uppercase mb-6 section-tag reveal-heading text-2xl" style={{ color: '#D4F000' }}>{t('Who we are', 'Kto sme')}</p>
       <h2 className="font-heading mb-16 reveal-heading" style={{ color: '#F0EDE6', fontSize: 'clamp(48px, 8vw, 96px)' }}>
-        {t('WE ARE A ', 'SME ')}<span className="text-primary" style={{ WebkitTextStroke: '1px rgba(240,237,230,0.2)', color: 'transparent' }}>{t('MOVEMENT.', 'HNUTIE.')}</span>
+        {t('WE ARE A ', 'SME ')}<span style={{ WebkitTextStroke: '1px rgba(240,237,230,0.2)', color: 'transparent' }}>{t('MOVEMENT.', 'HNUTIE.')}</span>
       </h2>
 
       <div className="grid md:grid-cols-2 gap-16 mb-16 reveal-content">
