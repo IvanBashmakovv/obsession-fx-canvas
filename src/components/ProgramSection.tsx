@@ -43,10 +43,8 @@ const ProgramSection = () => {
   const { t, lang } = useLanguage();
 
   return (
-    <section id="program" className="py-24 md:py-32 px-6 md:px-12 max-w-[1280px] mx-auto relative z-10" style={{
-      background: 'linear-gradient(135deg, rgba(107,95,212,0.06) 0%, transparent 50%)',
-    }}>
-      <p className="font-label tracking-[0.15em] uppercase mb-6 section-tag reveal-heading visible text-2xl bg-primary-foreground text-primary" style={{ color: '#D4F000' }}>{t('Curriculum', 'Učebný plán')}</p>
+    <section id="program" className="py-24 md:py-32 px-6 md:px-12 max-w-[1280px] mx-auto relative z-10">
+      <p className="font-label tracking-[0.15em] uppercase mb-6 section-tag reveal-heading text-2xl" style={{ color: '#D4F000' }}>{t('Curriculum', 'Učebný plán')}</p>
       <h2 className="font-heading mb-8 reveal-heading" style={{ color: '#F0EDE6', fontSize: 'clamp(48px, 8vw, 96px)' }}>{t('THE PROGRAM.', 'PROGRAM.')}</h2>
 
       {/* Stats row */}
@@ -97,7 +95,7 @@ const ProgramSection = () => {
         ))}
       </div>
 
-      <p className="text-center font-body text-sm italic mt-16 reveal-content visible text-primary shadow-md" style={{ color: '#888888', maxWidth: '100%' }}>
+      <p className="text-center font-body text-sm italic mt-16 reveal-content" style={{ color: '#888888', maxWidth: '100%' }}>
         {t(
           'Every topic. No filler. Only what gets you funded.',
           'Každá téma. Žiadna vata. Len to, čo ťa dostane k funded.'

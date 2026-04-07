@@ -53,7 +53,7 @@ const StatsStrip = () => {
   ];
 
   return (
-    <section ref={ref} className="section-alt-bg py-12 md:py-16 bg-primary" style={{
+    <section ref={ref} className="stats-strip-bg py-12 md:py-16" style={{
       borderTop: '1px solid transparent',
       borderBottom: '1px solid transparent',
       borderImage: 'linear-gradient(90deg, transparent 0%, rgba(212,240,0,0.2) 30%, rgba(240,78,35,0.15) 70%, transparent 100%) 1',
@@ -62,7 +62,7 @@ const StatsStrip = () => {
         {stats.map((s, i) => (
           <div key={i} className="text-center py-4">
             <div className="font-heading text-5xl md:text-6xl" style={{ color: '#D4F000' }}>{s.num}</div>
-            <div className="font-label text-[10px] tracking-[0.15em] uppercase mt-2 text-primary" style={{ color: '#AAAAAA' }}>{s.label}</div>
+            <div className="font-label text-[10px] tracking-[0.15em] uppercase mt-2" style={{ color: '#AAAAAA' }}>{s.label}</div>
           </div>
         ))}
       </div>

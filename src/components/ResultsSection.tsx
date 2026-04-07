@@ -11,7 +11,7 @@ const reviews = [
   { initials: 'LP', bg: '#6B5FD4', text: '#F0EDE6', country: '🇸🇰', handle: '@lukas.p · Slovakia', stars: 5,
     en: "The 4 strategies alone are worth it. I finally understand the difference between static and dynamic setups. No other course explained this properly.",
     sk: 'Samotné 4 stratégie za to stoja. Konečne chápem rozdiel medzi statickými a dynamickými setupmi. Žiadny iný kurz to poriadne nevysvetlil.' },
-  { initials: 'AR', bg: 'rgba(255,255,255,0.06)', text: '#F0EDE6', country: '🇵🇱', handle: '@adam.r · Poland', stars: 5,
+  { initials: 'AR', bg: '#1E1E21', text: '#F0EDE6', country: '🇵🇱', handle: '@adam.r · Poland', stars: 5,
     en: "What I appreciate most is the honesty. They don't promise you'll be rich in 3 months. They just give you the tools and let you do the work.",
     sk: 'Najviac si cením úprimnosť. Nesľubujú, že budeš bohatý za 3 mesiace. Len ti dajú nástroje a nechajú ťa pracovať.' },
   { initials: 'JH', bg: '#D4F000', text: '#0E0E0F', country: '🇸🇰', handle: '@juraj.h · Slovakia', stars: 5,
@@ -20,7 +20,7 @@ const reviews = [
   { initials: 'SM', bg: '#6B5FD4', text: '#F0EDE6', country: '🇦🇹', handle: '@stefan.m · Austria', stars: 5,
     en: "Compact. Dense. No YouTube-style padding. This is the course I wished existed when I started trading two years ago.",
     sk: 'Kompaktný. Hutný. Žiadne YouTube-štýlové natahanie. Toto je kurz, ktorý som si prial, keď som pred dvoma rokmi začal obchodovať.' },
-  { initials: 'DK', bg: 'rgba(255,255,255,0.06)', text: '#F0EDE6', country: '🇸🇰', handle: '@daniel.k · Slovakia', stars: 5,
+  { initials: 'DK', bg: '#1E1E21', text: '#F0EDE6', country: '🇸🇰', handle: '@daniel.k · Slovakia', stars: 5,
     en: "The sessions module completely changed how I look at timing entries. I was randomly trading all day before — now I have specific windows and a clear process.",
     sk: 'Modul sessions úplne zmenil, ako sa pozerám na timing vstupov. Predtým som obchodoval celý deň náhodne — teraz mám konkrétne okná a jasný proces.' },
   { initials: 'MB', bg: '#F04E23', text: '#F0EDE6', country: '🇭🇺', handle: '@mate.b · Hungary', stars: 5,
@@ -42,7 +42,7 @@ const ResultsSection = () => {
 
   return (
     <section id="reviews" className="py-24 md:py-32 px-6 md:px-12 max-w-[1280px] mx-auto relative z-10">
-      <p className="font-label tracking-[0.15em] uppercase mb-6 section-tag reveal-heading visible text-2xl text-primary" style={{ color: '#D4F000' }}>{t('Testimonials', 'Referencie')}</p>
+      <p className="font-label tracking-[0.15em] uppercase mb-6 section-tag reveal-heading text-2xl" style={{ color: '#D4F000' }}>{t('Testimonials', 'Referencie')}</p>
       <h2 className="font-heading mb-16 reveal-heading" style={{ color: '#F0EDE6', fontSize: 'clamp(48px, 8vw, 96px)' }}>{t('REAL RESULTS.', 'REÁLNE VÝSLEDKY.')}</h2>
 
       <RatingsBar />
@@ -66,7 +66,7 @@ const ResultsSection = () => {
               </div>
             </div>
             <p className="font-body text-sm flex-1 mb-6 leading-relaxed" style={{ color: '#BABABA' }}>{lang === 'en' ? r.en : r.sk}</p>
-            <p className="font-label tracking-[0.08em] text-base text-primary" style={{ color: '#888888' }}>
+            <p className="font-label tracking-[0.08em] text-xs" style={{ color: '#888888' }}>
               {r.country} <span style={{ color: '#F0EDE6' }}>{r.handle.split(' · ')[0]}</span> · {r.handle.split(' · ')[1]}
             </p>
           </div>
