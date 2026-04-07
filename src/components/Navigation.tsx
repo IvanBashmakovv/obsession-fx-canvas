@@ -46,7 +46,7 @@ const Navigation = () => {
         <div className="hidden lg:flex items-center gap-8">
           {links.map(l => (
             <button key={l.href} onClick={() => scrollTo(l.href)}
-              className="font-body text-xs tracking-[0.1em] uppercase transition-colors min-h-[44px] flex items-center"
+              className="font-body text-xs tracking-[0.1em] uppercase transition-colors min-h-[44px] flex items-center bg-primary-foreground text-primary"
               style={{ color: '#9A9A9A' }}
               onMouseEnter={e => e.currentTarget.style.color = '#F0EDE6'}
               onMouseLeave={e => e.currentTarget.style.color = '#9A9A9A'}>

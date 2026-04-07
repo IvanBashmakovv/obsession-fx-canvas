@@ -29,13 +29,13 @@ const FormatsSection = () => {
 
   return (
     <section id="formats" className="py-24 md:py-32 px-6 md:px-12 max-w-[1280px] mx-auto section-alt-bg relative z-10">
-      <p className="font-label text-[10px] tracking-[0.15em] uppercase mb-6 section-tag reveal-heading" style={{ color: '#D4F000' }}>{t('Formats', 'Formáty')}</p>
+      <p className="font-label tracking-[0.15em] uppercase mb-6 section-tag reveal-heading visible text-2xl text-primary" style={{ color: '#D4F000' }}>{t('Formats', 'Formáty')}</p>
       <h2 className="font-heading mb-16 reveal-heading" style={{ color: '#F0EDE6', fontSize: 'clamp(48px, 8vw, 96px)' }}>{t('CHOOSE YOUR PATH.', 'VYBER SI SVOJU CESTU.')}</h2>
 
       <div className="grid md:grid-cols-2 gap-8 reveal-content">
         {/* EDUCATION */}
         <div className="glass-card p-8 md:p-10 flex flex-col reveal-card" style={{ transitionDelay: '0ms' }}>
-          <span className="font-label text-[10px] tracking-[0.08em] uppercase px-4 py-2 self-start mb-6"
+          <span className="font-label tracking-[0.08em] uppercase px-4 py-2 self-start mb-6 text-primary bg-primary-foreground text-sm"
             style={{ background: 'rgba(255,255,255,0.06)', color: '#AAAAAA', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px' }}>
             {t('Self-study', 'Samoštúdium')}
           </span>
@@ -44,9 +44,9 @@ const FormatsSection = () => {
             {t('Self-paced · your schedule', 'Vlastné tempo · tvoj rozvrh')}
           </p>
           <div className="mb-8">
-            <span className="font-body text-sm line-through mr-4" style={{ color: '#444444' }}>399€</span>
+            <span className="font-body text-sm line-through mr-4 bg-primary-foreground text-primary" style={{ color: '#444444' }}>399€</span>
             <span className="font-heading text-[52px] leading-none" style={{ color: '#F0EDE6' }}>299€</span>
-            <p className="font-body text-[11px] mt-2" style={{ color: '#777777' }}>{t('One-time payment', 'Jednorázová platba')}</p>
+            <p className="font-body text-[11px] mt-2 text-primary" style={{ color: '#777777' }}>{t('One-time payment', 'Jednorázová platba')}</p>
           </div>
           <div className="space-y-4 flex-1">
             {features.map((f, i) => (
@@ -61,8 +61,8 @@ const FormatsSection = () => {
           </div>
           {communityBanner}
           <div className="mt-8 pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-            <p className="font-label text-[10px] tracking-[0.1em] uppercase mb-2" style={{ color: '#777777' }}>{t('Community access', 'Prístup do komunity')}</p>
-            <p className="font-body text-sm mb-6" style={{ color: '#AAAAAA' }}>{t('Monthly subscription', 'Mesačné predplatné')}</p>
+            <p className="font-label text-[10px] tracking-[0.1em] uppercase mb-2 text-primary" style={{ color: '#777777' }}>{t('Community access', 'Prístup do komunity')}</p>
+            <p className="font-body text-sm mb-6 text-primary" style={{ color: '#AAAAAA' }}>{t('Monthly subscription', 'Mesačné predplatné')}</p>
             <button onClick={scrollToContact}
               className="w-full font-body text-xs font-bold tracking-[0.15em] uppercase py-4 transition-all min-h-[48px]"
               style={{ border: '1px solid rgba(240,237,230,0.25)', color: '#F0EDE6', background: 'transparent', borderRadius: '12px' }}
@@ -114,7 +114,7 @@ const FormatsSection = () => {
             <div className="px-8 py-4" style={{ border: '2px solid #D4F000', borderRadius: '12px' }}>
               <span className="font-heading text-[64px] leading-none" style={{ color: '#D4F000' }}>SOLD OUT</span>
             </div>
-            <p className="font-body text-sm mt-6" style={{ color: '#666666' }}>{t('Next intake — contact us', 'Ďalší nábor — kontaktujte nás')}</p>
+            <p className="font-body text-sm mt-6 text-primary" style={{ color: '#666666' }}>{t('Next intake — contact us', 'Ďalší nábor — kontaktujte nás')}</p>
           </div>
 
           {/* Ticker */}

@@ -48,8 +48,8 @@ const HeroSection = () => {
         />
       ))}
 
-      <p className="font-label text-[10px] tracking-[4px] uppercase mb-8 section-tag relative z-10" style={{ color: '#D4F000', opacity: 0.9, letterSpacing: '0.15em' }}>
-        — obsession.fx · advanced smc · slovakia
+      <p className="font-label tracking-[4px] uppercase mb-8 section-tag relative z-10" style={{ color: '#D4F000', opacity: 0.9, letterSpacing: '0.15em' }}>
+        OBSESSION.FX · ADVANCED SMC 
       </p>
       <h1 className="font-heading leading-[0.88] relative z-10" style={{ fontSize: 'clamp(64px, 11vw, 140px)' }}>
         <span className="block text-shimmer-white">{t('OBSESSION', 'POSADNUTOSŤ')}</span>

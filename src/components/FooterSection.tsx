@@ -37,7 +37,7 @@ const FooterSection = () => {
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 py-16 grid grid-cols-2 md:grid-cols-4 gap-12">
         {/* Social */}
         <div>
-          <p className="font-body text-[13px] font-bold mb-6" style={{ color: '#F0EDE6' }}>{t('Follow us', 'Sleduj nás')}</p>
+          <p className="font-body font-bold mb-6 text-xl" style={{ color: '#F0EDE6' }}>{t('Follow us', 'Sleduj nás')}</p>
           <div className="flex gap-3">
             {[
               { href: 'https://t.me/obsessionfx', icon: <path d="M21 5L2 12.5L9 13.5M21 5L18.5 20L9 13.5M21 5L9 13.5M9 13.5V19L12.2 15.7" stroke="currentColor" strokeWidth="1.5" fill="none" /> },
@@ -47,7 +47,7 @@ const FooterSection = () => {
               { href: '#', icon: <><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" strokeWidth="1.5" fill="none" /><path d="M10 9L15 12L10 15V9Z" fill="currentColor" /></> },
             ].map((s, i) => (
               <a key={i} href={s.href} target="_blank" rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg flex items-center justify-center transition-all min-w-[44px] min-h-[44px]"
+                className="w-10 h-10 rounded-lg flex items-center justify-center transition-all min-w-[44px] min-h-[44px] text-primary"
                 style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', color: '#777777' }}
                 onMouseEnter={e => { e.currentTarget.style.color = '#D4F000'; e.currentTarget.style.background = 'rgba(212,240,0,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,240,0,0.2)'; }}
                 onMouseLeave={e => { e.currentTarget.style.color = '#777777'; e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}>
@@ -59,11 +59,11 @@ const FooterSection = () => {
 
         {/* Quick Links */}
         <div>
-          <p className="font-body text-[13px] font-bold mb-6" style={{ color: '#F0EDE6' }}>{t('Quick Links', 'Rýchle odkazy')}</p>
+          <p className="font-body font-bold mb-6 text-xl" style={{ color: '#F0EDE6' }}>{t('Quick Links', 'Rýchle odkazy')}</p>
           <div className="flex flex-col gap-3">
             {quickLinks.map((l, i) => (
               <button key={i} onClick={() => scrollTo(l.id)}
-                className="text-left font-body text-[13px] transition-colors min-h-[32px] flex items-center"
+                className="text-left font-body text-[13px] transition-colors min-h-[32px] flex items-center text-primary"
                 style={{ color: '#666666' }}
                 onMouseEnter={e => e.currentTarget.style.color = '#F0EDE6'}
                 onMouseLeave={e => e.currentTarget.style.color = '#666666'}>
@@ -75,21 +75,21 @@ const FooterSection = () => {
 
         {/* Education */}
         <div>
-          <p className="font-body text-[13px] font-bold mb-6" style={{ color: '#F0EDE6' }}>Education</p>
+          <p className="font-body font-bold mb-6 text-xl" style={{ color: '#F0EDE6' }}>Education</p>
           <div className="flex flex-col gap-3">
             {eduLinks.map((l, i) => (
-              <span key={i} className="font-body text-[13px]" style={{ color: '#666666' }}>{l}</span>
+              <span key={i} className="font-body text-[13px] text-primary" style={{ color: '#666666' }}>{l}</span>
             ))}
           </div>
         </div>
 
         {/* Contact */}
         <div>
-          <p className="font-body text-[13px] font-bold mb-6" style={{ color: '#F0EDE6' }}>{t('Get in touch', 'Kontaktuj nás')}</p>
+          <p className="font-body font-bold mb-6 text-xl" style={{ color: '#F0EDE6' }}>{t('Get in touch', 'Kontaktuj nás')}</p>
           <div className="flex flex-col gap-3 font-body text-[13px]" style={{ color: '#666666' }}>
-            <span>Telegram: @obsessionfx</span>
-            <span>WhatsApp: +421 951 701 758</span>
-            <span>Email: ivan.b@thaurusguru.com</span>
+            <span className="text-primary">Telegram: @obsessionfx</span>
+            <span className="text-primary">WhatsApp: +421 951 701 758</span>
+            <span className="text-primary">{"\n"}</span>
           </div>
           <button onClick={() => scrollTo('#contact')}
             className="mt-6 font-body text-[10px] font-bold tracking-[0.15em] uppercase px-6 py-3 transition-all min-h-[44px]"
@@ -104,10 +104,10 @@ const FooterSection = () => {
         <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <OFXLogo size={16} />
-            <span className="font-body text-[11px]" style={{ color: '#444444' }}>© 2025 obsession.fx · All rights reserved.</span>
+            <span className="font-body text-[11px] text-primary" style={{ color: '#444444' }}>© 2026 Obsession.fx · All rights reserved.</span>
           </div>
-          <span className="font-body text-[11px]" style={{ color: '#444444' }}>
-            <span className="cursor-pointer transition-colors hover:text-[#888888]">Terms & Conditions</span> · <span className="cursor-pointer transition-colors hover:text-[#888888]">Privacy Policy</span> · <span className="cursor-pointer transition-colors hover:text-[#888888]">Cookies Policy</span>
+          <span className="font-body text-[11px] text-primary" style={{ color: '#444444' }}>
+            <span className="cursor-pointer transition-colors text-primary">Terms & Conditions</span> · <span className="cursor-pointer transition-colors text-primary">Privacy Policy</span> · <span className="cursor-pointer transition-colors text-primary">Cookies Policy</span>
           </span>
         </div>
       </div>

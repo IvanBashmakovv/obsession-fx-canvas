@@ -42,7 +42,7 @@ const ResultsSection = () => {
 
   return (
     <section id="reviews" className="py-24 md:py-32 px-6 md:px-12 max-w-[1280px] mx-auto relative z-10">
-      <p className="font-label text-[10px] tracking-[0.15em] uppercase mb-6 section-tag reveal-heading" style={{ color: '#D4F000' }}>{t('Testimonials', 'Referencie')}</p>
+      <p className="font-label tracking-[0.15em] uppercase mb-6 section-tag reveal-heading visible text-2xl text-primary" style={{ color: '#D4F000' }}>{t('Testimonials', 'Referencie')}</p>
       <h2 className="font-heading mb-16 reveal-heading" style={{ color: '#F0EDE6', fontSize: 'clamp(48px, 8vw, 96px)' }}>{t('REAL RESULTS.', 'REÁLNE VÝSLEDKY.')}</h2>
 
       <RatingsBar />
@@ -66,7 +66,7 @@ const ResultsSection = () => {
               </div>
             </div>
             <p className="font-body text-sm flex-1 mb-6 leading-relaxed" style={{ color: '#BABABA' }}>{lang === 'en' ? r.en : r.sk}</p>
-            <p className="font-label text-[10px] tracking-[0.08em]" style={{ color: '#888888' }}>
+            <p className="font-label tracking-[0.08em] text-base text-primary" style={{ color: '#888888' }}>
               {r.country} <span style={{ color: '#F0EDE6' }}>{r.handle.split(' · ')[0]}</span> · {r.handle.split(' · ')[1]}
             </p>
           </div>
