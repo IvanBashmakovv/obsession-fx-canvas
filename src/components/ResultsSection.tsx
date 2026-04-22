@@ -1,5 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import RatingsBar from './RatingsBar';
+import certificateMartinK from '@/assets/certificate-martin-k.jpg';
 
 const reviews = [
   { initials: 'MK', bg: '#D4F000', text: '#0E0E0F', country: '🇸🇰', handle: '@martin.k · Slovakia', stars: 5,
@@ -66,6 +67,11 @@ const ResultsSection = () => {
               </div>
             </div>
             <p className="font-body text-sm flex-1 mb-6 leading-relaxed" style={{ color: '#BABABA' }}>{lang === 'en' ? r.en : r.sk}</p>
+            {i === 0 && (
+              <a href={certificateMartinK} target="_blank" rel="noopener noreferrer" className="block mb-4 rounded-lg overflow-hidden border border-white/10 hover:border-[#D4F000]/40 transition-all">
+                <img src={certificateMartinK} alt="Certificate of Payout — Martin K." loading="lazy" className="w-full h-auto block" />
+              </a>
+            )}
             <p className="font-label tracking-[0.08em] text-xs" style={{ color: '#888888' }}>
               {r.country} <span style={{ color: '#F0EDE6' }}>{r.handle.split(' · ')[0]}</span> · {r.handle.split(' · ')[1]}
             </p>
