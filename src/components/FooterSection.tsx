@@ -23,7 +23,7 @@ const FooterSection = () => {
   ];
 
   return (
-    <footer className="relative mt-16" style={{ background: 'rgba(14,14,15,0.95)', borderRadius: '24px 24px 0 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+    <footer className="relative mt-16" style={{ background: 'rgba(8,8,16,0.85)', backdropFilter: 'blur(40px)', WebkitBackdropFilter: 'blur(40px)', borderRadius: '24px 24px 0 0', borderTop: '1px solid rgba(212,240,0,0.08)' }}>
       {/* Watermark */}
       <div className="overflow-hidden pt-16 text-center select-none pointer-events-none hide-mobile">
         <p className="font-heading leading-none" style={{ fontSize: 'clamp(80px, 15vw, 180px)', color: 'rgba(212,240,0,0.04)' }}>OBSESSION</p>

@@ -73,7 +73,7 @@ const ContactSection = () => {
           </form>
         </div>
 
-        <div className="p-8 md:p-12" style={{ background: '#161618' }}>
+        <div className="p-8 md:p-12" style={{ background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' }}>
           <h3 className="font-heading text-3xl md:text-4xl mb-8" style={{ color: '#F0EDE6' }}>
             <span style={{ color: '#D4F000' }}>{t('OBSESSION', 'POSADNUTOSŤ')}</span><br />
             {t('BEATS TALENT.', 'PORÁŽA TALENT.')}

@@ -14,11 +14,14 @@ const BecomeAMentorSection = () => {
   return (
     <section className="py-24 md:py-32 px-6 md:px-12 relative z-10">
       <div
-        className="max-w-[1280px] mx-auto relative overflow-hidden"
+        className="max-w-[1280px] mx-auto relative overflow-hidden mentor-section"
         style={{
-          background: `linear-gradient(135deg, rgba(240,78,35,0.18) 0%, rgba(240,78,35,0.05) 40%, transparent 65%), #161618`,
+          background: `linear-gradient(135deg, rgba(240,78,35,0.15) 0%, rgba(240,78,35,0.06) 30%, transparent 60%)`,
           borderLeft: '4px solid #F04E23',
           borderRadius: '12px',
+          boxShadow: 'inset 4px 0 60px rgba(240,78,35,0.08)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
         }}
       >
         <div className="grid md:grid-cols-2 gap-16 p-8 md:p-16">
