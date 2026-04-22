@@ -66,7 +66,7 @@ const ResultsSection = () => {
                 ))}
               </div>
             </div>
-            <p className="font-body text-sm flex-1 mb-6 leading-relaxed" style={{ color: '#BABABA' }}>{lang === 'en' ? r.en : r.sk}</p>
+            <p className="font-body text-sm flex-1 mb-6 leading-relaxed text-primary" style={{ color: '#BABABA' }}>{lang === 'en' ? r.en : r.sk}</p>
             {i === 0 && (
               <a href={certificateMartinK} target="_blank" rel="noopener noreferrer" className="block mb-4 rounded-lg overflow-hidden border border-white/10 hover:border-[#D4F000]/40 transition-all">
                 <img src={certificateMartinK} alt="Certificate of Payout — Martin K." loading="lazy" className="w-full h-auto block" />

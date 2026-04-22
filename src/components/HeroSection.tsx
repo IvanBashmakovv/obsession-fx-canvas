@@ -31,7 +31,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="hero-section min-h-screen flex flex-col justify-end px-6 md:px-12 pb-16 md:pb-24 pt-32 max-w-[1280px] mx-auto hero-animate relative overflow-hidden">
+    <section className="hero-section min-h-screen flex flex-col justify-end px-6 md:px-12 pb-16 md:pb-24 pt-32 max-w-[1280px] mx-auto hero-animate relative overflow-hidden text-primary">
       <div className="hero-spotlight hide-mobile" aria-hidden="true" />
       {particles.map(p => (
         <div
@@ -62,7 +62,7 @@ const HeroSection = () => {
 
       <div className="mt-16 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12 relative z-10">
         <div>
-          <p className="font-body text-sm max-w-md mb-8 leading-relaxed" style={{ color: '#C0C0C0' }}>
+          <p className="font-body mb-8 leading-relaxed text-base text-primary" style={{ color: '#C0C0C0' }}>
             {t(
               "We've watched enough trading courses to know exactly what's wrong with them. So we built the opposite — zero filler, only what actually gets you funded.",
               "Videli sme dosť trading kurzov na to, aby sme vedeli, čo im chýba. Preto sme postavili opak — žiadna vata, len to, čo ťa skutočne dostane k funded účtu."
@@ -87,7 +87,7 @@ const HeroSection = () => {
         </div>
 
         <div className="text-right">
-          <p className="font-label text-[10px] tracking-[0.15em] uppercase mb-4" style={{ color: '#888888' }}>
+          <p className="font-label text-[10px] tracking-[0.15em] uppercase mb-2 text-primary" style={{ color: '#888888' }}>
             {t('Next intake starts in', 'Ďalší kurz začína o')}
           </p>
           <div className="flex gap-6">
