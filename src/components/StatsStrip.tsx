@@ -61,7 +61,7 @@ const StatsStrip = () => {
       <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-6 md:px-12">
         {stats.map((s, i) => (
           <div key={i} className="text-center py-4">
-            <div className="font-heading text-5xl md:text-6xl" style={{ color: '#D4F000' }}>{s.num}</div>
+            <div className="font-heading text-5xl md:text-6xl stat-number" style={{ color: '#D4F000' }}>{s.num}</div>
             <div className="font-label text-[10px] tracking-[0.15em] uppercase mt-2" style={{ color: '#AAAAAA' }}>{s.label}</div>
           </div>
         ))}

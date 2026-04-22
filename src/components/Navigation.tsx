@@ -30,10 +30,11 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 nav-transition"
       style={{
-        backgroundColor: scrolled ? 'rgba(14,14,15,0.97)' : 'rgba(14,14,15,0.6)',
-        backdropFilter: 'blur(20px)',
-        borderBottom: '1px solid transparent',
-        borderImage: scrolled ? 'linear-gradient(90deg, transparent 0%, rgba(212,240,0,0.3) 50%, transparent 100%) 1' : 'none',
+        backgroundColor: scrolled ? 'rgba(8,8,16,0.85)' : 'rgba(8,8,16,0.55)',
+        backdropFilter: 'blur(32px) saturate(200%)',
+        WebkitBackdropFilter: 'blur(32px) saturate(200%)',
+        borderBottom: '1px solid rgba(212,240,0,0.08)',
+        boxShadow: '0 1px 0 rgba(212,240,0,0.05)',
       }}>
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3 logo-glitch cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
