@@ -64,10 +64,8 @@ const ContactSection = () => {
               </select>
             </div>
             <button type="submit" disabled={sent}
-              className="w-full font-body text-xs font-bold tracking-[0.15em] uppercase py-4 transition-all min-h-[48px]"
-              style={{ background: '#D4F000', color: '#0E0E0F', fontWeight: 700, borderRadius: '12px' }}
-              onMouseEnter={e => { if (!sent) { e.currentTarget.style.background = '#C4E000'; e.currentTarget.style.boxShadow = '0 0 32px rgba(212,240,0,0.35)'; }}}
-              onMouseLeave={e => { e.currentTarget.style.background = '#D4F000'; e.currentTarget.style.boxShadow = 'none'; }}>
+              className="btn-primary-lift w-full font-body text-xs font-bold tracking-[0.15em] uppercase py-4 transition-all min-h-[48px]"
+              style={{ background: '#D4F000', color: '#0E0E0F', fontWeight: 700, borderRadius: '12px' }}>
               {sent ? t('✓ SENT — WE\'LL BE IN TOUCH', '✓ ODOSLANÉ — OZVEME SA') : t('SEND MESSAGE →', 'ODOSLAŤ SPRÁVU →')}
             </button>
           </form>

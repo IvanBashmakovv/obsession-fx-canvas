@@ -70,10 +70,8 @@ const Navigation = () => {
             </button>
           </div>
           <button onClick={() => scrollTo('#formats')}
-            className="hidden sm:block font-body text-xs font-bold tracking-[0.15em] uppercase px-6 py-3 transition-all min-h-[44px]"
-            style={{ background: '#D4F000', color: '#0E0E0F', borderRadius: '12px' }}
-            onMouseEnter={e => { e.currentTarget.style.background = '#C4E000'; e.currentTarget.style.boxShadow = '0 0 32px rgba(212,240,0,0.35)'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = '#D4F000'; e.currentTarget.style.boxShadow = 'none'; }}>
+            className="btn-primary-lift hidden sm:block font-body text-xs font-bold tracking-[0.15em] uppercase px-6 py-3 transition-all min-h-[44px]"
+            style={{ background: '#D4F000', color: '#0E0E0F', borderRadius: '12px' }}>
             {t('START →', 'ŠTART →')}
           </button>
           <button className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center" style={{ color: '#F0EDE6' }} onClick={() => setMenuOpen(!menuOpen)}>

@@ -63,10 +63,8 @@ const FormatsSection = () => {
             <p className="font-label text-[10px] tracking-[0.1em] uppercase mb-2 text-primary" style={{ color: '#777777' }}>{t('Community access', 'Prístup do komunity')}</p>
             <p className="font-body text-sm mb-6 text-primary" style={{ color: '#AAAAAA' }}>{t('Monthly subscription', 'Mesačné predplatné')}</p>
             <button onClick={scrollToContact}
-              className="w-full font-body text-xs font-bold tracking-[0.15em] uppercase py-4 transition-all min-h-[48px]"
-              style={{ border: '1px solid rgba(240,237,230,0.25)', color: '#F0EDE6', background: 'transparent', borderRadius: '12px' }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = '#D4F000'; e.currentTarget.style.color = '#D4F000'; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(240,237,230,0.25)'; e.currentTarget.style.color = '#F0EDE6'; }}>
+              className="btn-ghost-lift w-full font-body text-xs font-bold tracking-[0.15em] uppercase py-4 transition-all min-h-[48px]"
+              style={{ border: '1px solid rgba(240,237,230,0.25)', color: '#F0EDE6', background: 'transparent', borderRadius: '12px' }}>
               {t('CONTACT US →', 'KONTAKTOVAŤ NÁS →')}
             </button>
           </div>
