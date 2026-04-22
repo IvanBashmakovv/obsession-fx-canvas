@@ -14,6 +14,8 @@ import ResultsSection from '@/components/ResultsSection';
 import FAQSection from '@/components/FAQSection';
 import ContactSection from '@/components/ContactSection';
 import FooterSection from '@/components/FooterSection';
+import ScrollProgress from '@/components/ScrollProgress';
+import SectionDivider from '@/components/SectionDivider';
 
 const PARTICLE_COUNT = 20;
 
@@ -139,28 +141,29 @@ const Index = () => {
         </div>
 
         <div ref={cursorRef} className="custom-cursor hidden md:block" style={{ willChange: 'transform' }} />
+        <ScrollProgress />
         <div className="relative z-10">
           <TickerBar />
           <Navigation />
           <HeroSection />
-          <div className="section-divider" />
+          <SectionDivider />
           <StatsStrip />
-          <div className="section-divider" />
+          <SectionDivider />
           <MissionSection />
-          <div className="section-divider" />
+          <SectionDivider />
           <MentorsSection />
           <BecomeAMentorSection />
-          <div className="section-divider" />
+          <SectionDivider />
           <ProgramSection />
-          <div className="section-divider" />
+          <SectionDivider />
           <StrategiesSection />
-          <div className="section-divider" />
+          <SectionDivider />
           <FormatsSection />
-          <div className="section-divider" />
+          <SectionDivider />
           <ResultsSection />
-          <div className="section-divider" />
+          <SectionDivider />
           <FAQSection />
-          <div className="section-divider" />
+          <SectionDivider />
           <ContactSection />
           <FooterSection />
         </div>

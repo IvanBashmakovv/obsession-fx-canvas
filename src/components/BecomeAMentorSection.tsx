@@ -55,10 +55,8 @@ const BecomeAMentorSection = () => {
             </div>
             <button
               onClick={scrollToContact}
-              className="self-start font-body text-xs font-bold tracking-[0.15em] uppercase px-8 py-4 transition-all min-h-[48px]"
+              className="btn-primary-lift self-start font-body text-xs font-bold tracking-[0.15em] uppercase px-8 py-4 transition-all min-h-[48px]"
               style={{ background: '#F04E23', color: '#F0EDE6', border: '1px solid #F04E23', borderRadius: '12px' }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#F04E23'; }}
-              onMouseLeave={e => { e.currentTarget.style.background = '#F04E23'; e.currentTarget.style.color = '#F0EDE6'; }}
             >
               {t('APPLY AS MENTOR →', 'PRIHLÁSIŤ SA AKO MENTOR →')}
             </button>

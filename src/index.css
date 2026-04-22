@@ -618,7 +618,124 @@ button:active:not(:disabled) { transform: scale(0.97); }
 @media (max-width: 767px) {
   .hide-mobile { display: none !important; }
   .orb-3, .orb-5 { display: none; }
+
+  /* Hero — tighter padding, stack buttons, 2x2 timer */
+  .hero-section {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    min-height: auto !important;
+    padding-top: 96px !important;
+    padding-bottom: 64px !important;
+  }
+  .hero-section h1 { font-size: clamp(52px, 15vw, 72px) !important; }
+  .hero-section .flex.gap-4 {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  .hero-section .flex.gap-4 > button { width: 100%; }
+  .hero-section .lg\:flex-row { gap: 32px; }
+  .hero-section .text-right { text-align: left; width: 100%; }
+  .hero-section .text-right > .flex.gap-6 {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 32px;
+    justify-items: start;
+  }
+
+  /* Mission — single column, larger pull quote */
+  #mission { padding: 64px 24px !important; }
+  #mission .grid.md\:grid-cols-2 { grid-template-columns: 1fr !important; gap: 32px !important; }
+  #mission .gradient-border-left p {
+    font-size: clamp(22px, 6vw, 32px) !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Become a mentor — stack, full width button */
+  .mentor-section .grid { grid-template-columns: 1fr !important; gap: 32px !important; padding: 32px 24px !important; }
+  .mentor-section h2 { font-size: clamp(64px, 18vw, 100px) !important; }
+  .mentor-section button { width: 100% !important; align-self: stretch !important; }
+
+  /* Mentors — single column */
+  #mentors .grid.md\:grid-cols-2 { grid-template-columns: 1fr !important; }
+
+  /* Program — 2 col topic grid, smaller padding */
+  #program .grid.grid-cols-2 { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+  #program .glass-card.p-4 { padding: 20px 16px !important; }
+
+  /* Strategies — single column */
+  #strategies .grid { grid-template-columns: 1fr !important; }
+
+  /* Formats — single col, PRO first via order */
+  #formats .grid.md\:grid-cols-2 { grid-template-columns: 1fr !important; gap: 24px !important; }
+  #formats .grid.md\:grid-cols-2 > div:nth-child(2) { order: 1; }
+  #formats .grid.md\:grid-cols-2 > div:nth-child(1) { order: 2; }
+  #formats .sold-out-overlay span { font-size: 44px !important; }
+
+  /* Reviews — single column */
+  #reviews .grid.md\:grid-cols-3 { grid-template-columns: 1fr !important; }
+  #reviews .glass-card.p-8 { padding: 24px !important; }
+
+  /* Contact — stack, panel above form */
+  #contact .grid.md\:grid-cols-2 { grid-template-columns: 1fr !important; }
+  #contact .grid.md\:grid-cols-2 > div:nth-child(2) { order: 1; }
+  #contact .grid.md\:grid-cols-2 > div:nth-child(1) { order: 2; }
+
+  /* Footer — 2x2 grid, larger socials */
+  .footer-shell .grid.md\:grid-cols-4 { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+  .footer-logo { font-size: clamp(48px, 12vw, 72px) !important; }
+  .footer-social-btn { width: 52px !important; height: 52px !important; }
+
+  /* Stats strip larger padding */
+  .stats-strip-bg { padding: 32px 24px !important; }
+  .stats-strip-bg .stat-number { font-size: 40px !important; }
 }
+
+/* ============ BUTTON MICRO-INTERACTIONS ============ */
+/* Primary button lift */
+.btn-primary-lift {
+  position: relative;
+  overflow: hidden;
+  transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 200ms ease-out;
+  will-change: transform;
+}
+.btn-primary-lift:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(212,240,0,0.4);
+}
+.btn-primary-lift:active:not(:disabled) {
+  transform: scale(0.96) translateY(0);
+  transition-duration: 80ms;
+}
+.btn-primary-lift::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease-out;
+}
+.btn-primary-lift:active::after { opacity: 0.2; transition-duration: 0ms; }
+
+/* Ghost button hover */
+.btn-ghost-lift {
+  position: relative;
+  overflow: hidden;
+  transition: transform 200ms ease-out, border-color 200ms ease-out, color 200ms ease-out, box-shadow 200ms ease-out;
+}
+.btn-ghost-lift:hover:not(:disabled) {
+  border-color: #D4F000 !important;
+  color: #D4F000 !important;
+  box-shadow: inset 0 0 20px rgba(212,240,0,0.05), 0 6px 20px rgba(212,240,0,0.12);
+}
+.btn-ghost-lift:active:not(:disabled) { transform: scale(0.97); }
+
+/* Section divider component handled by SectionDivider.tsx */
+
+/* Scroll progress bar lives at top of viewport — handled by ScrollProgress.tsx */
+
 
 /* ============ FOOTER REDESIGN ============ */
 .footer-logo {
