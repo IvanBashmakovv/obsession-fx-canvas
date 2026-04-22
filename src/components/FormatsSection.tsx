@@ -35,7 +35,7 @@ const FormatsSection = () => {
       <div className="grid md:grid-cols-2 gap-8 reveal-content">
         {/* EDUCATION */}
         <div className="glass-card p-8 md:p-10 flex flex-col reveal-card" style={{ transitionDelay: '0ms' }}>
-          <span className="tag self-start mb-6">
+          <span className="tag self-start mb-6 bg-primary text-primary">
             {t('Self-study', 'Samoštúdium')}
           </span>
           <h3 className="font-heading text-5xl mb-2" style={{ color: '#F0EDE6' }}>EDUCATION</h3>
@@ -43,9 +43,9 @@ const FormatsSection = () => {
             {t('Self-paced · your schedule', 'Vlastné tempo · tvoj rozvrh')}
           </p>
           <div className="mb-8">
-            <span className="font-body text-base line-through mr-4" style={{ color: '#555555' }}>399€</span>
+            <span className="font-body text-base line-through mr-4 text-primary" style={{ color: '#555555' }}>399€</span>
             <span className="font-heading text-[52px] leading-none" style={{ color: '#F0EDE6' }}>299€</span>
-            <p className="font-body text-[11px] mt-2" style={{ color: '#777777' }}>{t('One-time payment', 'Jednorázová platba')}</p>
+            <p className="font-body text-[11px] mt-2 text-primary" style={{ color: '#777777' }}>{t('One-time payment', 'Jednorázová platba')}</p>
           </div>
           <div className="space-y-4 flex-1">
             {features.map((f, i) => (
@@ -60,8 +60,8 @@ const FormatsSection = () => {
           </div>
           {communityBanner}
           <div className="mt-8 pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-            <p className="font-label text-[10px] tracking-[0.1em] uppercase mb-2" style={{ color: '#777777' }}>{t('Community access', 'Prístup do komunity')}</p>
-            <p className="font-body text-sm mb-6" style={{ color: '#AAAAAA' }}>{t('Monthly subscription', 'Mesačné predplatné')}</p>
+            <p className="font-label text-[10px] tracking-[0.1em] uppercase mb-2 text-primary" style={{ color: '#777777' }}>{t('Community access', 'Prístup do komunity')}</p>
+            <p className="font-body text-sm mb-6 text-primary" style={{ color: '#AAAAAA' }}>{t('Monthly subscription', 'Mesačné predplatné')}</p>
             <button onClick={scrollToContact}
               className="w-full font-body text-xs font-bold tracking-[0.15em] uppercase py-4 transition-all min-h-[48px]"
               style={{ border: '1px solid rgba(240,237,230,0.25)', color: '#F0EDE6', background: 'transparent', borderRadius: '12px' }}
@@ -98,8 +98,8 @@ const FormatsSection = () => {
           </div>
           {communityBanner}
           <div className="mt-8 pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-            <p className="font-label text-[10px] tracking-[0.1em] uppercase mb-2" style={{ color: '#777777' }}>{t('Community access', 'Prístup do komunity')}</p>
-            <p className="font-body text-sm mb-6" style={{ color: '#D4F000' }}>{t('90 days FREE', '90 dní ZADARMO')}</p>
+            <p className="font-label text-[10px] tracking-[0.15em] uppercase block mb-2 text-primary" style={{ color: '#777777' }}>{t('Community access', 'Prístup do komunity')}</p>
+            <p className="font-body text-sm mb-6 text-primary" style={{ color: '#D4F000' }}>{t('90 days FREE', '90 dní ZADARMO')}</p>
             <button disabled
               className="w-full font-body text-xs font-bold tracking-[0.15em] uppercase py-4 cursor-not-allowed min-h-[48px]"
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: '#666666', borderRadius: '12px' }}>
@@ -112,7 +112,7 @@ const FormatsSection = () => {
             <div className="px-8 py-4" style={{ border: '2px solid #D4F000', borderRadius: '12px' }}>
               <span className="font-heading text-[64px] leading-none" style={{ color: '#D4F000' }}>SOLD OUT</span>
             </div>
-            <p className="font-body text-sm mt-6" style={{ color: '#666666' }}>{t('Next intake — contact us', 'Ďalší nábor — kontaktujte nás')}</p>
+            <p className="font-body text-sm mt-6 text-primary" style={{ color: '#666666' }}>{t('Next intake — contact us', 'Ďalší nábor — kontaktujte nás')}</p>
           </div>
 
           {/* Ticker */}

@@ -95,7 +95,7 @@ const ProgramSection = () => {
         ))}
       </div>
 
-      <p className="text-center font-body text-sm italic mt-16 reveal-content" style={{ color: '#888888', maxWidth: '100%' }}>
+      <p className="font-body text-sm italic mt-16 reveal-content visible text-primary text-center" style={{ color: '#888888', maxWidth: '100%' }}>
         {t(
           'Every topic. No filler. Only what gets you funded.',
           'Každá téma. Žiadna vata. Len to, čo ťa dostane k funded.'
