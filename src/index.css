@@ -495,12 +495,20 @@
   transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
 }
 
-/* Mentor edge slide */
+/* Mentor edge slide + intense glow pulse */
 .mentor-edge-slide {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  will-change: transform, opacity;
+  will-change: transform, opacity, filter;
+  filter:
+    drop-shadow(0 0 20px rgba(240,78,35,0.7))
+    drop-shadow(0 0 60px rgba(240,78,35,0.3));
+  animation: edgePulse 3s ease-in-out infinite;
+}
+@keyframes edgePulse {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(240,78,35,0.7)) drop-shadow(0 0 60px rgba(240,78,35,0.3)); }
+  50%       { filter: drop-shadow(0 0 40px rgba(240,78,35,1.0)) drop-shadow(0 0 80px rgba(240,78,35,0.5)) drop-shadow(0 0 120px rgba(240,78,35,0.3)); }
 }
 .reveal-heading.visible .mentor-edge-slide,
 .visible .mentor-edge-slide {
@@ -511,24 +519,35 @@
 /* Scroll margin for sticky nav */
 [id] { scroll-margin-top: 96px; }
 
-/* Glass card — unified surface system */
+/* True glassmorphism cards */
 .glass-card {
-  background: var(--bg-surface);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.10);
   border-radius: 12px;
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.08);
   transition: transform 0.2s ease-out, background 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 .glass-card:hover {
-  background: var(--bg-elevated);
-  border-color: rgba(255,255,255,0.12);
-  transform: translateY(-2px);
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(212,240,0,0.25);
+  box-shadow:
+    0 16px 48px rgba(0,0,0,0.5),
+    0 0 40px rgba(212,240,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+  transform: translateY(-4px);
 }
 .glass-card:active { transform: translateY(0); }
 
 /* Unified badge/tag style */
 .tag {
-  background: var(--bg-elevated);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.10);
   color: #AAAAAA;
   padding: 4px 12px;
   border-radius: 4px;
@@ -544,29 +563,35 @@
   border-color: rgba(212,240,0,0.2);
 }
 
-/* Hero cinematic bg */
+/* Hero — transparent so orbs show through */
 .hero-section {
   position: relative;
-  background:
-    linear-gradient(180deg, transparent 60%, var(--bg-base) 100%),
-    radial-gradient(ellipse 100% 80% at 50% 0%, rgba(212,240,0,0.08) 0%, transparent 70%);
-}
-.hero-section::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(212,240,0,0.08) 1px, transparent 1px);
-  background-size: 40px 40px;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
-  pointer-events: none;
-  z-index: 0;
+  background: transparent;
 }
 
-/* Stats strip surface */
+/* Stats strip — glass surface */
 .stats-strip-bg {
-  background: rgba(22,22,24,0.6);
-  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.025);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-top: 1px solid rgba(212,240,0,0.12);
+  border-bottom: 1px solid rgba(212,240,0,0.06);
+}
+
+/* Stat number glow */
+.stat-number { text-shadow: 0 0 30px rgba(212,240,0,0.4); }
+
+/* Section tag glow */
+.section-tag { text-shadow: 0 0 20px rgba(212,240,0,0.5); }
+
+/* Primary button glow utility */
+.btn-glow {
+  box-shadow: 0 0 24px rgba(212,240,0,0.3), 0 4px 12px rgba(0,0,0,0.4);
+  transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 40px rgba(212,240,0,0.5), 0 8px 24px rgba(0,0,0,0.5);
+  transform: translateY(-2px);
 }
 
 /* Sold out overlay */
@@ -579,7 +604,18 @@
 /* Button active press state */
 button:active:not(:disabled) { transform: scale(0.97); }
 
+/* Interactive parallax particle */
+.particle-fx {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 1;
+}
+
 /* Hide decorative elements on mobile */
 @media (max-width: 767px) {
   .hide-mobile { display: none !important; }
+  .orb-3, .orb-5 { display: none; }
 }
