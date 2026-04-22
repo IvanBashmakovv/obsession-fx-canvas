@@ -32,6 +32,7 @@ const HeroSection = () => {
 
   return (
     <section className="hero-section min-h-screen flex flex-col justify-end px-6 md:px-12 pb-16 md:pb-24 pt-32 max-w-[1280px] mx-auto hero-animate relative overflow-hidden">
+      <div className="hero-spotlight hide-mobile" aria-hidden="true" />
       {particles.map(p => (
         <div
           key={p.id}
