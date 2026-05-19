@@ -1,0 +1,9 @@
+# obsession.fx
+
+> Advanced Smart Money Concepts (SMC) trading course. 4 battle-tested strategies, 1000+ hours tested. Education and PRO tiers, plus mentorship.
+
+obsession.fx is a no-hype trading education brand teaching Advanced SMC. The site presents the program structure, the four strategies (IntraDay, Swing, Dynamic, Static), the mentors, formats (Education 299€ and Education PRO), real student results, FAQ, and contact channels (Telegram, WhatsApp).
+
+## Pages
+
+- [Home](/): Mission, mentors, program, strategies, formats, results, FAQ, and contact.
