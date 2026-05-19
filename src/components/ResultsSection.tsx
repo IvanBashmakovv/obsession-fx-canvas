@@ -1,82 +1,171 @@
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import RatingsBar from './RatingsBar';
-import certificateMartinK from '@/assets/certificate-martin-k.jpg';
+import CertificateTicker from './CertificateTicker';
+import { students, type Student } from '@/data/students';
 
-const reviews = [
-  { initials: 'MK', bg: '#D4F000', text: '#0E0E0F', country: '🇸🇰', handle: '@martin.k · Slovakia', stars: 5,
-    en: "Finally a course that doesn't waste your time. Every module is straight to the point. ivnb actually responds when you have questions — rare in this space.",
-    sk: 'Konečne kurz, ktorý neplytváva tvojím časom. Každý modul ide priamo k veci. ivnb skutočne odpovedá na otázky — v tomto priestore rarita.' },
-  { initials: 'TN', bg: '#F04E23', text: '#F0EDE6', country: '🇨🇿', handle: '@tomas.n · Czech Republic', stars: 5,
-    en: "I tried two other SMC courses before this. Both were 80% filler. obsession.fx is different — dense, practical, and actually explains the why behind everything.",
-    sk: 'Skúsil som dva iné SMC kurzy pred týmto. Oba boli z 80% vata. obsession.fx je iný — hustý, praktický a skutočne vysvetľuje prečo za všetkým.' },
-  { initials: 'LP', bg: '#6B5FD4', text: '#F0EDE6', country: '🇸🇰', handle: '@lukas.p · Slovakia', stars: 5,
-    en: "The 4 strategies alone are worth it. I finally understand the difference between static and dynamic setups. No other course explained this properly.",
-    sk: 'Samotné 4 stratégie za to stoja. Konečne chápem rozdiel medzi statickými a dynamickými setupmi. Žiadny iný kurz to poriadne nevysvetlil.' },
-  { initials: 'AR', bg: '#1E1E21', text: '#F0EDE6', country: '🇵🇱', handle: '@adam.r · Poland', stars: 5,
-    en: "What I appreciate most is the honesty. They don't promise you'll be rich in 3 months. They just give you the tools and let you do the work.",
-    sk: 'Najviac si cením úprimnosť. Nesľubujú, že budeš bohatý za 3 mesiace. Len ti dajú nástroje a nechajú ťa pracovať.' },
-  { initials: 'JH', bg: '#D4F000', text: '#0E0E0F', country: '🇸🇰', handle: '@juraj.h · Slovakia', stars: 5,
-    en: "ivnb is actually active in the community. He reviews setups, gives feedback on homework. You feel like someone actually cares about your progress.",
-    sk: 'ivnb je skutočne aktívny v komunite. Hodnotí setupy, dáva feedback na domáce úlohy. Cítiš, že niekomu na tvojom pokroku skutočne záleží.' },
-  { initials: 'SM', bg: '#6B5FD4', text: '#F0EDE6', country: '🇦🇹', handle: '@stefan.m · Austria', stars: 5,
-    en: "Compact. Dense. No YouTube-style padding. This is the course I wished existed when I started trading two years ago.",
-    sk: 'Kompaktný. Hutný. Žiadne YouTube-štýlové natahanie. Toto je kurz, ktorý som si prial, keď som pred dvoma rokmi začal obchodovať.' },
-  { initials: 'DK', bg: '#1E1E21', text: '#F0EDE6', country: '🇸🇰', handle: '@daniel.k · Slovakia', stars: 5,
-    en: "The sessions module completely changed how I look at timing entries. I was randomly trading all day before — now I have specific windows and a clear process.",
-    sk: 'Modul sessions úplne zmenil, ako sa pozerám na timing vstupov. Predtým som obchodoval celý deň náhodne — teraz mám konkrétne okná a jasný proces.' },
-  { initials: 'MB', bg: '#F04E23', text: '#F0EDE6', country: '🇭🇺', handle: '@mate.b · Hungary', stars: 5,
-    en: "Solid course. Good structure, good mentor, real content. Doesn't try to sell you a lifestyle — just teaches you how to trade. Respect for that.",
-    sk: 'Solídny kurz. Dobrá štruktúra, dobrý mentor, reálny obsah. Nesnaží sa predať životný štýl — len učí, ako obchodovať. Rešpekt za to.' },
-  { initials: 'PV', bg: '#6B5FD4', text: '#F0EDE6', country: '🇨🇿', handle: '@peter.v · Czech Republic', stars: 4,
-    en: "I'm still working through the material but the quality is clearly there. The bias engineering module alone gave me a completely new framework for reading the market.",
-    sk: 'Stále prechádzam materiálom, ale kvalita je jasne viditeľná. Samotný modul bias engineering mi dal úplne nový rámec na čítanie trhu.' },
-];
+const Stars = ({ count }: { count: number }) => (
+  <div className="flex gap-0.5">
+    {[1, 2, 3, 4, 5].map(i => (
+      <span key={i} style={{ color: i <= count ? '#D4F000' : 'rgba(255,255,255,0.1)', fontSize: 13 }}>★</span>
+    ))}
+  </div>
+);
 
-const topBorderColors = [
-  'rgba(212,240,0,0.4)', 'rgba(240,78,35,0.4)', 'rgba(107,95,212,0.4)',
-  'rgba(212,240,0,0.4)', 'rgba(240,78,35,0.4)', 'rgba(107,95,212,0.4)',
-  'rgba(212,240,0,0.4)', 'rgba(240,78,35,0.4)', 'rgba(107,95,212,0.4)',
-];
+const Avatar = ({ s }: { s: Student }) => {
+  const [err, setErr] = useState(false);
+  return (
+    <div
+      style={{
+        width: 48, height: 48, borderRadius: '50%',
+        border: `2px solid ${s.accent}`,
+        background: s.bgColor,
+        overflow: 'hidden', flexShrink: 0,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+      }}
+    >
+      {!err ? (
+        <img
+          src={s.cert}
+          alt={`${s.fullName} avatar`}
+          loading="lazy"
+          onError={() => setErr(true)}
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      ) : (
+        <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 16, color: s.textColor }}>
+          {s.initials}
+        </span>
+      )}
+    </div>
+  );
+};
+
+const ReviewCard = ({ s }: { s: Student }) => {
+  const { t, lang } = useLanguage();
+  const isPro = s.tier === 'PRO';
+  const badgeBg = isPro ? 'rgba(240,78,35,0.08)' : 'rgba(212,240,0,0.08)';
+  const badgeBorder = isPro ? 'rgba(240,78,35,0.2)' : 'rgba(212,240,0,0.2)';
+  const badgeColor = isPro ? '#F04E23' : '#D4F000';
+  const badgeText = isPro
+    ? t('✓ Education PRO — Group', '✓ Education PRO — Skupina')
+    : t('✓ Education — Self Study', '✓ Education — Samoštúdium');
+
+  return (
+    <div
+      className="reveal-card"
+      style={{
+        background: 'rgba(22,22,24,0.8)',
+        border: '1px solid rgba(255,255,255,0.07)',
+        borderRadius: 12,
+        padding: 28,
+        transition: 'transform 250ms, border-color 250ms',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.transform = 'translateY(-4px)';
+        e.currentTarget.style.borderColor = 'rgba(212,240,0,0.2)';
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.transform = 'translateY(0)';
+        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)';
+      }}
+    >
+      <div className="flex items-center gap-3 mb-4">
+        <Avatar s={s} />
+        <div className="flex-1 min-w-0">
+          <div style={{ fontFamily: 'Evolventa, sans-serif', fontSize: 14, fontWeight: 700, color: '#F0EDE6' }}>
+            {s.firstName} {s.lastInitial}.
+          </div>
+          <div style={{ fontFamily: 'Jura, sans-serif', fontSize: 9, color: '#666666', marginTop: 2 }}>
+            {s.flag} {s.country}
+          </div>
+        </div>
+        <Stars count={s.stars} />
+      </div>
+
+      <div
+        style={{
+          display: 'inline-block',
+          background: badgeBg,
+          border: `1px solid ${badgeBorder}`,
+          color: badgeColor,
+          fontFamily: 'Jura, sans-serif',
+          fontSize: 8,
+          letterSpacing: '1px',
+          padding: '4px 10px',
+          borderRadius: 999,
+          textTransform: 'uppercase',
+        }}
+      >
+        {badgeText}
+      </div>
+
+      <p
+        style={{
+          fontFamily: 'Evolventa, sans-serif',
+          fontSize: 13,
+          color: '#BBBBBB',
+          lineHeight: 1.75,
+          margin: '16px 0',
+        }}
+      >
+        {lang === 'en' ? s.reviewEN : s.reviewSK}
+      </p>
+
+      <div style={{ fontFamily: 'Jura, sans-serif', fontSize: 8, color: '#444444', letterSpacing: '1px', textTransform: 'uppercase' }}>
+        {t('Verified purchase', 'Overený nákup')} · {lang === 'en' ? s.timeframeEN : s.timeframeSK}
+      </div>
+    </div>
+  );
+};
 
 const ResultsSection = () => {
-  const { t, lang } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <section id="reviews" className="py-24 md:py-32 px-6 md:px-12 max-w-[1280px] mx-auto relative z-10">
-      <p className="font-label tracking-[0.15em] uppercase mb-6 section-tag reveal-heading text-2xl" style={{ color: '#D4F000' }}>{t('Testimonials', 'Referencie')}</p>
-      <h2 className="font-heading mb-16 reveal-heading" style={{ color: '#F0EDE6', fontSize: 'clamp(48px, 8vw, 96px)' }}>{t('REAL RESULTS.', 'REÁLNE VÝSLEDKY.')}</h2>
-
       <RatingsBar />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-content">
-        {reviews.map((r, i) => (
-          <div key={i} className="glass-card p-8 flex flex-col reveal-card" style={{
-            borderTop: `2px solid ${topBorderColors[i]}`,
-            transitionDelay: `${i * 60}ms`,
-          }}>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-10 h-10 rounded-full flex items-center justify-center font-heading text-xs" style={{ background: r.bg, color: r.text }}>
-                {r.initials}
-              </div>
-              <div className="flex gap-1">
-                {[1,2,3,4,5].map(s => (
-                  <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill={s <= r.stars ? '#D4F000' : 'rgba(255,255,255,0.08)'} xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svg>
-                ))}
-              </div>
-            </div>
-            <p className="font-body text-sm flex-1 mb-6 leading-relaxed text-primary" style={{ color: '#BABABA' }}>{lang === 'en' ? r.en : r.sk}</p>
-            {i === 0 && (
-              <a href={certificateMartinK} target="_blank" rel="noopener noreferrer" className="block mb-4 rounded-lg overflow-hidden border border-white/10 hover:border-[#D4F000]/40 transition-all">
-                <img src={certificateMartinK} alt="Certificate of Payout — Martin K." loading="lazy" className="w-full h-auto block" />
-              </a>
-            )}
-            <p className="font-label tracking-[0.08em] text-xs" style={{ color: '#888888' }}>
-              {r.country} <span style={{ color: '#F0EDE6' }}>{r.handle.split(' · ')[0]}</span> · {r.handle.split(' · ')[1]}
-            </p>
-          </div>
-        ))}
+      <CertificateTicker />
+
+      <div className="text-center mb-4 mt-16">
+        <p className="font-label tracking-[0.15em] uppercase section-tag reveal-heading text-2xl" style={{ color: '#D4F000' }}>
+          {t('Testimonials', 'Referencie')}
+        </p>
+      </div>
+      <h2
+        className="font-heading text-center mb-3 reveal-heading"
+        style={{ color: '#F0EDE6', fontSize: 'clamp(40px, 7vw, 80px)' }}
+      >
+        {t('REAL REVIEWS FROM REAL STUDENTS', 'SKUTOČNÉ RECENZIE OD SKUTOČNÝCH ŠTUDENTOV')}
+      </h2>
+      <p
+        className="text-center mb-4 mx-auto"
+        style={{ fontFamily: 'Jura, sans-serif', fontSize: 10, color: '#555555', letterSpacing: '2px', textTransform: 'uppercase' }}
+      >
+        {t('Verified purchases · Unedited feedback', 'Overené nákupy · Neupravený feedback')}
+      </p>
+      <div className="text-center mb-12">
+        <span
+          style={{
+            display: 'inline-block',
+            background: 'rgba(212,240,0,0.06)',
+            border: '1px solid rgba(212,240,0,0.15)',
+            color: '#D4F000',
+            fontFamily: 'Jura, sans-serif',
+            fontSize: 9,
+            padding: '6px 20px',
+            borderRadius: 999,
+            letterSpacing: '1px',
+            textTransform: 'uppercase',
+          }}
+        >
+          {t('✓ All reviews verified by purchase', '✓ Všetky recenzie overené nákupom')}
+        </span>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-content">
+        {students.map(s => <ReviewCard key={s.id} s={s} />)}
       </div>
     </section>
   );
