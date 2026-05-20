@@ -1,5 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import OFXLogo from './OFXLogo';
+
 
 const FooterSection = () => {
   const { t } = useLanguage();
@@ -32,12 +32,16 @@ const FooterSection = () => {
 
   return (
     <footer className="relative mt-16 footer-shell">
-      {/* HERO LOGO */}
+      {/* HERO LOGO WATERMARK */}
       <div className="px-6 md:px-12 pt-16 pb-12 flex justify-center">
-        <h2 className="footer-logo">
-          <span className="obs">OBSESSION</span><span className="dot-fx">.FX</span>
-        </h2>
+        <img
+          src="/logo.png"
+          alt="obsession.fx"
+          loading="lazy"
+          style={{ height: 'clamp(48px, 8vw, 80px)', width: 'auto', objectFit: 'contain', opacity: 0.15 }}
+        />
       </div>
+
 
       {/* 4 columns */}
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 pb-16 grid grid-cols-2 md:grid-cols-4 gap-12">
@@ -107,7 +111,7 @@ const FooterSection = () => {
       <div className="px-6 md:px-12 py-6 footer-bottom-bar">
         <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <OFXLogo size={16} />
+            <img src="/logo.png" alt="obsession.fx" style={{ height: '28px', width: 'auto', objectFit: 'contain', opacity: 1 }} />
             <span className="font-body text-[11px]" style={{ color: '#444444' }}>© 2026 Obsession.fx · All rights reserved.</span>
           </div>
           <span className="font-body text-[11px]" style={{ color: '#444444' }}>
