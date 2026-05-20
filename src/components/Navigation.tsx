@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import OFXLogo from './OFXLogo';
+
 
 const Navigation = () => {
   const { lang, setLang, t } = useLanguage();
