@@ -931,7 +931,7 @@ button:active:not(:disabled) { transform: scale(0.97); }
   50%      { filter: drop-shadow(0 0 16px rgba(212,240,0,0.7)) drop-shadow(0 0 32px rgba(107,95,212,0.4)); }
 }
 .nav-logo-img {
-  height: 48px;
+  height: 52px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 8px rgba(212,240,0,0.5)) drop-shadow(0 0 20px rgba(107,95,212,0.3));
