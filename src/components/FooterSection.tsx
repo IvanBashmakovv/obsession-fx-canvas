@@ -111,7 +111,7 @@ const FooterSection = () => {
       <div className="px-6 md:px-12 py-6 footer-bottom-bar">
         <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <OFXLogo size={16} />
+            <img src="/logo.png" alt="obsession.fx" style={{ height: '28px', width: 'auto', objectFit: 'contain', opacity: 1 }} />
             <span className="font-body text-[11px]" style={{ color: '#444444' }}>© 2026 Obsession.fx · All rights reserved.</span>
           </div>
           <span className="font-body text-[11px]" style={{ color: '#444444' }}>
