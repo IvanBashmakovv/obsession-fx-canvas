@@ -1,5 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import OFXLogo from './OFXLogo';
+
 
 const FooterSection = () => {
   const { t } = useLanguage();
