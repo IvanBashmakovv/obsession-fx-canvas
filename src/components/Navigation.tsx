@@ -36,8 +36,8 @@ const Navigation = () => {
         borderBottom: '1px solid rgba(212,240,0,0.08)',
         boxShadow: '0 1px 0 rgba(212,240,0,0.05)',
       }}>
-      <div className="max-w-[1280px] mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
-        <div className="logo-glitch cursor-pointer flex items-center" style={{ minWidth: '280px' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+      <div className="max-w-[1280px] mx-auto px-6 md:px-12 flex items-center justify-between" style={{ minHeight: '68px' }}>
+        <div className="logo-glitch nav-logo-wrap cursor-pointer flex items-center" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <img src="/logo.png" alt="obsession.fx" loading="eager" className="nav-logo-img" />
         </div>
 
