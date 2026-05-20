@@ -38,11 +38,9 @@ const Navigation = () => {
       }}>
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3 logo-glitch cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <OFXLogo size={28} />
-          <span className="font-heading text-xl tracking-wider" style={{ color: '#F0EDE6' }}>
-            OBSESSION.<span style={{ color: '#D4F000' }}>FX</span>
-          </span>
+          <img src="/logo.png" alt="obsession.fx" loading="eager" className="h-[30px] md:h-[36px] w-auto" style={{ objectFit: 'contain' }} />
         </div>
+
 
         <div className="hidden lg:flex items-center gap-2">
           {links.map(l => (
