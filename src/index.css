@@ -950,7 +950,8 @@ button:active:not(:disabled) { transform: scale(0.97); }
   .nav-logo-img:hover { filter: none; }
 }
 .footer-logo-img {
-  height: clamp(70px, 10vw, 110px);
+  height: clamp(120px, 16vw, 200px);
+  max-width: 600px;
   width: auto;
   object-fit: contain;
   opacity: 1;
