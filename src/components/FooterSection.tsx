@@ -33,14 +33,10 @@ const FooterSection = () => {
   return (
     <footer className="relative mt-16 footer-shell">
       {/* HERO LOGO WATERMARK */}
-      <div className="px-6 md:px-12 pt-16 pb-12 flex justify-center">
-        <img
-          src="/logo.png"
-          alt="obsession.fx"
-          loading="lazy"
-          style={{ height: 'clamp(48px, 8vw, 80px)', width: 'auto', objectFit: 'contain', opacity: 0.15 }}
-        />
+      <div className="px-6 md:px-12 pt-16">
+        <img src="/logo.png" alt="obsession.fx" loading="lazy" className="footer-logo-img" />
       </div>
+
 
 
       {/* 4 columns */}
