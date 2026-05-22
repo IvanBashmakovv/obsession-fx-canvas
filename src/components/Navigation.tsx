@@ -52,14 +52,18 @@ const Navigation = () => {
             alt="obsession.fx"
             loading="eager"
             style={{
-              height: '52px',
+              height: '56px',
               width: 'auto',
+              minWidth: '210px',
+              maxHeight: 'none',
+              maxWidth: 'none',
               display: 'block',
               objectFit: 'contain',
-              filter:
-                'drop-shadow(0 0 10px rgba(212,240,0,0.6)) drop-shadow(0 0 24px rgba(107,95,212,0.4))',
+              flexShrink: 0,
+              filter: 'drop-shadow(0 0 10px rgba(212,240,0,0.6))'
             }}
           />
+
         </div>
 
         {/* DESKTOP NAV LINKS */}
