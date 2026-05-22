@@ -16,6 +16,8 @@ import ContactSection from '@/components/ContactSection';
 import FooterSection from '@/components/FooterSection';
 import ScrollProgress from '@/components/ScrollProgress';
 import SectionDivider from '@/components/SectionDivider';
+import CertificateTicker from '@/components/CertificateTicker';
+
 
 const PARTICLE_COUNT = 20;
 
