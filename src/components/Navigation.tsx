@@ -39,12 +39,12 @@ const Navigation = () => {
     >
       <div
         className="max-w-[1280px] mx-auto px-6 md:px-12 flex items-center justify-between"
-        style={{ minHeight: '240px' }}
+        style={{ minHeight: '68px' }}
       >
         {/* LOGO */}
         <div
           className="cursor-pointer flex items-center"
-          style={{ flexShrink: 0, minWidth: '220px' }}
+          style={{ flexShrink: 0 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           <img
@@ -52,19 +52,20 @@ const Navigation = () => {
             alt="obsession.fx"
             loading="eager"
             style={{
-              height: '220px',
+              height: '44px',
               width: 'auto',
-              minWidth: '210px',
-              maxHeight: 'none',
-              maxWidth: 'none',
+              minWidth: 'auto',
+              maxHeight: '44px',
+              maxWidth: '180px',
               display: 'block',
               objectFit: 'contain',
-              flexShrink: 0,
+              background: 'transparent',
               filter: 'drop-shadow(0 0 10px rgba(212,240,0,0.6))'
             }}
           />
 
         </div>
+
 
         {/* DESKTOP NAV LINKS */}
         <div className="hidden lg:flex items-center gap-2">
