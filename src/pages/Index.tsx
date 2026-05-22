@@ -16,6 +16,8 @@ import ContactSection from '@/components/ContactSection';
 import FooterSection from '@/components/FooterSection';
 import ScrollProgress from '@/components/ScrollProgress';
 import SectionDivider from '@/components/SectionDivider';
+import CertificateTicker from '@/components/CertificateTicker';
+
 
 const PARTICLE_COUNT = 20;
 
@@ -146,10 +148,13 @@ const Index = () => {
           <TickerBar />
           <Navigation />
           <HeroSection />
+          <CertificateTicker />
           <SectionDivider />
           <StatsStrip />
           <SectionDivider />
+          <CertificateTicker />
           <MissionSection />
+
           <SectionDivider />
           <MentorsSection />
           <BecomeAMentorSection />

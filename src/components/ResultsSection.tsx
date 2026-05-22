@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import RatingsBar from './RatingsBar';
-import CertificateTicker from './CertificateTicker';
+
 import { students, type Student } from '@/data/students';
 
 const Stars = ({ count }: { count: number }) => (
@@ -126,7 +126,7 @@ const ResultsSection = () => {
     <section id="reviews" className="py-24 md:py-32 px-6 md:px-12 max-w-[1280px] mx-auto relative z-10">
       <RatingsBar />
 
-      <CertificateTicker />
+
 
       <div className="text-center mb-4 mt-16">
         <p className="font-label tracking-[0.15em] uppercase section-tag reveal-heading text-2xl" style={{ color: '#D4F000' }}>
