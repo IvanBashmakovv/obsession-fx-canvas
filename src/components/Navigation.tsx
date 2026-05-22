@@ -52,7 +52,7 @@ const Navigation = () => {
             alt="obsession.fx"
             loading="eager"
             style={{
-              height: '56px',
+              height: '220px',
               width: 'auto',
               minWidth: '210px',
               maxHeight: 'none',
