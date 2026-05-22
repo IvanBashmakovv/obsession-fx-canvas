@@ -148,10 +148,13 @@ const Index = () => {
           <TickerBar />
           <Navigation />
           <HeroSection />
+          <CertificateTicker />
           <SectionDivider />
           <StatsStrip />
           <SectionDivider />
+          <CertificateTicker />
           <MissionSection />
+
           <SectionDivider />
           <MentorsSection />
           <BecomeAMentorSection />
