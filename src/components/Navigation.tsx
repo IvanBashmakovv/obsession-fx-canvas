@@ -39,7 +39,7 @@ const Navigation = () => {
     >
       <div
         className="max-w-[1280px] mx-auto px-6 md:px-12 flex items-center justify-between"
-        style={{ minHeight: '72px' }}
+        style={{ minHeight: '240px' }}
       >
         {/* LOGO */}
         <div
