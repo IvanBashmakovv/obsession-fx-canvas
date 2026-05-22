@@ -942,9 +942,10 @@ button:active:not(:disabled) { transform: scale(0.97); }
 }
 
 nav img[alt="obsession.fx"] {
-  height: 56px !important;
+  height: 220px !important;
   width: auto !important;
-  min-width: 210px !important;
+  min-width: 400px !important;
   max-height: none !important;
-  max-width: 400px !important;
+  max-width: 600px !important;
 }
+
