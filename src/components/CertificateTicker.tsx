@@ -7,7 +7,9 @@ const CertCard = ({ s }: { s: Student }) => {
   return (
     <div
       style={{
-        width: 220,
+        width: 280,
+        minWidth: 280,
+        maxWidth: 280,
         flexShrink: 0,
         background: 'rgba(255,255,255,0.04)',
         border: '1px solid rgba(212,240,0,0.2)',
@@ -49,15 +51,16 @@ const CertCard = ({ s }: { s: Student }) => {
           </svg>
         )}
       </div>
-      <div style={{ minWidth: 0, flex: 1 }}>
-        <div style={{ fontFamily: 'Evolventa, sans-serif', fontSize: 13, fontWeight: 700, color: '#F0EDE6', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+      <div style={{ flex: 1 }}>
+        <div style={{ fontFamily: 'Evolventa, sans-serif', fontSize: 13, fontWeight: 700, color: '#F0EDE6', whiteSpace: 'nowrap' }}>
           {s.firstName} {s.lastInitial}. · {s.amount}
         </div>
-        <div style={{ fontFamily: 'Jura, sans-serif', fontSize: 9, color: '#777777', letterSpacing: '1px', textTransform: 'uppercase', marginTop: 2 }}>
+        <div style={{ fontFamily: 'Jura, sans-serif', fontSize: 9, color: '#777777', letterSpacing: '1px', textTransform: 'uppercase', marginTop: 2, whiteSpace: 'nowrap' }}>
           {s.country} {s.flag} · {s.firm}
         </div>
       </div>
     </div>
+
   );
 };
 
