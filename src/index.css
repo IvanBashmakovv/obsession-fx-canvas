@@ -940,3 +940,11 @@ button:active:not(:disabled) { transform: scale(0.97); }
   display: block;
   filter: drop-shadow(0 0 16px rgba(212,240,0,0.2)) drop-shadow(0 0 32px rgba(107,95,212,0.15));
 }
+
+nav img[alt="obsession.fx"] {
+  height: 56px !important;
+  width: auto !important;
+  min-width: 210px !important;
+  max-height: none !important;
+  max-width: 400px !important;
+}
