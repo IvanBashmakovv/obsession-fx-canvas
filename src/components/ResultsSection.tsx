@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import RatingsBar from './RatingsBar';
-import CertificateTicker from './CertificateTicker';
+
 import { students, type Student } from '@/data/students';
 
 const Stars = ({ count }: { count: number }) => (
