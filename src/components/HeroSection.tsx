@@ -50,7 +50,7 @@ const HeroSection = () => {
       ))}
 
       <p className="font-label tracking-[0.15em] uppercase mb-8 section-tag relative z-10 text-lg" style={{ color: '#D4F000', opacity: 0.9 }}>
-        OBSESSION.FX · ADVANCED SMC 
+        OBSESSION.FX · ADVANCED TRADING EDUCATION
       </p>
       <h1 className="font-heading leading-[0.88] relative z-10" style={{ fontSize: 'clamp(64px, 11vw, 140px)' }}>
         <span className="block text-shimmer-white">{t('OBSESSION', 'POSADNUTOSŤ')}</span>
@@ -62,17 +62,20 @@ const HeroSection = () => {
 
       <div className="mt-16 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12 relative z-10">
         <div>
-          <p className="font-body mb-8 leading-relaxed text-base text-primary" style={{ color: '#C0C0C0' }}>
+          <p className="font-body mb-4 leading-relaxed text-base text-primary" style={{ color: '#C0C0C0', maxWidth: '560px' }}>
             {t(
-              "We've watched enough trading courses to know exactly what's wrong with them. So we built the opposite — zero filler, only what actually gets you funded.",
-              "Videli sme dosť trading kurzov na to, aby sme vedeli, čo im chýba. Preto sme postavili opak — žiadna vata, len to, čo ťa skutočne dostane k funded účtu."
+              'A complete trading education system for traders who want structure, discipline and real execution — not random signals, hype or gambling.',
+              'Kompletný vzdelávací systém pre traderov, ktorí chcú štruktúru, disciplínu a reálnu exekúciu — nie náhodné signály, hype alebo gambling.'
             )}
           </p>
-          <div className="flex gap-4">
+          <p className="font-label text-[10px] tracking-[0.2em] uppercase mb-8" style={{ color: '#888888' }}>
+            {t('82+ LESSONS · 20H+ CONTENT · 4 STRATEGIES · MENTOR SUPPORT', '82+ LEKCIÍ · 20H+ OBSAHU · 4 STRATÉGIE · MENTOR SUPPORT')}
+          </p>
+          <div className="flex gap-4 flex-wrap">
             <button onClick={() => scrollTo('#formats')}
               className="btn-primary-lift font-body text-xs font-bold tracking-[0.15em] uppercase px-8 py-4 transition-all min-h-[48px]"
               style={{ background: '#D4F000', color: '#0E0E0F', borderRadius: '12px' }}>
-              {t('VIEW FORMATS →', 'ZOBRAZIŤ FORMÁTY →')}
+              {t('START LEARNING →', 'ZAČAŤ UČENIE →')}
             </button>
             <button onClick={() => scrollTo('#program')}
               className="btn-ghost-lift font-body text-xs font-bold tracking-[0.15em] uppercase px-8 py-4 transition-all min-h-[48px]"
@@ -80,6 +83,7 @@ const HeroSection = () => {
               {t('EXPLORE PROGRAM', 'PRESKÚMAŤ PROGRAM')}
             </button>
           </div>
+
         </div>
 
         <div className="text-right">
