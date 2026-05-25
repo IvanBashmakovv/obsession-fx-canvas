@@ -17,6 +17,13 @@ import FooterSection from '@/components/FooterSection';
 import ScrollProgress from '@/components/ScrollProgress';
 import SectionDivider from '@/components/SectionDivider';
 import CertificateTicker from '@/components/CertificateTicker';
+import ProblemSection from '@/components/ProblemSection';
+import SolutionSection from '@/components/SolutionSection';
+import EdgeSection from '@/components/EdgeSection';
+import HowItWorksSection from '@/components/HowItWorksSection';
+import SafetySection from '@/components/SafetySection';
+import FinalCTASection from '@/components/FinalCTASection';
+
 
 
 const PARTICLE_COUNT = 20;
@@ -152,25 +159,36 @@ const Index = () => {
           <SectionDivider />
           <StatsStrip />
           <SectionDivider />
-          <CertificateTicker />
+          <ProblemSection />
+          <SectionDivider />
+          <SolutionSection />
+          <SectionDivider />
           <MissionSection />
-
           <SectionDivider />
           <MentorsSection />
           <BecomeAMentorSection />
+          <SectionDivider />
+          <EdgeSection />
           <SectionDivider />
           <ProgramSection />
           <SectionDivider />
           <StrategiesSection />
           <SectionDivider />
-          <FormatsSection />
+          <HowItWorksSection />
           <SectionDivider />
           <ResultsSection />
           <SectionDivider />
+          <FormatsSection />
+          <SectionDivider />
+          <SafetySection />
+          <SectionDivider />
           <FAQSection />
+          <SectionDivider />
+          <FinalCTASection />
           <SectionDivider />
           <ContactSection />
           <FooterSection />
+
         </div>
       </div>
     </LanguageProvider>

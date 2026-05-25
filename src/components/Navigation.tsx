@@ -14,12 +14,14 @@ const Navigation = () => {
 
   const links = [
     { href: '#mission', label: t('Mission', 'Misia') },
-    { href: '#mentors', label: t('Mentors', 'Mentori') },
     { href: '#program', label: t('Program', 'Program') },
-    { href: '#formats', label: t('Formats', 'Formáty') },
-    { href: '#reviews', label: t('Results', 'Výsledky') },
-    { href: '#contact', label: t('Contact', 'Kontakt') },
+    { href: '#strategies', label: t('Strategies', 'Stratégie') },
+    { href: '#mentors', label: t('Mentors', 'Mentori') },
+    { href: '#reviews', label: t('Reviews', 'Recenzie') },
+    { href: '#formats', label: t('Pricing', 'Cenník') },
+    { href: '#faq', label: 'FAQ' },
   ];
+
 
   const scrollTo = (href: string) => {
     setMenuOpen(false);
@@ -134,7 +136,7 @@ const Navigation = () => {
               borderRadius: '12px',
             }}
           >
-            {t('START →', 'ŠTART →')}
+            {t('START LEARNING →', 'ZAČAŤ UČENIE →')}
           </button>
 
           {/* HAMBURGER */}

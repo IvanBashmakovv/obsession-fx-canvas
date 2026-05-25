@@ -98,11 +98,12 @@ const FormatsSection = () => {
           <div className="mt-8 pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
             <p className="font-label text-[10px] tracking-[0.15em] uppercase block mb-2 text-primary" style={{ color: '#777777' }}>{t('Community access', 'Prístup do komunity')}</p>
             <p className="font-body text-sm mb-6 text-primary" style={{ color: '#D4F000' }}>{t('90 days FREE', '90 dní ZADARMO')}</p>
-            <button disabled
-              className="w-full font-body text-xs font-bold tracking-[0.15em] uppercase py-4 cursor-not-allowed min-h-[48px]"
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: '#666666', borderRadius: '12px' }}>
-              {t('NO SPOTS AVAILABLE', 'ŽIADNE MIESTA K DISPOZÍCII')}
+            <button onClick={scrollToContact}
+              className="w-full font-body text-xs font-bold tracking-[0.15em] uppercase py-4 min-h-[48px] transition-all"
+              style={{ background: 'rgba(240,78,35,0.12)', border: '1px solid rgba(240,78,35,0.4)', color: '#F04E23', borderRadius: '12px' }}>
+              {t('JOIN WAITLIST →', 'PRIDAŤ NA WAITLIST →')}
             </button>
+
           </div>
 
           {/* SOLD OUT overlay */}
