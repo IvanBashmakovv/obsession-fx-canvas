@@ -58,10 +58,12 @@ const ContactSection = () => {
               <select value={format} onChange={e => setFormat(e.target.value)}
                 className="w-full bg-transparent font-body text-sm py-3 focus:outline-none transition-colors min-h-[44px]"
                 style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#F0EDE6' }}>
-                <option value="Education" style={{ background: '#161618' }}>Education</option>
-                <option value="Education PRO" style={{ background: '#161618' }}>Education PRO</option>
-                <option value="Become a Mentor" style={{ background: '#161618' }}>{t('Become a Mentor', 'Staň sa mentorom')}</option>
+                <option value="Education" style={{ background: '#161618' }}>Education Program</option>
+                <option value="Education PRO" style={{ background: '#161618' }}>Education Pro Waitlist</option>
+                <option value="Mentorship" style={{ background: '#161618' }}>Mentorship</option>
+                <option value="General" style={{ background: '#161618' }}>{t('General Question', 'Všeobecná otázka')}</option>
               </select>
+
             </div>
             <button type="submit" disabled={sent}
               className="btn-primary-lift w-full font-body text-xs font-bold tracking-[0.15em] uppercase py-4 transition-all min-h-[48px]"

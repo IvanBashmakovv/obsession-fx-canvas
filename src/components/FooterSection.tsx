@@ -103,6 +103,16 @@ const FooterSection = () => {
         <div className="footer-divider" />
       </div>
 
+      {/* Risk disclaimer */}
+      <div className="max-w-[1280px] mx-auto px-6 md:px-12 py-6">
+        <p className="font-body text-[11px] leading-relaxed text-center" style={{ color: '#666666', maxWidth: '880px', margin: '0 auto' }}>
+          {t(
+            'Trading involves risk. Obsession FX provides education only and does not guarantee profits or financial results.',
+            'Obchodovanie zahŕňa riziko. Obsession FX poskytuje iba vzdelanie a negarantuje zisky ani finančné výsledky.'
+          )}
+        </p>
+      </div>
+
       {/* Bottom bar */}
       <div className="px-6 md:px-12 py-6 footer-bottom-bar">
         <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
@@ -111,10 +121,11 @@ const FooterSection = () => {
             <span className="font-body text-[11px]" style={{ color: '#444444' }}>© 2026 Obsession.fx · All rights reserved.</span>
           </div>
           <span className="font-body text-[11px]" style={{ color: '#444444' }}>
-            <span className="legal-link">Terms & Conditions</span> · <span className="legal-link">Privacy Policy</span> · <span className="legal-link">Cookies Policy</span>
+            <span className="legal-link">Terms & Conditions</span> · <span className="legal-link">Privacy Policy</span> · <span className="legal-link">Risk Disclaimer</span> · <span className="legal-link">Refund Policy</span>
           </span>
         </div>
       </div>
+
     </footer>
   );
 };
