@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import LeadModal, { LeadModalVariant } from './LeadModal';
 
 const FormatsSection = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const [modal, setModal] = useState<LeadModalVariant | null>(null);
 
   const features = [
     { en: 'Lifetime access to all materials', sk: 'Doživotný prístup ku všetkým materiálom' },
@@ -62,7 +65,7 @@ const FormatsSection = () => {
           <div className="mt-8 pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
             <p className="font-label text-[10px] tracking-[0.1em] uppercase mb-2 text-primary" style={{ color: '#777777' }}>{t('Community access', 'Prístup do komunity')}</p>
             <p className="font-body text-sm mb-6 text-primary" style={{ color: '#AAAAAA' }}>{t('Monthly subscription', 'Mesačné predplatné')}</p>
-            <button onClick={scrollToContact}
+            <button onClick={() => setModal('education')}
               className="btn-ghost-lift w-full font-body text-xs font-bold tracking-[0.15em] uppercase py-4 transition-all min-h-[48px]"
               style={{ border: '1px solid rgba(240,237,230,0.25)', color: '#F0EDE6', background: 'transparent', borderRadius: '12px' }}>
               {t('CONTACT US →', 'KONTAKTOVAŤ NÁS →')}
@@ -98,7 +101,7 @@ const FormatsSection = () => {
           <div className="mt-8 pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
             <p className="font-label text-[10px] tracking-[0.15em] uppercase block mb-2 text-primary" style={{ color: '#777777' }}>{t('Community access', 'Prístup do komunity')}</p>
             <p className="font-body text-sm mb-6 text-primary" style={{ color: '#D4F000' }}>{t('90 days FREE', '90 dní ZADARMO')}</p>
-            <button onClick={scrollToContact}
+            <button onClick={() => setModal('pro')}
               className="w-full font-body text-xs font-bold tracking-[0.15em] uppercase py-4 min-h-[48px] transition-all"
               style={{ background: 'rgba(240,78,35,0.12)', border: '1px solid rgba(240,78,35,0.4)', color: '#F04E23', borderRadius: '12px' }}>
               {t('JOIN WAITLIST →', 'PRIDAŤ NA WAITLIST →')}
@@ -124,6 +127,7 @@ const FormatsSection = () => {
           </div>
         </div>
       </div>
+      <LeadModal isOpen={modal !== null} onClose={() => setModal(null)} variant={modal ?? 'education'} lang={lang} />
     </section>
   );
 };
