@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import LeadModal from './LeadModal';
 
 const BecomeAMentorSection = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const [open, setOpen] = useState(false);
 
-  const scrollToContact = () => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToContact = () => setOpen(true);
 
   const pills = [
     { en: '✓ Funded account experience', sk: '✓ Skúsenosť s funded účtom' },
@@ -63,6 +66,7 @@ const BecomeAMentorSection = () => {
           </div>
         </div>
       </div>
+      <LeadModal isOpen={open} onClose={() => setOpen(false)} variant="mentor" lang={lang} />
     </section>
   );
 };
