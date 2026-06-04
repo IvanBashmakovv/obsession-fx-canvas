@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import LeadModal from './LeadModal';
 
 const ContactSection = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [sent, setSent] = useState(false);
   const [name, setName] = useState('');
   const [platform, setPlatform] = useState('Telegram');
   const [format, setFormat] = useState('Education');
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim()) return;
-    setSent(true);
+    setModalOpen(true);
   };
 
   const contacts = [
