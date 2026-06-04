@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import LeadModal, { LeadModalVariant } from './LeadModal';
 
 const FormatsSection = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const [modal, setModal] = useState<LeadModalVariant | null>(null);
 
   const features = [
     { en: 'Lifetime access to all materials', sk: 'Doživotný prístup ku všetkým materiálom' },
