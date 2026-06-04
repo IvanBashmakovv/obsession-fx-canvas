@@ -94,6 +94,7 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
+      <LeadModal isOpen={modalOpen} onClose={() => setModalOpen(false)} variant="contact" lang={lang} />
     </section>
   );
 };
