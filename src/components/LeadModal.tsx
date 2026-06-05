@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
-
-const BOT_TOKEN = '8988892949:AAFcDadjp_Hp2-pAsFiyyAkQhANEm2tAOU4';
-const CHAT_ID = '898889294';
+import { supabase } from '@/integrations/supabase/client';
 
 export type LeadModalVariant = 'education' | 'pro' | 'contact' | 'mentor';
 export type Lang = 'en' | 'sk';
@@ -26,40 +24,8 @@ const sendToTelegram = async (payload: {
   interest?: string;
   experience?: string;
 }) => {
-  let header = '';
-  switch (payload.variant) {
-    case 'education':
-      header = '🟡 <b>NEW LEAD — EDUCATION 299€</b>';
-      break;
-    case 'pro':
-      header = '🟣 <b>WAITLIST — EDUCATION PRO 699€</b>';
-      break;
-    case 'contact':
-      header = '📩 <b>CONTACT FORM</b>';
-      break;
-    case 'mentor':
-      header = '⭐ <b>MENTOR APPLICATION</b>';
-      break;
-  }
-
-  const lines = [
-    header,
-    '',
-    `👤 <b>Name:</b> ${payload.name}`,
-    `📱 <b>Via:</b> ${payload.method}: ${payload.contact}`,
-  ];
-  if (payload.interest) lines.push(`📦 <b>Interest:</b> ${payload.interest}`);
-  if (payload.experience) lines.push(`📝 <b>Experience:</b> ${payload.experience}`);
-  lines.push(`🌐 <b>Lang:</b> ${payload.lang.toUpperCase()}`);
-  lines.push(`⏰ <b>Time:</b> ${new Date().toLocaleString('ru-RU')}`);
-
-  const message = lines.join('\n');
-
-  await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: 'HTML' }),
-  });
+  const { error } = await supabase.functions.invoke('send-lead', { body: payload });
+  if (error) throw error;
 };
 
 const eduFeatures = [
