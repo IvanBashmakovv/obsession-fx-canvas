@@ -46,17 +46,18 @@ const MentorsSection = () => {
             </div>
           </div>
           <div
-            className="relative overflow-hidden md:w-[40%] min-h-[320px] md:min-h-0 md:self-stretch"
-            style={{ borderRadius: '0 16px 16px 0' }}
+            className="relative overflow-hidden md:max-w-[40%] md:w-[40%] min-h-[320px] md:min-h-0 md:self-stretch md:h-auto"
           >
             <img
               src="/mentor-ivnb.jpg"
               alt="IVNB - Founder & Head Mentor"
-              className="absolute inset-0 w-full h-full"
+              className="block w-full h-full"
               style={{
                 objectFit: 'cover',
                 objectPosition: 'top center',
                 filter: 'grayscale(100%) contrast(1.1)',
+                position: 'absolute',
+                inset: 0,
               }}
             />
             <div
