@@ -9,7 +9,7 @@ const MentorsSection = () => {
       <h2 className="font-heading mb-16 reveal-heading" style={{ color: '#F0EDE6', fontSize: 'clamp(48px, 8vw, 96px)' }}>{t('OUR MENTORS.', 'NAŠI MENTORI.')}</h2>
 
       <div className="flex flex-col gap-6 reveal-content">
-        <div className="glass-card relative overflow-hidden reveal-card flex flex-col md:flex-row" style={{ transitionDelay: '0ms' }}>
+        <div className="glass-card relative overflow-hidden reveal-card flex flex-col md:flex-row" style={{ transitionDelay: '0ms', borderRadius: '16px' }}>
           <div className="relative z-10 p-8 md:p-12 md:w-[60%]">
             <span className="absolute top-4 right-8 font-heading text-[120px] leading-none select-none hide-mobile pointer-events-none z-0" style={{ color: 'rgba(212,240,0,0.08)' }}>01</span>
             <div className="relative z-10">
@@ -46,17 +46,18 @@ const MentorsSection = () => {
             </div>
           </div>
           <div
-            className="relative overflow-hidden md:w-[40%] min-h-[320px] md:min-h-0 md:self-stretch"
-            style={{ borderRadius: '0 16px 16px 0' }}
+            className="relative overflow-hidden md:max-w-[40%] md:w-[40%] min-h-[320px] md:min-h-0 md:self-stretch md:h-auto"
           >
             <img
               src="/mentor-ivnb.jpg"
               alt="IVNB - Founder & Head Mentor"
-              className="absolute inset-0 w-full h-full"
+              className="block w-full h-full"
               style={{
                 objectFit: 'cover',
                 objectPosition: 'top center',
                 filter: 'grayscale(100%) contrast(1.1)',
+                position: 'absolute',
+                inset: 0,
               }}
             />
             <div
