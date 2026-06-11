@@ -7,19 +7,18 @@ const FooterSection = () => {
   const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
 
   const quickLinks = [
-    { label: t('Mission', 'Misia'), id: '#mission' },
-    { label: t('Program', 'Program'), id: '#program' },
-    { label: t('Formats', 'Formáty'), id: '#formats' },
-    { label: t('Results', 'Výsledky'), id: '#reviews' },
+    { label: t('Team', 'Tím'), id: '#mentors' },
+    { label: t('Products', 'Produkty'), id: '#products' },
+    { label: t('Reviews', 'Recenzie'), id: '#reviews' },
     { label: 'FAQ', id: '#faq' },
     { label: t('Contact', 'Kontakt'), id: '#contact' },
   ];
 
   const eduLinks = [
-    'Education 299€',
-    'Education PRO',
+    t('Free Course', 'Bezplatný kurz'),
+    t('Community', 'Komunita'),
+    t("Egor's Journey", 'Egorova cesta'),
     t('Become a Mentor', 'Staň sa mentorom'),
-    t('Community Access', 'Prístup do komunity'),
   ];
 
   const socials = [
@@ -69,7 +68,7 @@ const FooterSection = () => {
 
         {/* Education */}
         <div>
-          <p className="footer-section-label">Education</p>
+          <p className="footer-section-label">{t('Products', 'Produkty')}</p>
           <div className="flex flex-col gap-1">
             {eduLinks.map((l, i) => (
               <span key={i} className="footer-link" style={{ cursor: 'default' }}>
@@ -118,7 +117,7 @@ const FooterSection = () => {
         <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <img src="/logo.png" alt="obsession.fx" style={{ height: '28px', width: 'auto', objectFit: 'contain', opacity: 1 }} />
-            <span className="font-body text-[11px]" style={{ color: '#444444' }}>© 2026 Obsession.fx · All rights reserved.</span>
+            <span className="font-body text-[11px]" style={{ color: '#444444' }}>{t('© 2026 obsession.fx · Built for people obsessed with more.', '© 2026 obsession.fx · Vytvorené pre ľudí posadnutých viac.')}</span>
           </div>
           <span className="font-body text-[11px]" style={{ color: '#444444' }}>
             <span className="legal-link">Terms & Conditions</span> · <span className="legal-link">Privacy Policy</span> · <span className="legal-link">Risk Disclaimer</span> · <span className="legal-link">Refund Policy</span>

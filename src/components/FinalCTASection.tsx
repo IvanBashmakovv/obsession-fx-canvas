@@ -1,49 +1,54 @@
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import LeadModal from './LeadModal';
 
 const FinalCTASection = () => {
-  const { t } = useLanguage();
-  const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+  const { t, lang } = useLanguage();
+  const [modal, setModal] = useState<'education' | 'contact' | null>(null);
 
   return (
-    <section id="final-cta" className="py-24 md:py-32 px-6 md:px-12 max-w-[1280px] mx-auto relative z-10">
-      <div
-        className="glass-card p-12 md:p-20 text-center relative overflow-hidden reveal-content"
-        style={{
-          background: 'radial-gradient(circle at 50% 0%, rgba(212,240,0,0.10) 0%, rgba(107,95,212,0.06) 40%, rgba(22,22,24,0.85) 80%)',
-          borderColor: 'rgba(212,240,0,0.25)',
-        }}
-      >
-        <p className="font-label tracking-[0.15em] uppercase mb-6 text-xs" style={{ color: '#D4F000' }}>
-          {t('Ready when you are', 'Kedy budeš pripravený')}
+    <section className="relative z-10" style={{ padding: '100px 56px', position: 'relative', overflow: 'hidden' }}>
+      <div aria-hidden style={{
+        position: 'absolute', inset: 0,
+        background: 'radial-gradient(ellipse at center, rgba(129,22,224,0.15) 0%, rgba(14,14,15,0) 60%)',
+        pointerEvents: 'none',
+      }} />
+      <div className="max-w-[1280px] mx-auto text-center relative z-10">
+        <p className="font-label tracking-[0.15em] uppercase mb-6 section-tag reveal-heading" style={{ color: '#D0FF00', fontSize: '11px' }}>
+          {t('WHAT ARE YOU WAITING FOR', 'NA ČO ČAKÁŠ')}
         </p>
-        <h2 className="font-heading mb-6" style={{ color: '#F0EDE6', fontSize: 'clamp(48px, 9vw, 112px)', lineHeight: 0.95 }}>
-          {t('STOP GUESSING.', 'PRESTAŇ HÁDAŤ.')}
-          <br />
-          <span style={{ color: '#D4F000' }}>{t('START EXECUTING.', 'ZAČNI EXEKVOVAŤ.')}</span>
+        <h2 className="font-heading mb-6 reveal-heading" style={{ color: '#FEFFFC', fontSize: 'clamp(48px, 7vw, 80px)', lineHeight: 0.95 }}>
+          {t('START YOUR JOURNEY.', 'ZAČNI SVOJU CESTU.')}
         </h2>
-        <p className="font-body text-base leading-relaxed max-w-2xl mx-auto mb-10" style={{ color: '#BABABA' }}>
-          {t(
-            'Join Obsession FX and build a trading process based on structure, risk control and discipline.',
-            'Pridaj sa do Obsession FX a postav si obchodný proces na štruktúre, kontrole rizika a disciplíne.'
-          )}
+        <p className="mb-10 reveal-heading" style={{
+          fontFamily: 'Inter, sans-serif', fontSize: '16px', color: '#AAAAAA', maxWidth: '520px', margin: '0 auto 40px',
+        }}>
+          {t('Free course. Real community. Zero excuses.', 'Bezplatný kurz. Skutočná komunita. Nula výhovoriek.')}
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            onClick={() => scrollTo('#formats')}
-            className="btn-primary-lift font-body text-xs font-bold tracking-[0.15em] uppercase px-10 py-4 transition-all min-h-[48px]"
-            style={{ background: '#D4F000', color: '#0E0E0F', borderRadius: '12px' }}
-          >
-            {t('START LEARNING →', 'ZAČAŤ UČENIE →')}
+        <div className="flex flex-wrap justify-center gap-4 reveal-content">
+          <button onClick={() => setModal('education')} className="btn-primary-lift" style={{
+            background: '#D0FF00', color: '#000000',
+            fontFamily: 'Jura, sans-serif', fontWeight: 700, fontSize: '12px',
+            letterSpacing: '0.15em', padding: '16px 32px', borderRadius: '12px',
+            border: 'none', cursor: 'pointer', minHeight: '48px',
+          }}>
+            {t('GET FREE COURSE →', 'ZÍSKAJ KURZ ZADARMO →')}
           </button>
-          <button
-            onClick={() => scrollTo('#program')}
-            className="btn-ghost-lift font-body text-xs font-bold tracking-[0.15em] uppercase px-10 py-4 transition-all min-h-[48px]"
-            style={{ border: '1px solid rgba(240,237,230,0.25)', color: '#F0EDE6', background: 'transparent', borderRadius: '12px' }}
-          >
-            {t('VIEW PROGRAM', 'POZRI PROGRAM')}
+          <button onClick={() => setModal('contact')} className="btn-ghost-lift" style={{
+            background: 'transparent', color: '#FEFFFC',
+            fontFamily: 'Jura, sans-serif', fontWeight: 700, fontSize: '12px',
+            letterSpacing: '0.15em', padding: '16px 32px', borderRadius: '12px',
+            border: '1px solid rgba(255,255,255,0.2)', cursor: 'pointer', minHeight: '48px',
+          }}>
+            {t('JOIN COMMUNITY', 'PRIDAJ SA DO KOMUNITY')}
           </button>
         </div>
+        <p className="mt-8 reveal-content" style={{ fontFamily: 'Inter, sans-serif', fontSize: '12px', color: '#555555' }}>
+          {t('🔥 47 people joined the community in the last 24 hours', '🔥 47 ľudí sa pridalo do komunity za posledných 24 hodín')}
+        </p>
       </div>
+      <LeadModal isOpen={modal === 'education'} onClose={() => setModal(null)} variant="education" lang={lang} />
+      <LeadModal isOpen={modal === 'contact'} onClose={() => setModal(null)} variant="contact" lang={lang} />
     </section>
   );
 };

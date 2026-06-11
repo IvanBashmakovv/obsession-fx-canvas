@@ -7,7 +7,7 @@ const ContactSection = () => {
   const [sent, setSent] = useState(false);
   const [name, setName] = useState('');
   const [platform, setPlatform] = useState('Telegram');
-  const [format, setFormat] = useState('Education');
+  const [format, setFormat] = useState('Free Course Access');
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -59,10 +59,10 @@ const ContactSection = () => {
               <select value={format} onChange={e => setFormat(e.target.value)}
                 className="w-full bg-transparent font-body text-sm py-3 focus:outline-none transition-colors min-h-[44px]"
                 style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#F0EDE6' }}>
-                <option value="Education" style={{ background: '#161618' }}>Education Program</option>
-                <option value="Education PRO" style={{ background: '#161618' }}>Education Pro Waitlist</option>
-                <option value="Mentorship" style={{ background: '#161618' }}>Mentorship</option>
-                <option value="General" style={{ background: '#161618' }}>{t('General Question', 'Všeobecná otázka')}</option>
+                <option value="Free Course Access" style={{ background: '#161618' }}>{t('Free Course Access', 'Prístup k bezplatnému kurzu')}</option>
+                <option value="Join the Community" style={{ background: '#161618' }}>{t('Join the Community', 'Pridaj sa do komunity')}</option>
+                <option value="Become a Mentor" style={{ background: '#161618' }}>{t('Become a Mentor', 'Stať sa mentorom')}</option>
+                <option value="General Question" style={{ background: '#161618' }}>{t('General Question', 'Všeobecná otázka')}</option>
               </select>
 
             </div>

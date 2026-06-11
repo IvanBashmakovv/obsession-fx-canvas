@@ -59,7 +59,7 @@ const LeadModal = ({ isOpen, onClose, variant, lang }: LeadModalProps) => {
   const [name, setName] = useState('');
   const [method, setMethod] = useState('Telegram');
   const [contact, setContact] = useState('');
-  const [interest, setInterest] = useState('Education 299€');
+  const [interest, setInterest] = useState('Free Course Access');
   const [experience, setExperience] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -73,7 +73,7 @@ const LeadModal = ({ isOpen, onClose, variant, lang }: LeadModalProps) => {
       setContact('');
       setExperience('');
       setMethod('Telegram');
-      setInterest('Education 299€');
+      setInterest('Free Course Access');
     }
   }, [isOpen]);
 
@@ -100,8 +100,8 @@ const LeadModal = ({ isOpen, onClose, variant, lang }: LeadModalProps) => {
   if (!isOpen) return null;
 
   const planInfo = variant === 'pro'
-    ? { badge: t(lang, 'GROUP LEARNING', 'SKUPINOVÉ UČENIE'), name: 'EDUCATION PRO', price: '699€' }
-    : { badge: t(lang, 'SELF-STUDY', 'SAMOŠTÚDIUM'), name: 'EDUCATION', price: '299€' };
+    ? { badge: t(lang, 'COMMUNITY ACCESS', 'PRÍSTUP DO KOMUNITY'), name: t(lang, 'THE COMMUNITY', 'KOMUNITA'), price: t(lang, 'FREE', 'ZADARMO') }
+    : { badge: t(lang, 'FOUNDATION COURSE', 'ZÁKLADNÝ KURZ'), name: t(lang, 'FREE COURSE', 'KURZ ZADARMO'), price: t(lang, 'FREE', 'ZADARMO') };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -111,8 +111,8 @@ const LeadModal = ({ isOpen, onClose, variant, lang }: LeadModalProps) => {
     try {
       await sendToTelegram({
         variant,
-        plan: variant === 'mentor' ? 'Mentor Application' : variant === 'contact' ? 'Contact' : planInfo.name,
-        price: variant === 'pro' ? '699€' : variant === 'education' ? '299€' : '',
+        plan: variant === 'mentor' ? 'Mentor Application' : variant === 'contact' ? `Contact: ${interest}` : planInfo.name,
+        price: '',
         name: name.trim(),
         method,
         contact: contact.trim(),
@@ -360,10 +360,10 @@ const LeadModal = ({ isOpen, onClose, variant, lang }: LeadModalProps) => {
                       value={interest}
                       onChange={(e) => setInterest(e.target.value)}
                     >
-                      <option value="Education 299€">Education 299€</option>
-                      <option value="Education PRO 699€">Education PRO 699€</option>
-                      <option value="Become a Mentor">Become a Mentor</option>
-                      <option value="General">{t(lang, 'General question', 'Všeobecná otázka')}</option>
+                      <option value="Free Course Access">{t(lang, 'Free Course Access', 'Prístup k bezplatnému kurzu')}</option>
+                      <option value="Join the Community">{t(lang, 'Join the Community', 'Pridaj sa do komunity')}</option>
+                      <option value="Become a Mentor">{t(lang, 'Become a Mentor', 'Stať sa mentorom')}</option>
+                      <option value="General Question">{t(lang, 'General Question', 'Všeobecná otázka')}</option>
                     </select>
                   </div>
                 )}

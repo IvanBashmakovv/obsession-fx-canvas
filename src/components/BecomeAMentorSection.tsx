@@ -45,8 +45,8 @@ const BecomeAMentorSection = () => {
           <div className="reveal-content flex flex-col justify-center">
             <p className="font-body text-sm leading-relaxed mb-8" style={{ color: '#AAAAAA' }}>
               {t(
-                "We're not looking for people who watched YouTube for 6 months. We're looking for proven traders with real funded account experience, who can pass their knowledge — not just their screenshots — to the next generation. If that's you, let's talk.",
-                "Nehľadáme ľudí, ktorí pol roka sledovali YouTube. Hľadáme overených traderov s reálnymi skúsenosťami s funded účtami, ktorí dokážu odovzdať svoje know-how — nie len screenshoty — ďalšej generácii. Ak si to ty, porozprávajme sa."
+                "We're looking for mentors with real funded results. Not influencers. Real traders. Real track records.",
+                'Hľadáme mentorov s reálnymi funded výsledkami. Nie influenceri. Skutoční traderi. Skutočné výsledky.'
               )}
             </p>
             <div className="flex flex-wrap gap-3 mb-8">
