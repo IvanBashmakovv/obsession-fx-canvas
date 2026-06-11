@@ -13,13 +13,12 @@ const Navigation = () => {
   }, []);
 
   const links = [
-    { href: '#mission', label: t('Mission', 'Misia') },
-    { href: '#program', label: t('Program', 'Program') },
-    { href: '#strategies', label: t('Strategies', 'Stratégie') },
-    { href: '#mentors', label: t('Mentors', 'Mentori') },
+    { href: '#problem', label: t('Problem', 'Problém') },
+    { href: '#products', label: t('Products', 'Produkty') },
+    { href: '#mentors', label: t('Team', 'Tím') },
     { href: '#reviews', label: t('Reviews', 'Recenzie') },
-    { href: '#formats', label: t('Pricing', 'Cenník') },
     { href: '#faq', label: 'FAQ' },
+    { href: '#contact', label: t('Contact', 'Kontakt') },
   ];
 
 
