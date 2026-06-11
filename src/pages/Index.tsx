@@ -3,28 +3,20 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import TickerBar from '@/components/TickerBar';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
-import StatsStrip from '@/components/StatsStrip';
-import MissionSection from '@/components/MissionSection';
+import ProblemSection from '@/components/ProblemSection';
+import TwoProductsSection from '@/components/TwoProductsSection';
 import MentorsSection from '@/components/MentorsSection';
 import BecomeAMentorSection from '@/components/BecomeAMentorSection';
-import ProgramSection from '@/components/ProgramSection';
-import StrategiesSection from '@/components/StrategiesSection';
-import FormatsSection from '@/components/FormatsSection';
-import ResultsSection from '@/components/ResultsSection';
+import RoadmapSection from '@/components/RoadmapSection';
+import ComparisonSection from '@/components/ComparisonSection';
+import ScrollTriggerSection from '@/components/ScrollTriggerSection';
+import ReviewsSlider from '@/components/ReviewsSlider';
 import FAQSection from '@/components/FAQSection';
+import FinalCTASection from '@/components/FinalCTASection';
 import ContactSection from '@/components/ContactSection';
 import FooterSection from '@/components/FooterSection';
 import ScrollProgress from '@/components/ScrollProgress';
 import SectionDivider from '@/components/SectionDivider';
-import CertificateTicker from '@/components/CertificateTicker';
-import ProblemSection from '@/components/ProblemSection';
-import SolutionSection from '@/components/SolutionSection';
-import EdgeSection from '@/components/EdgeSection';
-import HowItWorksSection from '@/components/HowItWorksSection';
-import SafetySection from '@/components/SafetySection';
-import FinalCTASection from '@/components/FinalCTASection';
-
-
 
 const PARTICLE_COUNT = 20;
 
@@ -54,9 +46,7 @@ const Index = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
+          if (entry.isIntersecting) entry.target.classList.add('visible');
         });
       },
       { threshold: 0.15 }
@@ -64,20 +54,15 @@ const Index = () => {
     document.querySelectorAll('.reveal, .reveal-heading, .reveal-content, .reveal-card, .section-tag, .banner-border-animate').forEach(el => observer.observe(el));
 
     const cursor = cursorRef.current;
-
     const onMouseMove = (e: MouseEvent) => {
       cursorTarget.current = { x: e.clientX, y: e.clientY };
-
       const cx = window.innerWidth / 2;
       const cy = window.innerHeight / 2;
       const dx = (e.clientX - cx) * -0.02;
       const dy = (e.clientY - cy) * -0.02;
       const container = particlesRef.current;
-      if (container) {
-        container.style.transform = `translate(${dx}px, ${dy}px)`;
-      }
+      if (container) container.style.transform = `translate(${dx}px, ${dy}px)`;
     };
-
     const onHover = () => cursor?.classList.add('hovering');
     const onLeave = () => cursor?.classList.remove('hovering');
 
@@ -85,9 +70,7 @@ const Index = () => {
     const lerp = () => {
       cursorPos.current.x += (cursorTarget.current.x - cursorPos.current.x) * 0.15;
       cursorPos.current.y += (cursorTarget.current.y - cursorPos.current.y) * 0.15;
-      if (cursor) {
-        cursor.style.transform = `translate(${cursorPos.current.x - 6}px, ${cursorPos.current.y - 6}px)`;
-      }
+      if (cursor) cursor.style.transform = `translate(${cursorPos.current.x - 6}px, ${cursorPos.current.y - 6}px)`;
       rafId = requestAnimationFrame(lerp);
     };
 
@@ -114,7 +97,6 @@ const Index = () => {
   return (
     <LanguageProvider>
       <div className="relative min-h-screen" style={{ cursor: 'none' }}>
-        {/* Multi-layer animated background */}
         <div className="bg-stack" aria-hidden="true">
           <div className="gradient-mesh" />
           <div className="orb orb-1" />
@@ -126,7 +108,6 @@ const Index = () => {
           <div className="grain" />
         </div>
 
-        {/* Interactive parallax particles */}
         <div
           ref={particlesRef}
           className="fixed inset-0 pointer-events-none hide-mobile"
@@ -134,18 +115,10 @@ const Index = () => {
           aria-hidden="true"
         >
           {particles.map((p, i) => (
-            <div
-              key={i}
-              style={{
-                position: 'absolute',
-                left: `${p.left}%`,
-                top: `${p.top}%`,
-                width: p.size,
-                height: p.size,
-                background: p.color,
-                borderRadius: '50%',
-              }}
-            />
+            <div key={i} style={{
+              position: 'absolute', left: `${p.left}%`, top: `${p.top}%`,
+              width: p.size, height: p.size, background: p.color, borderRadius: '50%',
+            }} />
           ))}
         </div>
 
@@ -155,32 +128,19 @@ const Index = () => {
           <TickerBar />
           <Navigation />
           <HeroSection />
-          <CertificateTicker />
-          <SectionDivider />
-          <StatsStrip />
           <SectionDivider />
           <ProblemSection />
           <SectionDivider />
-          <SolutionSection />
-          <SectionDivider />
-          <MissionSection />
+          <TwoProductsSection />
           <SectionDivider />
           <MentorsSection />
           <BecomeAMentorSection />
           <SectionDivider />
-          <EdgeSection />
+          <RoadmapSection />
           <SectionDivider />
-          <ProgramSection />
-          <SectionDivider />
-          <StrategiesSection />
-          <SectionDivider />
-          <HowItWorksSection />
-          <SectionDivider />
-          <ResultsSection />
-          <SectionDivider />
-          <FormatsSection />
-          <SectionDivider />
-          <SafetySection />
+          <ComparisonSection />
+          <ScrollTriggerSection />
+          <ReviewsSlider />
           <SectionDivider />
           <FAQSection />
           <SectionDivider />
@@ -188,7 +148,6 @@ const Index = () => {
           <SectionDivider />
           <ContactSection />
           <FooterSection />
-
         </div>
       </div>
     </LanguageProvider>
