@@ -100,8 +100,8 @@ const LeadModal = ({ isOpen, onClose, variant, lang }: LeadModalProps) => {
   if (!isOpen) return null;
 
   const planInfo = variant === 'pro'
-    ? { badge: t(lang, 'GROUP LEARNING', 'SKUPINOVÉ UČENIE'), name: 'EDUCATION PRO', price: '699€' }
-    : { badge: t(lang, 'SELF-STUDY', 'SAMOŠTÚDIUM'), name: 'EDUCATION', price: '299€' };
+    ? { badge: t(lang, 'COMMUNITY ACCESS', 'PRÍSTUP DO KOMUNITY'), name: t(lang, 'THE COMMUNITY', 'KOMUNITA'), price: t(lang, 'FREE', 'ZADARMO') }
+    : { badge: t(lang, 'FOUNDATION COURSE', 'ZÁKLADNÝ KURZ'), name: t(lang, 'FREE COURSE', 'KURZ ZADARMO'), price: t(lang, 'FREE', 'ZADARMO') };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -111,8 +111,8 @@ const LeadModal = ({ isOpen, onClose, variant, lang }: LeadModalProps) => {
     try {
       await sendToTelegram({
         variant,
-        plan: variant === 'mentor' ? 'Mentor Application' : variant === 'contact' ? 'Contact' : planInfo.name,
-        price: variant === 'pro' ? '699€' : variant === 'education' ? '299€' : '',
+        plan: variant === 'mentor' ? 'Mentor Application' : variant === 'contact' ? `Contact: ${interest}` : planInfo.name,
+        price: '',
         name: name.trim(),
         method,
         contact: contact.trim(),
