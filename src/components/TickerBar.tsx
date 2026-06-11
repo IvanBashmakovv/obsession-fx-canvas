@@ -3,14 +3,24 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const TickerBar = () => {
   const { t } = useLanguage();
   const text = t(
-    "OBSESSION BEATS TALENT ✦ ADVANCED SMC ✦ 1000+ HOURS TESTED ✦ 4 TRADING STRATEGIES ✦ INTRADAY · SWING · DYNAMIC · STATIC ✦ PROP CHALLENGE SUPPORT ✦ ",
-    "POSADNUTOSŤ PORÁŽA TALENT ✦ POKROČILÉ SMC ✦ 1000+ HODÍN TESTOVANÉ ✦ 4 OBCHODNÉ STRATÉGIE ✦ INTRADAY · SWING · DYNAMIC · STATIC ✦ PODPORA PROP VÝZIEV ✦ "
+    'FREE TRADING COURSE ✦ JOIN THE MOVEMENT ✦ NO CREDIT CARD ✦ NO GURU BS ✦ OBSESSION BEATS TALENT ✦ FREE FOR EVERYONE ✦ ',
+    'BEZPLATNÝ TRADING KURZ ✦ PRIDAJ SA K HNUTIU ✦ ŽIADNA KARTA ✦ ŽIADNE GURU ✦ POSADNUTOSŤ PORÁŽA TALENT ✦ ZADARMO PRE VŠETKÝCH ✦ '
   );
 
   return (
-    <div className="overflow-hidden whitespace-nowrap" style={{ background: '#D4F000' }}>
+    <div className="overflow-hidden whitespace-nowrap" style={{ background: '#D0FF00' }}>
       <div className="ticker-scroll inline-flex">
-        <span className="font-body text-[10px] font-bold tracking-[3px] uppercase py-2 px-4" style={{ color: '#0E0E0F' }}>
+        <span
+          className="py-2 px-4"
+          style={{
+            fontFamily: 'Jura, sans-serif',
+            fontSize: '10px',
+            fontWeight: 700,
+            letterSpacing: '3px',
+            color: '#000000',
+            textTransform: 'uppercase',
+          }}
+        >
           {text}{text}{text}{text}
         </span>
       </div>
