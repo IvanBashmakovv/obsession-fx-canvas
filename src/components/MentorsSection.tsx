@@ -84,16 +84,16 @@ const MentorsSection = () => {
           <div className="relative z-10 p-8 md:p-12 md:w-[60%]">
             <span className="absolute top-4 right-8 font-heading text-[120px] leading-none select-none hide-mobile pointer-events-none z-0" style={{ color: 'rgba(208,255,0,0.07)' }}>02</span>
             <div className="relative z-10">
-              <p className="tag tag-accent mb-3">{t('MARKETING · THE STUDENT', 'MARKETING · ŠTUDENT')}</p>
+              <p className="tag tag-accent mb-3">{t('THE STUDENT', 'ŠTUDENT')}</p>
               <h3 className="font-heading mb-8" style={{ color: '#FEFFFC', fontSize: '40px' }}>EGOR</h3>
-              <p className="font-body text-sm mb-8 leading-relaxed" style={{ color: '#AAAAAA' }}>
+              <p className="font-body mb-8 leading-relaxed" style={{ color: '#BBBBBB', fontSize: '15px' }}>
                 {t(
-                  "Egor knows the trading industry from the sales side — worked with major brokers. But he's never actually traded. We're changing that publicly. Follow his journey from zero to funded — every step documented, no filters.",
-                  'Egor pozná trading odvetvie z predajnej strany — pracoval s veľkými brokermi. Ale nikdy skutočne neobchodoval. Meníme to verejne. Sleduj jeho cestu od nuly k funded — každý krok zdokumentovaný, bez filtrov.'
+                  "Egor has a normal job and zero trading background. But he's obsessed with the idea of learning — and he's documenting every step publicly. No filters, no shortcuts. Just one person becoming a trader in real time.",
+                  'Egor má normálnu prácu a nulové skúsenosti s tradingom. Ale je posadnutý myšlienkou učiť sa — a dokumentuje každý krok verejne. Bez filtrov, bez skratiek. Len jeden človek, ktorý sa stáva traderom v reálnom čase.'
                 )}
               </p>
               <div className="flex flex-wrap gap-2">
-                {['MARKETING', 'SALES', 'THE STUDENT', t('WEEK 1 OF JOURNEY', 'TÝŽDEŇ 1')].map(tag => (
+                {['BEGINNER', 'OBSESSED', t('WEEK 1 JOURNEY', 'TÝŽDEŇ 1 CESTY'), t('FOLLOW THE PATH', 'SLEDUJ CESTU')].map(tag => (
                   <span key={tag} className="tag">{tag}</span>
                 ))}
               </div>

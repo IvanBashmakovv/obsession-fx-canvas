@@ -31,9 +31,14 @@ const FooterSection = () => {
 
   return (
     <footer className="relative mt-16 footer-shell">
+      <div aria-hidden style={{
+        height: 1, width: '100%',
+        background: 'linear-gradient(90deg, transparent, #D0FF00, #8116E0, transparent)',
+        backgroundSize: '200% 100%', animation: 'shimmerAccent 6s linear infinite',
+      }} />
       {/* HERO LOGO WATERMARK */}
       <div className="px-6 md:px-12 pt-16">
-        <img src="/logo.png" alt="obsession.fx" loading="lazy" className="footer-logo-img" />
+        <img src="/logo.png" alt="obsession.fx" loading="lazy" className="footer-logo-img" style={{ filter: 'drop-shadow(0 0 40px rgba(208,255,0,0.25))', animation: 'logoPulse 4s ease-in-out infinite' }} />
       </div>
 
 
