@@ -3,6 +3,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import TickerBar from '@/components/TickerBar';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
+import BeginnerSection from '@/components/BeginnerSection';
 import ProblemSection from '@/components/ProblemSection';
 import TwoProductsSection from '@/components/TwoProductsSection';
 import MentorsSection from '@/components/MentorsSection';
@@ -128,6 +129,7 @@ const Index = () => {
           <TickerBar />
           <Navigation />
           <HeroSection />
+          <BeginnerSection />
           <SectionDivider />
           <ProblemSection />
           <SectionDivider />
