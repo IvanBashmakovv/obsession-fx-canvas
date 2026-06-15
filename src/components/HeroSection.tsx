@@ -1,19 +1,7 @@
-import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const HeroSection = () => {
   const { t } = useLanguage();
-  const target = useMemo(() => new Date(Date.now() + 28 * 24 * 60 * 60 * 1000).getTime(), []);
-  const [now, setNow] = useState(Date.now());
-
-  useEffect(() => {
-    const i = setInterval(() => setNow(Date.now()), 1000);
-    return () => clearInterval(i);
-  }, []);
-
-  const diff = Math.max(0, target - now);
-  const days = Math.floor(diff / 86400000);
-  const hours = Math.floor((diff % 86400000) / 3600000);
 
   const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
 
@@ -25,13 +13,6 @@ const HeroSection = () => {
     { i: 'D', bg: 'linear-gradient(135deg,#FF2D95,#8A0050)' },
   ];
 
-  // mock candles
-  const candles = useMemo(() => Array.from({ length: 28 }, (_, i) => {
-    const up = Math.random() > 0.45;
-    const h = 30 + Math.random() * 90;
-    const top = 30 + Math.random() * 60;
-    return { up, h, top, w: 6, x: 12 + i * 14, delay: i * 0.08 };
-  }), []);
 
   return (
     <section className="hero-section min-h-screen flex items-center px-6 md:px-12 pt-32 pb-16 max-w-[1280px] mx-auto hero-animate relative overflow-hidden">
@@ -121,86 +102,71 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* RIGHT — DASHBOARD MOCK */}
+        {/* RIGHT — COURSE STATS CARD */}
         <div className="relative hide-mobile">
-          <div style={{
-            background: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(208,255,0,0.18)',
+          <div className="glass-card" style={{
             borderRadius: 24,
-            boxShadow: '0 30px 80px rgba(0,0,0,0.5), 0 0 100px rgba(208,255,0,0.08)',
-            backdropFilter: 'blur(20px)',
-            padding: 20, position: 'relative', overflow: 'hidden',
+            boxShadow: '0 30px 80px rgba(0,0,0,0.5), 0 0 100px rgba(208,255,0,0.06)',
+            padding: 32, position: 'relative', overflow: 'hidden',
           }}>
             {/* top bar */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 28 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                <img src="/logo.png" alt="" style={{ height: 22 }} />
-                <span style={{ fontFamily: 'Jura', fontSize: 11, color: '#888', letterSpacing: '0.15em' }}>obsession.fx</span>
+                <img src="/logo.png" alt="" style={{ height: 24 }} />
+                <span style={{ fontFamily: 'Jura', fontSize: 11, color: '#888', letterSpacing: '0.15em' }}>OBSESSION.FX</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#3DD688', animation: 'pulse 1.6s infinite' }} />
-                <span style={{ fontFamily: 'Jura', fontSize: 9, color: '#3DD688', letterSpacing: '0.15em' }}>LIVE</span>
+              <div className="tag tag-accent">
+                {t('Free Forever', 'Navždy zadarmo')}
               </div>
             </div>
 
-            {/* countdown pill */}
-            <div style={{
-              position: 'absolute', top: 16, right: 80,
-              background: 'rgba(208,255,0,0.12)', border: '1px solid rgba(208,255,0,0.25)',
-              padding: '4px 10px', borderRadius: 999,
-              fontFamily: 'Jura', fontSize: 9, color: '#D0FF00', letterSpacing: '0.15em',
-            }}>
-              ⏱ {String(days).padStart(2, '0')}D {String(hours).padStart(2, '0')}H
-            </div>
+            <h3 className="font-heading" style={{ color: '#FEFFFC', fontSize: 'clamp(28px, 3vw, 36px)', marginBottom: 8, lineHeight: 1.1 }}>
+              {t('THE FOUNDATION COURSE', 'ZÁKLADNÝ KURZ')}
+            </h3>
+            <p style={{ fontFamily: 'Inter', fontSize: 13, color: '#999', marginBottom: 28, lineHeight: 1.6 }}>
+              {t(
+                'Everything you need to understand how markets actually move. No indicators. No guesswork.',
+                'Všetko, čo potrebuješ na pochopenie trhov. Bez indikátorov. Bez hádania.'
+              )}
+            </p>
 
-            {/* chart */}
-            <div style={{
-              position: 'relative', height: 240,
-              background: 'linear-gradient(180deg, rgba(208,255,0,0.04), transparent)',
-              borderRadius: 12, border: '1px solid rgba(255,255,255,0.04)',
-              overflow: 'hidden',
-            }}>
-              {/* gridlines */}
-              {[0,1,2,3].map(i => (
-                <div key={i} style={{ position: 'absolute', left: 0, right: 0, top: `${25*(i+1)}%`, height: 1, background: 'rgba(255,255,255,0.04)' }} />
+            {/* stats grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 28 }}>
+              {[
+                { value: '30+', label: t('Lessons', 'Lekcií'), color: '#D0FF00' },
+                { value: '10+', label: t('Hours of video', 'Hodín videa'), color: '#FEFFFC' },
+                { value: '4', label: t('Strategies', 'Strategie'), color: '#B98AFF' },
+                { value: '0€', label: t('Forever', 'Navždy'), color: '#D0FF00' },
+              ].map((stat, i) => (
+                <div key={i} style={{
+                  background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(255,255,255,0.06)',
+                  borderRadius: 12, padding: '16px 18px',
+                }}>
+                  <div className="font-heading" style={{ fontSize: 32, color: stat.color, lineHeight: 1, marginBottom: 4 }}>
+                    {stat.value}
+                  </div>
+                  <div style={{ fontFamily: 'Jura', fontSize: 10, color: '#888', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                    {stat.label}
+                  </div>
+                </div>
               ))}
-              <svg width="100%" height="100%" style={{ position: 'absolute', inset: 0 }}>
-                {candles.map((c, i) => (
-                  <rect key={i} x={c.x} y={c.top} width={c.w} height={c.h}
-                    fill={c.up ? '#3DD688' : '#FF4D4D'}
-                    style={{ animation: `pulse ${3 + (i % 4)}s ease-in-out ${c.delay}s infinite`, opacity: 0.85 }} />
-                ))}
-                {/* trend line */}
-                <polyline
-                  points={candles.map((c, i) => `${c.x + 3},${c.top + c.h / 2}`).join(' ')}
-                  stroke="#D0FF00" strokeWidth="1.5" fill="none" opacity="0.7"
-                />
-              </svg>
-
-              {/* floating chips */}
-              <div style={{
-                position: 'absolute', top: 12, right: 12,
-                background: 'rgba(14,14,15,0.85)', backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(208,255,0,0.25)', borderRadius: 10,
-                padding: '8px 12px', transform: 'rotate(3deg)',
-                fontFamily: 'Inter', fontSize: 11, color: '#FEFFFC',
-                boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
-              }}>📚 <b style={{ color: '#D0FF00' }}>30+</b> Lessons</div>
-              <div style={{
-                position: 'absolute', bottom: 12, left: 12,
-                background: 'rgba(14,14,15,0.85)', backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(129,22,224,0.35)', borderRadius: 10,
-                padding: '8px 12px', transform: 'rotate(-3deg)',
-                fontFamily: 'Inter', fontSize: 11, color: '#FEFFFC',
-                boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
-              }}>🎯 <b style={{ color: '#B98AFF' }}>4</b> Strategies</div>
             </div>
 
-            <div style={{ marginTop: 14, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ fontFamily: 'Inter', fontSize: 10, color: '#555' }}>
-                {t('Live preview — Foundation Course · Module 3', 'Náhľad — Základný kurz · Modul 3')}
-              </span>
-              <span style={{ fontFamily: 'Jura', fontSize: 9, color: '#888', letterSpacing: '0.15em' }}>EURUSD · 15M</span>
+            {/* progress / social proof */}
+            <div style={{
+              background: 'rgba(208,255,0,0.06)',
+              border: '1px solid rgba(208,255,0,0.15)',
+              borderRadius: 12, padding: '14px 16px',
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#D0FF00', animation: 'pulse 1.6s ease-in-out infinite' }} />
+                <span style={{ fontFamily: 'Inter', fontSize: 12, color: '#FEFFFC' }}>
+                  {t('500+ traders already inside', '500+ traderov už vo vnútri')}
+                </span>
+              </div>
+              <span className="cta-arrow" style={{ color: '#D0FF00', fontFamily: 'Jura', fontSize: 12 }}>→</span>
             </div>
           </div>
         </div>
